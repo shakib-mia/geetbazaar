@@ -1,0 +1,135 @@
+[
+  {
+    "platformType": "International",
+    "platforms": [
+      {
+        "cat_name": "Apple Music"
+      },
+      {
+        "cat_name": "Resso"
+      },
+      {
+        "cat_name": "Spotify"
+      },
+      {
+        "cat_name": "Meta"
+      },
+      {
+        "cat_name": "TikTok"
+      },
+      {
+        "cat_name": "SnapChat"
+      },
+      {
+        "cat_name": "Amazon Music"
+      },
+      {
+        "cat_name": "AWA"
+      },
+      {
+        "cat_name": "IHeartRadio"
+      },
+      {
+        "cat_name": "IMusica"
+      },
+      {
+        "cat_name": "ITunes"
+      },
+      {
+        "cat_name": "jaxsta"
+      },
+      {
+        "cat_name": "kkbox"
+      },
+      {
+        "cat_name": "kuack"
+      },
+      {
+        "cat_name": "mixcloud"
+      },
+      {
+        "cat_name": "napster"
+      },
+      {
+        "cat_name": "netease"
+      },
+      {
+        "cat_name": "pandora"
+      },
+      {
+        "cat_name": "shajam"
+      },
+      {
+        "cat_name": "soundcloud"
+      },
+      {
+        "cat_name": "tidal"
+      },
+      {
+        "cat_name": "unnamed"
+      }
+    ]
+  },
+  {
+    "platformType": "Caller Tune",
+    "platforms": [
+      {
+        "cat_name": "BSNL"
+      },
+      {
+        "cat_name": "Airtel"
+      },
+      {
+        "cat_name": "Vi"
+      },
+      {
+        "cat_name": "JioTunes"
+      }
+    ]
+  },
+  {
+    "platformType": "Indian",
+    "platforms": [
+      {
+        "cat_name": "JioSaavn"
+      },
+      {
+        "cat_name": "Gaana"
+      },
+      {
+        "cat_name": "Hungama"
+      },
+      {
+        "cat_name": "Wynk Music"
+      }
+    ]
+  },
+  {
+    "platformType": "YouTube",
+    "platforms": [
+      {
+        "cat_name": "YouTube Content ID"
+      },
+      {
+        "cat_name": "YouTube Music"
+      },
+      {
+        "cat_name": "YouTube"
+      },
+      {
+        "cat_name": "YouTube New"
+      }
+    ]
+  },
+  {
+    "platformType": "Lyrics",
+    "platforms": [
+      {
+        "cat_name": "Musixmatch"
+      },
+      {
+        "cat_name": "LyricFind"
+      }
+    ]
+  }
+]

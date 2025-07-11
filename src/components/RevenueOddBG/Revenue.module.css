@@ -1,0 +1,13 @@
+#revenue {
+  animation: moveBg 1s;
+}
+
+@keyframes moveBg {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}

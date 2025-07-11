@@ -1,0 +1,8 @@
+#verticalCarousel .owl-stage {
+  height: 100% !important;
+}
+
+#verticalCarousel .owl-item {
+  height: 234px !important;
+  width: 120px !important;
+}

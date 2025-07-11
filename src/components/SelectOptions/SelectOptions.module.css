@@ -1,0 +1,63 @@
+/* Common styles */
+.inputContainer {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #374151;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.inputField {
+  width: 100%;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  appearance: none; /* Hide default dropdown arrow */
+}
+
+.iconButton {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.iconButton:hover {
+  color: #ffffff;
+}
+
+/* Autofill styles */
+.inputField:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #374151 inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* Floating label */
+.label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  font-size: 1rem;
+  color: #aaa;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.inputField:focus + .label,
+.label.focused {
+  font-size: 0.9rem;
+  top: 5px;
+  left: 16px;
+  color: #9ca3af;
+}

@@ -1,0 +1,97 @@
+/* Container for the timer */
+.timerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Outer circle with background and rotation animation */
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #3498db 0%,
+    #3498db 50%,
+    transparent 50%,
+    transparent
+  );
+  position: relative;
+  animation: rotate 5s linear forwards;
+}
+
+/* Mask for controlling the visible portion of the circle */
+.mask,
+.fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mask {
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.fill {
+  background-color: #3498db;
+  clip: rect(0px, 75px, 150px, 0px);
+}
+
+/* Full rotation of the mask for the first half of the animation */
+.full {
+  transform: rotate(180deg);
+  z-index: 1;
+  animation: maskRotate 2.5s linear forwards;
+}
+
+/* Half rotation of the mask for the second half of the animation */
+.half {
+  animation: maskRotate 5s linear forwards;
+}
+
+/* Fixing the final position of the fill */
+.fix {
+  background-color: #3498db;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+
+/* Inner circle for displaying the countdown */
+.insideCircle {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #3498db;
+  animation: reverse-rotate 5s linear infinite; /* Apply reverse rotation with the same speed */
+}
+
+/* Animation for rotating the outer circle */
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation for rotating the mask */
+@keyframes maskRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation for reverse rotating the number */
+@keyframes reverse-rotate {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
