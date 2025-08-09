@@ -52,7 +52,7 @@ const CrbtCodes = () => {
             </ul>
 
             <p className="mt-2">
-              In GeetBazaar's case, your CRBT-related plans (BackVision CRBT,
+              In GeetBazaar's case, your CRBT-related plans (GeetBazaar CRBT,
               CRBT+, and Album) provide users with options to include caller
               tunes as part of their music distribution packages. These services
               likely let artists or companies create their own tunes for this
@@ -180,7 +180,7 @@ const CrbtCodes = () => {
             </h5>
             <p className="py-1">
               Artists and distributors can submit their content for caller tune
-              services via BackVision CRBT, BackVision CRBT+, BackVision Album
+              services via GeetBazaar CRBT, GeetBazaar CRBT+, GeetBazaar Album
               plans. After approval, your tunes will be made available on the
               respective telecom platforms. This simplifies the process for
               users to set your songs as caller tunes! 😊

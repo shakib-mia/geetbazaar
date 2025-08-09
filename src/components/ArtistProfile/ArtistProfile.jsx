@@ -201,7 +201,7 @@ const ArtistProfile = ({
           whiteContainerClass={"!w-1/3"}
           handleClose={() => setShowPlats(false)}
         >
-          <h5 className="text-heading-5-bold text-center text-white">
+          <h5 className="text-heading-5-bold text-center text-black">
             {location.pathname === "/album-upload" ||
             location.search.split("?")[1] === "yearly-plan" ||
             location?.pathname.includes("edit-album") ? (

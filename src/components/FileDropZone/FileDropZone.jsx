@@ -50,7 +50,7 @@ export default function FileDropzone({
         dragActive
           ? "border-solid border-blue-500"
           : "border-dashed border-gray-500"
-      } flex flex-col items-center justify-center text-white cursor-pointer transition ${className}`}
+      } flex flex-col items-center justify-center text-black cursor-pointer transition ${className}`}
       onClick={handleClick}
       onDragEnter={handleDrag}
       onDragOver={handleDrag}

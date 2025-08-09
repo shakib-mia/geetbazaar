@@ -69,7 +69,7 @@ const InputField = forwardRef((props, ref) => {
               value?.toString()?.length
                 ? styles.focused
                 : ""
-            } ${type === "checkbox" ? "static" : "absolute"}`}
+            } !text-black ${type === "checkbox" ? "static" : "absolute"}`}
           >
             {label}
           </label>
@@ -78,7 +78,7 @@ const InputField = forwardRef((props, ref) => {
       <div
         className={`${
           type !== "file" && "absolute -bottom-2"
-        } text-right right-0 text-white-deactivated text-button ${
+        } text-right right-0 text-black-deactivated text-button ${
           props.noteClassName
         }`}
       >

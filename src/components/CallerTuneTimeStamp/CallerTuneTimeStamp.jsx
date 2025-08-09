@@ -48,7 +48,7 @@ const CallerTuneTimeStamp = ({ audioDuration, id }) => {
       <div className="flex flex-col lg:flex-row gap-3 w-full mt-1">
         {/* Caller Tune Time (1) */}
         <aside className="w-full lg:w-1/2">
-          <div className="mt-2 mb-1 text-white">
+          <div className="mt-2 mb-1 text-black">
             Select Caller Tune Time (1)
           </div>
           <div className="flex flex-col lg:flex-row gap-3">
@@ -102,7 +102,7 @@ const CallerTuneTimeStamp = ({ audioDuration, id }) => {
 
         {/* Caller Tune Time (2) */}
         <aside className="w-full lg:w-1/2">
-          <div className="mt-2 mb-1 text-white">
+          <div className="mt-2 mb-1 text-black">
             Select Caller Tune Time (2)
           </div>
           <div className="flex flex-col lg:flex-row gap-3">

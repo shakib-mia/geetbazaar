@@ -116,7 +116,7 @@ function AudioPlayer({ src, id }) {
   //         ?.name;
 
   return (
-    <div className="p-3 bg-grey-dark rounded-xl text-grey-dark h-full inline-block w-full relative overflow-hidden">
+    <div className="p-3 bg-grey-light rounded-xl text-grey-dark h-full inline-block w-full relative overflow-hidden">
       {/* {src.length > 0 || (
         <div className="w-full h-full absolute top-0 left-0 backdrop-blur z-[9999999999]">
           No songs has been uploaded yet
@@ -138,7 +138,7 @@ function AudioPlayer({ src, id }) {
             onTimeUpdate={updateProgress}
           ></audio>
           <aside>
-            <h5 className="text-heading-5-bold text-white">
+            <h5 className="text-heading-5-bold text-black">
               {(location.pathname === "/album-upload" ||
                 location.search.split("?")[1] === "yearly-plan" ||
                 location?.pathname.includes("edit-album")) &&
@@ -161,7 +161,7 @@ function AudioPlayer({ src, id }) {
                   );
 
               return primaryArtist?.name ? (
-                <h6 className="text-heading-6-bold mt-2 text-white">
+                <h6 className="text-heading-6-bold mt-2 text-black">
                   <span className="font-normal">By</span> {primaryArtist.name}
                 </h6>
               ) : null;
@@ -173,9 +173,9 @@ function AudioPlayer({ src, id }) {
         <div className="w-full mx-auto flex items-center gap-3 mt-2">
           <span onClick={togglePlayPause} className="cursor-pointer w-1/12">
             {isPlaying && progress !== 100 ? (
-              <FaPause className="text-white" />
+              <FaPause className="text-black" />
             ) : (
-              <FaPlay className="text-white" />
+              <FaPlay className="text-black" />
             )}
           </span>
 
@@ -184,7 +184,7 @@ function AudioPlayer({ src, id }) {
             className="progress-bar w-7/12 h-1 bg-grey relative overflow-visible rounded-full cursor-pointer"
             onClick={handleProgressChange}
           >
-            <div className="absolute top-[12px] w-full flex justify-between text-white">
+            <div className="absolute top-[12px] w-full flex justify-between text-black">
               <aside>{formatTime(audioRef.current?.currentTime)}</aside>
               <aside>{formatTime(audioRef.current?.duration)}</aside>
             </div>
@@ -220,7 +220,7 @@ function AudioPlayer({ src, id }) {
               /> */}
             {volume > 0 ? (
               <FaVolumeUp
-                className="cursor-pointer text-white"
+                className="cursor-pointer text-black"
                 onClick={() => {
                   setVolume(0);
 

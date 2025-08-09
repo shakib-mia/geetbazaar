@@ -37,12 +37,12 @@ body {
 
 #album .owl-nav {
   margin-top: 0 !important;
-  @apply text-white;
+  @apply text-black;
 }
 
 /* / {
   margin-top: 0 !important;
-  @apply text-white;
+  @apply text-black;
 } */
 #album .owl-nav button {
   margin: 0 !important;
@@ -125,8 +125,8 @@ aside:hover #profile-container {
 }
 
 a.active {
-  /* @apply bg-interactive-light text-white inline-block w-full; */
-  @apply bg-interactive-light;
+  /* @apply bg-interactive-light text-black inline-block w-full; */
+  @apply bg-interactive-light rounded;
 }
 
 a.active svg path {
@@ -293,7 +293,7 @@ button.swal2-styled {
 }
 
 .card-shadow {
-  @apply shadow-[0_12px_16px_#111];
+  @apply bg-white shadow-[0_6px_16px_#aaa];
 }
 
 .auth-slider .owl-stage-outer,
@@ -318,11 +318,12 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: #fff;
   overflow: auto;
+  color: #000;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   width: 100%;
@@ -330,7 +331,7 @@ body::before {
   filter: blur(80px);
   z-index: -1;
   @apply bg-gradient-to-tr from-black to-interactive-light;
-}
+} */
 
 /* body::after {
   content: "";

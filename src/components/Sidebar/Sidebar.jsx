@@ -108,14 +108,14 @@ const Sidebar = () => {
           />
         </a>
 
-        <div className="mt-4 flex flex-col gap-2 whitespace-nowrap text-white">
+        <div className="mt-4 flex flex-col gap-2 whitespace-nowrap text-black">
           {logicalNavItems.map((props, key) => (
             <NavItem {...props} key={key} hovered={hovered} />
           ))}
         </div>
       </section>
 
-      <div className="mb-0 border-t-[1px] border-surface-white-line pt-[20px] flex items-center gap-1 text-white">
+      <div className="mb-0 border-t-[1px] border-surface-white-line pt-[20px] flex items-center gap-1 text-black">
         {userData?.display_image ? (
           <img
             src={userData?.display_image}

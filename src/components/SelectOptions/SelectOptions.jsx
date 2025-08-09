@@ -20,7 +20,7 @@ const SelectOptions = ({
 
   return (
     <div className="relative mt-[24px]">
-      <div className="relative flex items-center bg-gray-700 rounded-lg">
+      <div className="relative flex items-center bg-white border-2 rounded-lg">
         <select
           id={id}
           name={name}
@@ -29,7 +29,7 @@ const SelectOptions = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           required={required}
-          className={`w-full bg-transparent text-white-deactivated cursor-pointer border-none outline-none p-2 text-base appearance-none ${fieldClassName}`}
+          className={`w-full bg-transparent text-black-deactivated cursor-pointer border-none outline-none p-2 text-base appearance-none ${fieldClassName}`}
         >
           {placeholder && (
             <option disabled selected value="">

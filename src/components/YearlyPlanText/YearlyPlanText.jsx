@@ -257,7 +257,7 @@ const YearlyPlanText = () => {
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
-            <aside className="w-11/12">BackVision Dashboard</aside>
+            <aside className="w-11/12">GeetBazaar Dashboard</aside>
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
@@ -304,7 +304,7 @@ const YearlyPlanText = () => {
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
             <aside className="w-11/12">
-              Including BackVision Special Service
+              Including GeetBazaar Special Service
             </aside>
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
@@ -361,7 +361,7 @@ const YearlyPlanText = () => {
               <li>
                 Set your song as a caller tune on all major telecom operators.
               </li>
-              <li>Available under BackVision CRBT, CRBT+, and Album+ plans.</li>
+              <li>Available under GeetBazaar CRBT, CRBT+, and Album+ plans.</li>
               <li>Receive unique CRBT codes for easy promotion and sharing.</li>
             </ul>
           </li>

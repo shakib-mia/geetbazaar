@@ -17,7 +17,7 @@ const PaymentSuccess = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="max-w-xl rounded-md bg-white shadow-lg p-3">
-        <div className="bg-success relative w-5 h-5 rounded-full flex justify-center items-center text-white text-heading-5 mx-auto">
+        <div className="bg-success relative w-5 h-5 rounded-full flex justify-center items-center text-black text-heading-5 mx-auto">
           <FaCheck className="absolute z-20" />
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success z-0 opacity-75"></span>
         </div>

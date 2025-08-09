@@ -142,7 +142,7 @@ const AlbumDetails = () => {
   };
 
   return (
-    <div className="pb-7">
+    <>
       <div className="flex flex-col lg:flex-row gap-2 lg:gap-4">
         <aside className="w-full lg:w-2/3">
           <SelectOptions
@@ -492,7 +492,7 @@ const AlbumDetails = () => {
           <CreateRecordLabel setShowRecordLabelForm={setShowRecordLabelForm} />
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

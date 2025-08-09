@@ -136,7 +136,7 @@ const PreviewDetails = ({ albumData }) => {
       {artists?.map((artist, index) => (
         <li
           key={index}
-          className="flex items-center text-paragraph-2 text-white"
+          className="flex items-center text-paragraph-2 text-black"
         >
           <span className="font-medium">{artist.name}</span>
           <span className="mx-1">-</span>
@@ -174,11 +174,11 @@ const PreviewDetails = ({ albumData }) => {
     return (
       <div key={song?.isrc || "single"}>
         <div className="px-4 py-3">
-          <h2 className="text-heading-6-bold text-white">{song.songName}</h2>
+          <h2 className="text-heading-6-bold text-black">{song.songName}</h2>
           <div className="mt-3 flex items-center">
             <button
               onClick={togglePlay}
-              className="bg-interactive-light text-white px-3 py-2 rounded-md hover:bg-interactive-light-hover focus:outline-none focus:ring-2 focus:ring-interactive-light-focus focus:ring-opacity-50"
+              className="bg-interactive-light text-black px-3 py-2 rounded-md hover:bg-interactive-light-hover focus:outline-none focus:ring-2 focus:ring-interactive-light-focus focus:ring-opacity-50"
             >
               {isPlaying ? "Pause" : "Play"}
             </button>
@@ -273,43 +273,43 @@ const PreviewDetails = ({ albumData }) => {
           </ul>
         </div>
 
-        <div className="px-4 py-3 bg-grey-dark">
-          <h2 className="text-heading-6-bold text-white">
+        <div className="px-4 py-3 bg-grey-light">
+          <h2 className="text-heading-6-bold text-black">
             Additional Information
           </h2>
           <div className="mt-2 grid grid-cols-2 gap-3">
             <div>
-              <span className="text-subtitle-2 text-white">ISRC:</span>{" "}
+              <span className="text-subtitle-2 text-black">ISRC:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {song.isrc || albumData.isrc}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">UPC:</span>{" "}
+              <span className="text-subtitle-2 text-black">UPC:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {albumData.UPC}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">Publisher:</span>{" "}
+              <span className="text-subtitle-2 text-black">Publisher:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {albumData.publisher}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">Record Label:</span>{" "}
+              <span className="text-subtitle-2 text-black">Record Label:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {albumData.recordLabel}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">Content Type:</span>{" "}
+              <span className="text-subtitle-2 text-black">Content Type:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {albumData.contentType}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">
+              <span className="text-subtitle-2 text-black">
                 Payment Status:
               </span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
@@ -317,13 +317,13 @@ const PreviewDetails = ({ albumData }) => {
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">Upload Time:</span>{" "}
+              <span className="text-subtitle-2 text-black">Upload Time:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {song.time || albumData.time}
               </span>
             </div>
             <div>
-              <span className="text-subtitle-2 text-white">User Email:</span>{" "}
+              <span className="text-subtitle-2 text-black">User Email:</span>{" "}
               <span className="text-subtitle-2-bold text-primary-light">
                 {song.userEmail || albumData.userEmail}
               </span>
@@ -373,7 +373,7 @@ const PreviewDetails = ({ albumData }) => {
 
   return (
     <div className="min-h-screen lg:p-4 mx-auto w-full pb-7">
-      <div className="text-white rounded-lg shadow-lg overflow-hidden">
+      <div className="text-black rounded-lg shadow-lg overflow-hidden">
         <div
           className={`flex flex-col lg:flex-row ${
             location.pathname.includes("album") && "bg-grey-dark"
@@ -443,7 +443,7 @@ const PreviewDetails = ({ albumData }) => {
             {albumData.songs ? (
               <></>
             ) : (
-              <div className="px-4 py-3 bg-grey-dark">
+              <div className="px-4 py-3 bg-grey-light">
                 <h2 className="text-heading-6-bold">Artists</h2>
                 {renderArtists(
                   albumData.songs

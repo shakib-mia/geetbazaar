@@ -47,7 +47,7 @@ const SongUploadNew = () => {
   }, [userData, location.pathname, navigate]); // Proper dependencies
 
   return (
-    <div className="lg:pt-6 pt-2 px-1">
+    <div className="lg:pt-7 pt-2 px-1">
       {location.pathname.split("/")[1] !== "edit-song" && (
         <h4 className="text-heading-5-bold lg:text-heading-4-bold text-grey capitalize mt-6 lg:mt-2">
           Plan :{" "}

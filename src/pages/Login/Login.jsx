@@ -66,7 +66,7 @@ const Login = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen text-white min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+      className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
       id="login-page"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-[0_10px_12px] shadow-[#000]">
@@ -179,7 +179,7 @@ const Login = () => {
           <div className="flex gap-1 text-center mt-3 justify-between flex-col lg:flex-row">
             <Link
               to="/signup"
-              className="text-interactive-light-disabled text-button uppercase"
+              className="text-interactive-light text-button uppercase"
             >
               Don't have an account?
             </Link>
@@ -188,7 +188,7 @@ const Login = () => {
 
             <Link
               to="/forgot-password"
-              className="text-interactive-light-disabled text-button uppercase"
+              className="text-interactive-light text-button uppercase"
             >
               Forgot your password?
             </Link>

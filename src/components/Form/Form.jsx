@@ -181,7 +181,7 @@ const Form = forwardRef(
           id={id || "myForm"}
           ref={ref || formRef}
           autoComplete="off"
-          className={`lg:mt-[90px] rounded-[15px] shadow-lg py-2 lg:pt-[29px] px-[8px] 2xl:px-[60px] 3xl:px-[101px] lg:pb-[80px] bg-black lg:w-7/12 mx-auto ${containerClassName}`}
+          className={`lg:mt-[90px] rounded-[15px] shadow-lg py-2 lg:pt-[29px] px-[8px] 2xl:px-[60px] 3xl:px-[101px] lg:pb-[80px] bg-white lg:w-7/12 mx-auto ${containerClassName}`}
         >
           {heading && (
             <h3

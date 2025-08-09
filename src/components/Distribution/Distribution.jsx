@@ -14,7 +14,7 @@ import { PlanContext } from "../../contexts/PlanContext";
 import Agreement from "../Agreement/Agreement";
 import logo from "../../assets/icons/logo.PNG";
 import { formatDate } from "../../utils/formatDate";
-import useRazorpay from "react-razorpay";
+import { useRazorpay } from "react-razorpay";
 
 const Distribution = () => {
   const { formData } = useContext(ScreenContext);
@@ -29,7 +29,7 @@ const Distribution = () => {
   // const [orderId, setOrderId] = useState("XXXXX");
   const { setPlanStore, planStore } = useContext(PlanContext);
   const [showAgreement, setShowAgreement] = useState(false);
-  const [Razorpay] = useRazorpay();
+  const Razorpay = useRazorpay();
   // const { setPlanStore, planStore } = useContext(PlanContext);
   // console.log(planStore);
 
@@ -308,7 +308,7 @@ const Distribution = () => {
           </h3>
         </div>
         <div className="w-full lg:w-5/12 pt-5">
-          <h3 className="text-heading-3-bold text-white-tertiary">
+          <h3 className="text-heading-3-bold text-black-tertiary">
             Order Details
           </h3>
 
@@ -322,7 +322,7 @@ const Distribution = () => {
               </aside>
             </div>
 
-            <div className="flex divide-x divide-[#ddd] text-white">
+            <div className="flex divide-x divide-[#ddd] text-black">
               {location.search.includes("yearly-plan") ? (
                 <p className="p-2 w-full text-center">Yearly Plan</p>
               ) : (
@@ -347,7 +347,7 @@ const Distribution = () => {
               <aside className="w-1/2 p-2">{formData.orderId}</aside>
             </div>
 
-            <div className="flex divide-x divide-[#ddd] text-white">
+            <div className="flex divide-x divide-[#ddd] text-black">
               <aside className="w-1/2 p-2">Name</aside>
               <aside className="w-1/2 p-2">
                 {userData.first_name} {userData.last_name}
@@ -447,13 +447,13 @@ const Distribution = () => {
                 formData.signature = e.target.value;
               }}
               placeholder="Sign Here..."
-              className="border-b resize-none text-heading-5 w-full focus:outline-none signature placeholder:font-sans text-center pb-3 bg-black text-white"
+              className="border-b resize-none text-heading-5 w-full focus:outline-none signature placeholder:font-sans text-center pb-3 text-black"
               // id=""
               // cols="1"
               value={signature}
               rows="1"
             ></textarea>
-            <label className="cursor-pointer text-white">
+            <label className="cursor-pointer text-black">
               <input
                 type="checkbox"
                 disabled={signature.length === 0 || formData.accepted}

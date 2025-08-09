@@ -127,12 +127,12 @@ const YearlyPlanForm = () => {
       type: "number",
     },
     {
-      placeholder: "Number of songs uploaded till date through BackVision",
+      placeholder: "Number of songs uploaded till date through GeetBazaar",
       required: true,
       hideRequired: true,
-      name: "songsTillDateThroughBackVision",
-      id: "songsTillDateThroughBackVision",
-      label: "Number of songs uploaded till date through BackVision",
+      name: "songsTillDateThroughGeetBazaar",
+      id: "songsTillDateThroughGeetBazaar",
+      label: "Number of songs uploaded till date through GeetBazaar",
     },
   ];
 
@@ -252,7 +252,7 @@ const YearlyPlanForm = () => {
     >
       {fields.map((field, key) => (
         <InputField
-          // labelClassName={"!text-white"}
+          // labelClassName={"!text-black"}
           containerClassName={"mt-1 lg:mt-4"}
           key={key}
           // type={"text"}

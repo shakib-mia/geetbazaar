@@ -41,7 +41,7 @@ const SongDetailsPdfPreview = ({ setDetails, songs, details }) => {
       <div className="w-11/12 md:w-1/2 my-10">
         <div
           ref={detailsRef}
-          className="w-full rounded-2xl p-6 bg-grey-dark bg-opacity-90 text-white"
+          className="w-full rounded-2xl p-6 bg-grey-dark bg-opacity-90 text-black"
         >
           {/* Header */}
           <div className="ml-4 mt-2">

@@ -24,14 +24,10 @@ const Feature = ({ feature, plans, index }) => {
     <div
       className={`grid grid-cols-${
         plans.length + 1
-      } items-center gap-4 px-4 py-3 rounded-2xl shadow transition hover:shadow-lg ${
-        index % 2 === 0
-          ? "bg-gradient-to-r from-[#0F172A] to-[#1E293B]"
-          : "bg-gradient-to-r from-[#1E293B] to-[#0F172A]"
-      } opacity-0 relative -left-7`}
+      } items-center gap-4 px-4 py-3 rounded-2xl shadow-lg transition hover:shadow-xl opacity-0 relative -left-7`}
       ref={featureRef}
     >
-      <div className="text-white font-medium">{feature}</div>
+      <div className="text-black font-medium">{feature}</div>
       {plans.map((plan, planIndex) => (
         <div key={planIndex} className="text-center">
           {plan.features[index] ? (

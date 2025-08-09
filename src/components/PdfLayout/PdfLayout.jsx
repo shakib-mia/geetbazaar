@@ -64,7 +64,7 @@ const RevenueDetails = ({ setDetails, songs, details }) => {
         Month: item.month,
         Views: item.total,
         Revenue: item["after tds revenue"],
-        "Revenue After BackVision Deduction": item["final revenue"],
+        "Revenue After GeetBazaar Deduction": item["final revenue"],
       };
     });
 
@@ -79,10 +79,10 @@ const RevenueDetails = ({ setDetails, songs, details }) => {
     >
       <div>{/* <PdfLayout ref={detailsRef} result={result} /> */}</div>
 
-      <div className="bg-gray-900 text-white w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-5 overflow-y-auto relative shadow-xl">
+      <div className="bg-gray-900 text-black w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-5 overflow-y-auto relative shadow-xl">
         <button
           onClick={() => setDetails("")}
-          className="absolute top-4 right-4 text-white text-xl opacity-60 hover:opacity-100 transition"
+          className="absolute top-4 right-4 text-black text-xl opacity-60 hover:opacity-100 transition"
         >
           ✖
         </button>
@@ -95,13 +95,13 @@ const RevenueDetails = ({ setDetails, songs, details }) => {
         <div className="flex gap-3 mb-4">
           <button
             onClick={createPdf}
-            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white text-sm transition"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-black text-sm transition"
           >
             <FaFilePdf /> Download PDF
           </button>
           <button
             onClick={convertToExcel}
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white text-sm transition"
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-black text-sm transition"
           >
             <FaFileExcel /> Download Excel
           </button>

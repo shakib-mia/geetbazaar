@@ -122,7 +122,7 @@ const CreateRecordLabel = ({ setShowRecordLabelForm }) => {
 
   return (
     <>
-      <h4 className="text-heading-4-bold text-white text-center mb-2">
+      <h4 className="text-heading-4-bold text-black text-center mb-2">
         Create A New Record Label
       </h4>
       <form onSubmit={handleRecordLabelSubmit}>

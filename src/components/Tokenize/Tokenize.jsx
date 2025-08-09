@@ -94,7 +94,7 @@ const Tokenize = ({ showTokenize, isINR, accountBalance, tokenize }) => {
       onClick={() => showTokenize(false)}
     >
       <div
-        className="bg-gradient-to-br from-[rgba(23_23_23/0.6)] to-neutral-800 p-2 max-w-md w-full shadow-2xl text-white rounded-2xl space-y-2 transition-[scale]"
+        className="bg-gradient-to-br from-[rgba(241,241,241,0.6)] to-[rgba(192,192,192,0.6)] p-2 max-w-md w-full shadow-2xl text-black rounded-2xl space-y-2 transition-[scale]"
         onClick={(e) => e.stopPropagation()}
         style={{
           scale: tokenize ? "1" : "0",
@@ -103,7 +103,7 @@ const Tokenize = ({ showTokenize, isINR, accountBalance, tokenize }) => {
         <h5 className="text-heading-5-bold font-semibold text-center">
           Tokenize Funds
         </h5>
-        <p className="text-paragraph-1 text-neutral-300 text-center">
+        <p className="text-paragraph-1 text-center">
           Turn your earnings into tokens and use them to purchase plans or
           services—no need to wait for withdrawals.
         </p>

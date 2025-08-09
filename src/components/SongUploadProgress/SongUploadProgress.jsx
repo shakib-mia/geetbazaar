@@ -36,9 +36,9 @@ const SongUploadProgress = ({ setScreen, screen }) => {
     const isForward = clickedStepIndex > currentStepIndex;
     const isVisited = visitedSteps.includes(stepId);
 
-    if (!isForward || isVisited || isEditMode) {
-      setScreen(stepId);
-    }
+    // if (!isForward || isVisited || isEditMode) {
+    setScreen(stepId);
+    // }
   };
 
   // Example: Check if any forward steps are already visited
@@ -79,9 +79,9 @@ const SongUploadProgress = ({ setScreen, screen }) => {
                   }`}
                 >
                   <div
-                    className={`rounded-full w-4 lg:w-6 aspect-square ${
+                    className={`rounded-full w-4 lg:w-6 bg-white aspect-square ${
                       screen === step.id
-                        ? "p-1 border-2 border-interactive-light bg-black"
+                        ? "p-1 border-2 border-interactive-light"
                         : ""
                     } transition-all`}
                     onClick={() => handleStepClick(step.id)}
@@ -100,7 +100,7 @@ const SongUploadProgress = ({ setScreen, screen }) => {
                     className={`hidden lg:block text-paragraph-1 text-center font-bold mt-1 ${
                       currentStepIndex >= index || isVisited || isEditMode
                         ? "text-interactive-light"
-                        : "text-white-deactivated"
+                        : "text-black-deactivated"
                     }`}
                     onClick={() => handleStepClick(step.id)}
                   >

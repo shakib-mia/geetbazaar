@@ -74,13 +74,13 @@ const NotificationDropdown = ({
 
       {/* <button
         onClick={() => setNotificationDropdownOpen(!notificationDropdownOpen)}
-        className="flex items-center text-white relative z-20"
+        className="flex items-center text-black relative z-20"
       >
         <span className="text-[20px]">
           <FaBell />
         </span>
         {unreadCount > 0 && (
-          <span className="absolute -top-[4px] -right-[4px] text-[12px] text-white bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
+          <span className="absolute -top-[4px] -right-[4px] text-[12px] text-black bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
@@ -89,11 +89,11 @@ const NotificationDropdown = ({
       <div
         className={`fixed ${
           notificationDropdownOpen ? "right-0" : "-right-[150vw] lg:-right-full"
-        } transition-[right] top-0 w-[500px] h-screen bg-gray-800 text-white shadow-lg rounded-lg overflow-y-auto overflow-x-hidden z-[999999]`}
+        } transition-[right] top-0 w-[500px] h-screen bg-white text-black shadow-lg rounded-lg overflow-y-auto overflow-x-hidden z-[999999]`}
       >
         <div className="flex justify-end p-1">
           <button
-            className="bg-interactive-light text-white p-1 rounded disabled:bg-interactive-light-disabled disabled:cursor-not-allowed"
+            className="bg-interactive-light text-black p-1 rounded disabled:bg-interactive-light-disabled disabled:cursor-not-allowed"
             onClick={markAllAsRead}
             disabled={notifications.every((notification) => notification.read)}
           >

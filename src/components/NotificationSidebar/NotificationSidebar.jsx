@@ -59,11 +59,11 @@ const NotificationSidebar = ({
       <div
         className={`fixed block ${
           notificationDropdownOpen ? "right-0" : "-right-full"
-        } transition-[right] top-0 w-[500px] h-screen bg-gray-800 text-white shadow-lg rounded-lg overflow-y-auto overflow-x-hidden z-[999999]`}
+        } transition-[right] top-0 w-[500px] h-screen bg-white text-black shadow-lg rounded-lg overflow-y-auto overflow-x-hidden z-[999999]`}
       >
         <div className="flex justify-end p-1">
           <button
-            className="bg-interactive-light text-white p-1 rounded disabled:bg-interactive-light-disabled disabled:cursor-not-allowed"
+            className="bg-interactive-light text-black p-1 rounded disabled:bg-interactive-light-disabled disabled:cursor-not-allowed"
             onClick={markAllAsRead}
             disabled={notifications.every((notification) => notification.read)}
           >

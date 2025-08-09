@@ -49,7 +49,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
         <Button
           containerClassName={"!h-fit !w-fit flex items-center z-10"}
           className={
-            "text-white w-4 h-4 lg:w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center"
+            "text-black w-4 h-4 lg:w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center"
           }
           onClick={handlePrevClick}
           id="plans-prev"
@@ -64,7 +64,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
         <Button
           containerClassName={"!h-fit !w-fit flex items-center z-10"}
           className={
-            "text-white w-4 h-4 lg:w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center"
+            "text-black w-4 h-4 lg:w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center"
           }
           onClick={handleNextClick}
           id="plans-next"
@@ -100,19 +100,19 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
             style={{ top: -11, right: 16 }}
             id="special"
           >
-            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-white rounded">
+            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-black rounded">
               <FaFacebookF />
             </div>
-            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-white rounded">
+            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-black rounded">
               <FaYoutube />
             </div>
-            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-white rounded">
+            <div className="w-4 text-paragraph-1 flex justify-center items-center bg-interactive-light aspect-square text-black rounded">
               <FaInstagram />
             </div>
           </div>
           <div className="h-full flex flex-col justify-between">
             <aside>
-              <h4 className="text-heading-4 font-bold">BackVision Social</h4>
+              <h4 className="text-heading-4 font-bold">GeetBazaar Social</h4>
               <h5 className="text-heading-5-bold text-grey mt-2">Free</h5>
 
               <ul className="flex flex-col gap-1 mt-4">
@@ -159,7 +159,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 <li className="flex gap-2 items-center text-paragraph-1">
                   <FaCheck className="w-1/12" />
                   <aside className="w-11/12">
-                    BackVision Pro Dashboard with Detailed analytics
+                    GeetBazaar Pro Dashboard with Detailed analytics
                   </aside>
                 </li>
                 <li className="flex gap-2 items-center text-paragraph-1">
@@ -183,7 +183,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 setPlanName("forevision-social");
                 setPlanStore((prev) => ({
                   ...prev,
-                  planName: "BackVision-social",
+                  planName: "GeetBazaar-social",
                   price: 0,
                 }));
                 navigate("/song-upload?foreVision-social?0");
@@ -191,9 +191,9 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
             ></Button>
           </div>
         </div>
-        <div className="!h-full p-4 rounded-lg mx-2 bg-gradient-to-br from-secondary to-interactive-light-focus text-white shadow-[0_13px_20px_#aaa] relative -top-3">
+        <div className="!h-full p-4 rounded-lg mx-2 bg-gradient-to-br from-secondary to-interactive-light-focus text-black shadow-[0_13px_20px_#aaa] relative -top-3">
           <div
-            className="bg-interactive-light-destructive-focus text-white py-1 px-2 inline-block absolute rounded-full"
+            className="bg-interactive-light-destructive-focus text-black py-1 px-2 inline-block absolute rounded-full"
             style={{ top: -20, right: 16 }}
             id="special"
           >
@@ -202,7 +202,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
 
           <div className="h-full flex flex-col justify-between">
             <aside>
-              <h4 className="text-heading-4 font-bold">BackVision CRBT+</h4>
+              <h4 className="text-heading-4 font-bold">GeetBazaar CRBT+</h4>
               <h5 className="text-heading-5-bold text-grey-light mt-2">
                 &#8377;699
               </h5>
@@ -267,7 +267,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 <li className="flex gap-2 text-paragraph-1 items-center">
                   <FaCheck className="w-1/12" />
                   <aside className="w-11/12">
-                    BackVision Pro Dashboard with Detailed analytics
+                    GeetBazaar Pro Dashboard with Detailed analytics
                   </aside>
                 </li>
                 <li className="flex gap-2 text-paragraph-1 items-center">
@@ -327,7 +327,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
         </div>
         <div className="!h-full p-4 rounded-lg selection:bg-white selection:text-secondary mx-2 shadow-lg relative">
           <div
-            className="bg-interactive-light text-white py-1 px-2 inline-block absolute rounded-full"
+            className="bg-interactive-light text-black py-1 px-2 inline-block absolute rounded-full"
             style={{ top: -11, right: 16 }}
             id="special"
           >
@@ -335,7 +335,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
           </div>
           <div className="flex h-full flex-col justify-between">
             <aside>
-              <h4 className="text-heading-4 font-bold">BackVision Pro</h4>
+              <h4 className="text-heading-4 font-bold">GeetBazaar Pro</h4>
               <h5 className="text-heading-5-bold text-grey mt-2">&#8377;498</h5>
 
               <ul className="flex flex-col gap-1 mt-4">
@@ -388,7 +388,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 <li className="flex gap-2 items-center text-paragraph-1">
                   <FaCheck className="w-1/12" />
                   <aside className="w-11/12">
-                    BackVision Pro Dashboard with Detailed analytics
+                    GeetBazaar Pro Dashboard with Detailed analytics
                   </aside>
                 </li>
                 <li className="flex gap-2 items-center text-paragraph-1">
@@ -420,10 +420,10 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
               text={"Get Started"}
               onClick={() => {
                 setPrice(49800);
-                setPlanName("BackVision Pro");
+                setPlanName("GeetBazaar Pro");
                 setPlanStore((prev) => ({
                   ...prev,
-                  planName: "BackVision Pro",
+                  planName: "GeetBazaar Pro",
                   price: 49800,
                 }));
                 navigate("/song-upload?forevision-pro?49800");
@@ -447,7 +447,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
           </div>
           <div className="h-full flex flex-col justify-between">
             <aside>
-              <h4 className="text-heading-4 font-bold">BackVision CRBT</h4>
+              <h4 className="text-heading-4 font-bold">GeetBazaar CRBT</h4>
               <h5 className="text-heading-5-bold text-grey mt-2">&#8377;499</h5>
 
               <ul className="flex flex-col gap-1 mt-4">
@@ -500,7 +500,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 <li className="flex gap-2 items-center text-paragraph-1">
                   <FaCheck className="w-1/12" />
                   <aside className="w-11/12">
-                    BackVision Pro Dashboard with Detailed analytics
+                    GeetBazaar Pro Dashboard with Detailed analytics
                   </aside>
                 </li>
                 <li className="flex gap-2 items-center text-paragraph-1">
@@ -550,7 +550,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
               &times;
             </button>
 
-            <h5 className="text-heading-5-bold text-white-secondary bg-primary absolute top-0 left-0 w-full p-2 rounded-t-lg">
+            <h5 className="text-heading-5-bold text-black-secondary bg-primary absolute top-0 left-0 w-full p-2 rounded-t-lg">
               Select Your Payment Method
             </h5>
 

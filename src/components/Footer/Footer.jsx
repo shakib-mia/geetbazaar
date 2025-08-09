@@ -101,8 +101,8 @@ const Footer = () => {
           <a href="https://www.instagram.com/forevisiondigital/">
             <FaInstagramSquare className="text-[#d62976] text-sm md:text-heading-5" />
           </a>
-          <a href="https://twitter.com/BackVisionIn">
-            <FaXTwitter className="text-white text-sm md:text-heading-5" />
+          <a href="https://twitter.com/GeetBazaarIn">
+            <FaXTwitter className="text-black text-sm md:text-heading-5" />
           </a>
           <a href="https://www.youtube.com/channel/UCGPHBKBHGr_G16oM6SoLMRA">
             <FaYoutube className="text-[#ff0000] text-sm md:text-heading-4" />

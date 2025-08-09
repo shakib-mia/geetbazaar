@@ -39,7 +39,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
         }
       } catch (error) {
         console.error("Error fetching song data:", error);
-        setError("Failed to load song details");
+        setError("Revenue Data Yet to Be Generated");
         if (error.response?.status === 401) {
           sessionStorage.removeItem("token");
           // Redirect logic if needed
@@ -58,8 +58,8 @@ const RevenueDetails = ({ setDetails, isrc }) => {
   if (isLoading) {
     return (
       <div className="fixed top-0 left-0 w-full h-full z-[9999999] flex items-center justify-center backdrop-blur-sm">
-        <div className="bg-gray-900 text-white w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-5 flex items-center justify-center">
-          <VscLoading className="animate-spin text-white text-heading-1" />
+        <div className="bg-white text-black w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-5 flex items-center justify-center">
+          <VscLoading className="animate-spin text-black text-heading-1" />
         </div>
       </div>
     );
@@ -69,9 +69,9 @@ const RevenueDetails = ({ setDetails, isrc }) => {
   if (error) {
     return (
       <div className="fixed top-0 left-0 w-full h-full z-[9999999] flex items-center justify-center backdrop-blur-sm">
-        <div className="bg-gray-900 text-white w-11/12 xl:w-3/5 rounded-2xl p-5">
-          <h3 className="text-heading-3-bold mb-4">Error</h3>
-          <p>{error}</p>
+        <div className="bg-white text-black w-11/12 xl:w-3/5 rounded-2xl p-5">
+          <h4 className="text-heading-4-bold mb-4">Oops!</h4>
+          <p className="text-heading-6">{error}</p>
           <button
             onClick={() => setDetails("")}
             className="mt-4 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white transition"
@@ -190,7 +190,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
         Month: item.month,
         Views: item.total,
         Revenue: item["after tds revenue"],
-        "Revenue After BackVision Deduction": item["final revenue"],
+        "Revenue After GeetBazaar Deduction": item["final revenue"],
       };
     });
 
@@ -225,12 +225,12 @@ const RevenueDetails = ({ setDetails, isrc }) => {
   if (!isLoading && result.length === 0) {
     return (
       <div className="fixed top-0 left-0 w-full h-full z-[9999999] flex items-center justify-center backdrop-blur-sm cursor-default">
-        <div className="bg-gray-900 text-white w-11/12 xl:w-3/5 rounded-2xl p-5">
+        <div className="bg-gray-900 text-black w-11/12 xl:w-3/5 rounded-2xl p-5">
           <h3 className="text-heading-3-bold mb-4">No Data Found</h3>
           <p>No revenue details found for this ISRC.</p>
           <button
             onClick={() => setDetails("")}
-            className="mt-4 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white transition"
+            className="mt-4 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-black transition"
           >
             Close
           </button>
@@ -247,7 +247,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
         onClick={() => setDetails("")}
       >
         <div
-          className="bg-gray-900 text-white w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-2 lg:p-5 overflow-y-auto relative shadow-xl"
+          className="bg-white text-black w-11/12 xl:w-3/5 h-[80vh] rounded-2xl p-2 lg:p-5 overflow-y-auto relative shadow-xl"
           onClick={(e) => e.stopPropagation()}
           ref={detailsRef}
         >
@@ -264,7 +264,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
             <h3 className="text-heading-3-bold font-semibold">
               {result[0]?.song_name}
             </h3>
-            <h6 className="text-heading-6-bold text-gray-300">
+            <h6 className="text-heading-6-bold text-black">
               {result[0]?.isrc}
             </h6>
           </div>
@@ -289,7 +289,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
           {/* Visible Table with Toggle */}
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
-              <thead className="bg-gray-800 text-sm uppercase text-gray-400">
+              <thead className="bg-gray-300 text-sm uppercase text-black">
                 <tr>
                   <th className="px-2 lg:px-4 py-2">Platform</th>
                   <th className="px-2 lg:px-4 py-2">Views</th>
@@ -300,7 +300,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
                 {result.map((item, index) => (
                   <React.Fragment key={index}>
                     <tr
-                      className="hover:bg-gray-800 transition border-t border-gray-700 cursor-pointer"
+                      className="hover:bg-gray-200 transition border-t border-gray-700 cursor-pointer"
                       onClick={() => toggleExpand(item.platformName)}
                     >
                       <td className="px-2 lg:px-4 py-2 flex items-center justify-between">

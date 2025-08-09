@@ -58,7 +58,7 @@ const UploadRecordLabel = () => {
   };
 
   return (
-    <div className={`w-full text-white relative overflow-y-auto`}>
+    <div className={`w-full text-black relative overflow-y-auto`}>
       {/* <h4 className="text-heading-5-bold 2xl:text-heading-4-bold">
         Upload Record Labels
       </h4> */}

@@ -32,7 +32,7 @@ const RecentUploads = () => {
   }, [userData.isrc, update]);
 
   return (
-    <div className="w-full rounded-2xl p-2 !pt-0 lg:p-4 pb-0 text-white relative h-[688px] overflow-hidden recent-uploads">
+    <div className="w-full rounded-2xl p-2 !pt-0 lg:p-4 pb-0 text-black relative h-[688px] overflow-hidden recent-uploads">
       {/* Flex container to place Albums and Song list side by side */}
       <div
         className={`grid grid-cols-1 lg:grid-cols-2 gap-4 absolute w-full left-0 px-4 mt-4`}

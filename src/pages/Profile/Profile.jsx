@@ -86,7 +86,7 @@ const Profile = () => {
     >
       {/* <div className=""> */}
       <div
-        className="lg:sticky w-full lg:w-4/12 h-full shadow-2xl rounded-lg overflow-hidden text-white"
+        className="lg:sticky w-full lg:w-4/12 h-full shadow-lg rounded-lg overflow-hidden text-black"
         style={{
           top: document.getElementById("topbar")?.clientHeight + 32 + "px",
         }}

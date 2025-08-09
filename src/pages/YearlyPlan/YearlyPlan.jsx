@@ -14,7 +14,7 @@ const YearlyPlan = () => {
         headingSize="text-heading-3-bold"
       ></Form> */}
 
-        <aside className="lg:p-4 h-1/2 lg:h-full overflow-y-auto p-2 text-white">
+        <aside className="lg:p-4 h-1/2 lg:h-full overflow-y-auto p-2 text-black">
           <YearlyPlanText />
         </aside>
         {/* <aside className="w-full xl:w-1/2 bg-white py-2 px-2 lg:py-4 lg:px-5">

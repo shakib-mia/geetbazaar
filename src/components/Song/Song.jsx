@@ -103,7 +103,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
 
   return (
     <div
-      className="relative group rounded-2xl overflow-hidden shadow-2xl hover:shadow-xl transition-all duration-300 cursor-pointer"
+      className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setExpandedSocial(true)}
       onMouseLeave={() => setExpandedSocial(false)}
     >
@@ -116,8 +116,8 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
           />
 
           {location.pathname === "/profile" && (
-            <div className="absolute bg-black bg-opacity-70 flex items-center justify-center w-fit h-fit transition-all duration-700 px-2 py-1 rounded-lg top-1 right-1 group-hover:-top-5 group-hover:-right-5">
-              <div className="text-white text-lg font-semibold">
+            <div className="absolute bg-white bg-opacity-70 flex items-center justify-center w-fit h-fit transition-all duration-700 px-2 py-1 rounded-lg top-1 right-1 group-hover:-top-5 group-hover:-right-5">
+              <div className="text-black text-lg font-semibold">
                 {userData.billing_country === "India" ? "₹" : "$"}
                 {formatNumber(
                   song?.revenue *
@@ -126,13 +126,13 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col justify-between p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 group">
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex flex-col justify-between p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 group">
             <div className="flex justify-between items-start relative -top-full group-hover:top-0 transition-[top] duration-700">
-              <h6 className="text-white font-semibold text-heading-6 line-clamp-2">
+              <h6 className="text-black font-semibold text-heading-6 line-clamp-2">
                 {Song || songName}
               </h6>
               {/* <button
-                className="lg:hidden text-white"
+                className="lg:hidden text-black"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -169,7 +169,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
                         className="hover:scale-110 transition-transform duration-200"
                       >
                         <img
-                          src={`https://musicx-be.onrender.com/uploads/platforms/${platform.src}.png`}
+                          src={`${backendUrl}/uploads/platforms/${platform.src}.png`}
                           alt={platform.src}
                           className="w-3"
                         />
@@ -184,7 +184,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
                     onClick={(e) => e.stopPropagation()}
                     className="hover:scale-110 transition-transform duration-200"
                   >
-                    <FaApple className="text-white text-heading-5" />
+                    <FaApple className="text-black text-heading-5" />
                   </a>
                 )}
               </div>
@@ -192,7 +192,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
           </div>
         </div>
         {/* Action buttons */}
-        <div className="p-2 flex justify-between items-center backdrop-blur bg-gradient-to-br from-neutral-900 to-neutral-800 text-white text-sm gap-3">
+        <div className="p-2 flex justify-between items-center backdrop-blur bg-gradient-to-br from-neutral-100 to-neutral-200 text-black text-sm gap-3">
           <div className="flex gap-1 relative">
             <div className="absolute -bottom-[2px] h-[2px] w-full bg-white rounded flex justify-between overflow-hidden">
               <div

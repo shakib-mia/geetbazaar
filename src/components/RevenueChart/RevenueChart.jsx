@@ -30,11 +30,11 @@ const RevenueChart = ({ result, result2, monthlyViews, pdfMode = false }) => {
   const chartHeight = pdfMode ? 300 : 400;
   const containerClass = pdfMode
     ? "mb-6"
-    : "mt-12 mb-6 bg-gray-800 p-2 lg:p-4 rounded-lg";
+    : "mt-12 mb-6 bg-white p-2 lg:p-4 rounded-lg";
   const buttonClass = pdfMode
     ? "hidden"
     : "px-2 lg;px-4 py-2 rounded-md text-sm transition w-1/2";
-  const textColor = pdfMode ? "text-black" : "text-white";
+  const textColor = pdfMode ? "text-black" : "text-black";
 
   return (
     <div className={containerClass}>

@@ -28,11 +28,11 @@ const AccordionItem = ({
   return (
     <>
       <div
-        className="text-white rounded-lg overflow-hidden relative opacity-0 -left-7"
+        className="text-black rounded-lg overflow-hidden relative opacity-0 -left-7"
         ref={accordionRef}
       >
         <button
-          className="accordion-title flex justify-between w-full py-2 text-left lg:text-lg bg-gradient-to-tr from-black to-grey-dark px-3 rounded-t-lg"
+          className="accordion-title flex justify-between w-full py-2 text-left lg:text-lg bg-gradient-to-tr from-white to-grey-light px-3 rounded-t-lg"
           onClick={toggleAccordion}
         >
           {title}
@@ -44,11 +44,11 @@ const AccordionItem = ({
         </button>
 
         <div
-          className={`accordion-content px-0 overflow-hidden transition-[max-height_padding] duration-300 ease-in-out rounded-b-lg bg-black ${
+          className={`accordion-content px-0 overflow-hidden transition-[max-height_padding] duration-300 ease-in-out rounded-b-lg ${
             isOpen ? "max-h-[500px] py-2" : "max-h-0 py-0"
           }`}
         >
-          <div className="lg:px-4 text-white">
+          <div className="lg:px-4 text-black">
             {listItems ? (
               <>
                 {content} <br />

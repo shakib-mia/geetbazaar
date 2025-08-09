@@ -10,7 +10,7 @@ const Steps = () => {
     {
       step: "Select a Plan",
       details:
-        "Choose a suitable plan based on your requirements. For instance, if you want your music widely available, consider the BackVision CRBT+ plan.",
+        "Choose a suitable plan based on your requirements. For instance, if you want your music widely available, consider the GeetBazaar CRBT+ plan.",
     },
     {
       step: "Album Details",
@@ -53,7 +53,7 @@ const Steps = () => {
 
   return (
     <div className="w-5/6 mx-auto">
-      <h4 className="text-heading-5-bold lg:text-heading-4-bold text-white mt-6 mb-3 text-center">
+      <h4 className="text-heading-5-bold lg:text-heading-4-bold text-black mt-6 mb-3 text-center">
         How to Upload Your Content
       </h4>
       {!store.token && (

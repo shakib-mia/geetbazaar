@@ -345,7 +345,7 @@ const SignupDetails = () => {
         id="signup-page"
         className="hidden xl:flex"
       > */}
-      <form onSubmit={signup} className="my-3 flex justify-center text-white">
+      <form onSubmit={signup} className="my-3 flex justify-center text-black">
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg max-w-sm lg:max-w-[40vw] w-full">
           <div className="w-full flex justify-between items-center mb-2">
             <h5 className="text-heading-5-bold">We need a few more details</h5>

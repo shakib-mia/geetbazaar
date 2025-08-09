@@ -165,12 +165,12 @@ const DynamicSongPlans = () => {
   };
 
   const renderPlan = (plan, index) => {
-    const isHighlighted = plan.name === "BackVision CRBT+";
+    const isHighlighted = plan.name === "GeetBazaar CRBT+";
     const containerClass = isHighlighted
-      ? "!h-full p-4 rounded-lg mx-2 bg-white text-interactive-light shadow-[0_13px_13px] shadow-interactive-light relative -top-3"
+      ? "!h-full p-4 rounded-lg mx-2 bg-interactive-light text-white shadow-[0_13px_13px] shadow-interactive-light relative -top-3"
       : "!h-full p-4 rounded-lg shadow-[0_13px_13px_#000] mx-2 relative";
     const buttonClass = isHighlighted
-      ? "w-full justify-center bg-white !bg-interactive-light hover:bg-white-secondary focus:!bg-white-tertiary"
+      ? "w-full justify-center !text-interactive-light !bg-white hover:bg-white-secondary focus:!bg-white-tertiary"
       : "w-full justify-center";
 
     const displayPrice = calculatePrice(plan.price);
@@ -180,9 +180,7 @@ const DynamicSongPlans = () => {
         {renderSpecialTag(plan.specialTag)}
         <div className="h-full flex flex-col justify-between">
           <aside>
-            <h4 className="text-heading-4 font-bold">
-              {plan.name.replace("BackVision", "GeetBazaar")}
-            </h4>
+            <h4 className="text-heading-4 font-bold">{plan.name}</h4>
             <h5
               className={`text-heading-5-bold ${
                 isHighlighted ? "text-interactive-light" : "text-grey"
@@ -217,14 +215,14 @@ const DynamicSongPlans = () => {
 
   return (
     <div
-      className="py-2 xl:py-7 relative song-plans text-white"
+      className="py-2 xl:py-7 relative song-plans text-black"
       id="plans-page"
     >
-      <h3 className="text-heading-3-bold text-center mt-6 text-white">
+      <h3 className="text-heading-3-bold text-center mt-6 text-black">
         Plans We Offer
       </h3>
 
-      <h6 className="lg:w-1/2 my-2 text-white mx-auto text-center text-heading-6">
+      <h6 className="lg:w-1/2 my-2 text-black mx-auto text-center text-heading-6">
         To Upload a Song, Please Choose a Plan Below
       </h6>
 
@@ -240,7 +238,7 @@ const DynamicSongPlans = () => {
           <div className="flex gap-3 justify-center items-center mx-auto lg:w-fit mt-4">
             <Button
               containerClassName="!h-fit !w-fit flex items-center z-10"
-              className="text-white !w-[10rem] aspect-square lg:!w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center !mt-0"
+              className="text-black !w-[10rem] aspect-square lg:!w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center !mt-0"
               onClick={handlePrevClick}
               id="plans-prev"
             >
@@ -249,7 +247,7 @@ const DynamicSongPlans = () => {
             <p className="w-full text-center">Swipe For More</p>
             <Button
               containerClassName="!h-fit !w-fit flex items-center z-10"
-              className="text-white !w-[10rem] aspect-square lg:!w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center !mt-0"
+              className="text-black !w-[10rem] aspect-square lg:!w-6 lg:!h-6 !px-0 !py-0 flex items-center justify-center !mt-0"
               onClick={handleNextClick}
               id="plans-next"
             >
@@ -260,7 +258,7 @@ const DynamicSongPlans = () => {
 
       {checked ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-3 lg:mt-5 gap-4">
-          <aside className="px-2 lg:pl-7 text-white">
+          <aside className="px-2 lg:pl-7 text-black">
             <h2 className="text-heading-5-bold lg:text-heading-2-bold">
               Album for Everyone
             </h2>
@@ -337,14 +335,14 @@ const DynamicSongPlans = () => {
                   slidesPerView: 3,
                   initialSlide:
                     plans.findIndex((item) => item.name.includes("CRBT+")) -
-                      1 >=
+                      2 >=
                     0
                       ? plans.findIndex((item) => item.name.includes("CRBT+")) -
-                        1
+                        2
                       : 0,
                 },
               }}
-              className="py-6 text-white mx-auto"
+              className="py-6 text-black mx-auto"
             >
               {plans
                 .filter(

@@ -66,7 +66,7 @@ const Notifications = () => {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-dark-gray transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white transition-transform duration-300 ease-in-out ${
           isDrawerOpen
             ? "transform translate-x-0"
             : "transform translate-x-full"

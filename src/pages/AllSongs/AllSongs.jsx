@@ -8,17 +8,17 @@ const AllSongs = () => {
   const [screen, setScreen] = useState("streaming");
   return (
     <>
-      <h2 className="text-heading-2-bold text-white-secondary pt-6 lg:pt-7">
+      <h2 className="text-heading-2-bold text-black-secondary pt-6 lg:pt-7">
         All Songs
       </h2>
 
-      <div className="grid grid-cols-2 mt-4 text-white relative">
+      <div className="grid grid-cols-2 mt-4 text-black relative">
         <div
           className="absolute w-1/2 h-[56px] top-0 bg-white z-0 transition-[left]"
           style={{ left: screen === "recent uploads" ? "50%" : "0%" }}
         ></div>
         <button
-          className={`py-2 uppercase absolute w-1/2 left-0 z-10 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
+          className={`py-2 uppercase absolute w-1/2 left-0 z-10 text-button lg:text-paragraph-1 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
             screen === "streaming" && "text-interactive-light"
           }`}
           onClick={() => setScreen("streaming")}
@@ -26,7 +26,7 @@ const AllSongs = () => {
           streaming <CiStreamOn />
         </button>
         <button
-          className={`py-2 uppercase absolute w-1/2 left-1/2 z-10 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
+          className={`py-2 uppercase absolute w-1/2 left-1/2 z-10 text-button lg:text-paragraph-1 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
             screen === "recent uploads" && "text-interactive-light"
           }`}
           onClick={() => setScreen("recent uploads")}

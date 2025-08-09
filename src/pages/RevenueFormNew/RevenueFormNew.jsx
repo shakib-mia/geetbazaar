@@ -149,15 +149,15 @@ const RevenueFormNew = () => {
   };
 
   return (
-    <div className="pt-6 text-white">
+    <div className="pt-6 text-black">
       {success && (
-        <div className="p-4 mb-4 bg-green-700 text-white rounded max-w-4xl mx-auto">
+        <div className="p-4 mb-4 bg-green-700 text-black rounded max-w-4xl mx-auto">
           Form submitted successfully!
         </div>
       )}
 
       {error && (
-        <div className="p-4 mb-4 bg-red-700 text-white rounded max-w-4xl mx-auto">
+        <div className="p-4 mb-4 bg-red-700 text-black rounded max-w-4xl mx-auto">
           {error}
         </div>
       )}

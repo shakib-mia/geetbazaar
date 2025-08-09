@@ -8,7 +8,7 @@ const Modal = ({ children, handleClose, className, whiteContainerClass }) => {
       onClick={handleClose}
     >
       <div
-        className={`lg:w-4/6 mx-auto bg-black relative p-1 lg:p-3 shadow-xl shadow-[#000a] rounded-md ${whiteContainerClass}`}
+        className={`lg:w-4/6 mx-auto bg-white relative p-1 lg:p-3 shadow-xl shadow-[#000a] rounded-md ${whiteContainerClass}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button

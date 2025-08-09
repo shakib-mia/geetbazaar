@@ -76,7 +76,7 @@ const Albums = () => {
                 />
                 <div>
                   <h5 className="text-heading-5-bold">{album.albumTitle}</h5>
-                  <p className="text-sm text-white-secondary flex gap-2 items-center">
+                  <p className="text-sm text-black-secondary flex gap-2 items-center">
                     <strong>Status:</strong>{" "}
                     {album.songs.some((song) => song.status !== "streaming") ? (
                       <span className="text-warning inline-flex gap-1 items-center">
@@ -155,7 +155,7 @@ const Albums = () => {
                       <strong>Song Name:</strong> {song.songName} ({song.status}
                       )
                     </p>
-                    <p className="text-subtitle-2 text-white">
+                    <p className="text-subtitle-2 text-black">
                       <strong>Artists:</strong>{" "}
                       {song.artists.map((artist) => artist.name).join(", ")}
                     </p>

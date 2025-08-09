@@ -81,7 +81,7 @@ const Songs = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[200px]">
-        <VscLoading className="animate-spin text-white text-heading-1" />
+        <VscLoading className="animate-spin text-black text-heading-1" />
       </div>
     );
   }
@@ -91,7 +91,7 @@ const Songs = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 text-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 text-black">
       {songs.map((song, index) => (
         <SongItem
           key={song._id}

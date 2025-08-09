@@ -94,7 +94,7 @@ const Faq = () => {
 
   return (
     <div className="pb-4">
-      <h2 className="text-heading-4-bold lg:text-heading-2-bold text-white mt-6 text-center mb-4">
+      <h2 className="text-heading-4-bold lg:text-heading-2-bold text-black mt-6 text-center mb-4">
         Frequently Asked Questions (FAQ)
       </h2>
       <Accordion data={accordionData} />

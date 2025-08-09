@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className="pt-6 p-0 2xl:p-0 2xl:mt-7">
-      <div className="grid grid-cols-1 2xl:grid-cols-3 justify-between space-y-4 2xl:space-y-0 2xl:gap-x-2 text-white 2xl:h-[27rem]">
+      <div className="grid grid-cols-1 2xl:grid-cols-3 justify-between space-y-4 2xl:space-y-0 2xl:gap-x-2 text-black 2xl:h-[27rem]">
         <UserCard />
 
         {/* <div className="shadow-[0_0_20px_#333] p-2 2xl:p-4 rounded-2xl">
@@ -73,7 +73,7 @@ const Home = () => {
         <div className="w-full lg:w-2/3 bg-black rounded-lg">
           <HomeAnalytics />
         </div>
-        <div className="w-full lg:w-1/3 card-shadow text-white p-4 bg-black rounded-lg">
+        <div className="w-full lg:w-1/3 card-shadow text-black p-4 bg-black rounded-lg">
           <UserSuggestions />
         </div>
       </div>

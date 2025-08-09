@@ -355,7 +355,7 @@ const EditProfile = ({ handleClose }) => {
         </div>
         <div className="w-full lg:w-1/3">
           <InputField
-            label={<FaXTwitter className="text-white relative -top-[4px]" />}
+            label={<FaXTwitter className="text-black relative -top-[4px]" />}
             placeholder={"Enter Twitter Link Here"}
             onChange={(e) =>
               handleFieldChange("twitter_profile_link", e.target.value)

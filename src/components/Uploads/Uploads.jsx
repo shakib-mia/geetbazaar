@@ -67,7 +67,7 @@ const Uploads = () => {
     // Show "No songs found" if user has ISRC but no songs
     if (userData.isrc && songs.length === 0) {
       return (
-        <div className="flex justify-center items-center h-full text-white text-heading-5 py-7">
+        <div className="flex justify-center items-center h-full text-black text-heading-5 py-7">
           No songs found
         </div>
       );
@@ -118,7 +118,7 @@ const Uploads = () => {
 
     // Fallback for users who don't have ISRC
     return (
-      <div className="flex justify-center items-center h-full text-white text-center p-3">
+      <div className="flex justify-center items-center h-full text-black text-center p-3">
         <div className="">
           <h5 className=" text-heading-5-bold">Upload Your First Song</h5>{" "}
           {/* <br /> */}
@@ -141,7 +141,7 @@ const Uploads = () => {
 
   return (
     <div
-      className={`text-white mt-[56px] card-shadow rounded-lg overflow-hidden bg-black ${
+      className={`text-black mt-[56px] card-shadow rounded-lg overflow-hidden bg-black ${
         location.pathname === "/all-songs" ? "pb-0" : "justify-between"
       }`}
       id="song-list"
@@ -156,7 +156,7 @@ const Uploads = () => {
 
       {/* {location.pathname === "/" && (
         <div className="flex items-end justify-between">
-          <h5 className="text-heading-6-bold lg:text-heading-4-bold text-white">
+          <h5 className="text-heading-6-bold lg:text-heading-4-bold text-black">
             Your Uploads
           </h5>
           <Button className={"!w-1/3"} onClick={() => navigate("/revenue")}>

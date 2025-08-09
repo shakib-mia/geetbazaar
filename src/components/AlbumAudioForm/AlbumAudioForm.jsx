@@ -17,7 +17,7 @@ const AlbumAudioForm = (props) => {
           Audio:{props.id + 1}
         </h5>
         <FaChevronDown
-          className={`transition text-white ${collapsed ? "-rotate-90" : ""}`}
+          className={`transition text-black ${collapsed ? "-rotate-90" : ""}`}
         />
         {collapsed && (
           <div className="bg-gradient-to-r h-[1px] w-full from-grey-dark to-white"></div>

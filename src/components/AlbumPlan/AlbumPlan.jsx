@@ -40,7 +40,7 @@ const AlbumPlan = () => {
         >
           🔥 New 🔥
         </div>
-        <h4 className="text-heading-4 font-bold">BackVision Album</h4>
+        <h4 className="text-heading-4 font-bold">GeetBazaar Album</h4>
         <h5 className="text-heading-5-bold text-grey-light mt-2">
           {calculatePrice(99900)}
         </h5>
@@ -107,7 +107,7 @@ const AlbumPlan = () => {
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
-            <aside className="w-11/12">BackVision Dashboard</aside>
+            <aside className="w-11/12">GeetBazaar Dashboard</aside>
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
@@ -154,7 +154,7 @@ const AlbumPlan = () => {
           <li className="flex gap-2 text-paragraph-1 items-center">
             <FaCheck className="w-1/12" />
             <aside className="w-11/12">
-              Including BackVision Special Service
+              Including GeetBazaar Special Service
             </aside>
           </li>
           <li className="flex gap-2 text-paragraph-1 items-center">
@@ -181,7 +181,7 @@ const AlbumPlan = () => {
             // setPlanName("forevision-album");
             setPlanStore((prev) => ({
               ...prev,
-              planName: "BackVision-album",
+              planName: "GeetBazaar-album",
               price: 99900,
             }));
             navigate("/album-upload?forevision-album?99900");

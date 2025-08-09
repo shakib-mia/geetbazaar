@@ -32,7 +32,7 @@ const NavItem = ({ icon, hovered, text, dropdownItem, path }) => {
               //     itemHovered && "rotate-180"
               //   } transition`}
               // />
-              <FaChevronDown className="text-white" />
+              <FaChevronDown className="text-black" />
             ) : (
               <></>
             )}

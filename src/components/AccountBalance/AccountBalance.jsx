@@ -81,7 +81,7 @@ const WithdrawalSection = () => {
         />
       )}
       {/* )} */}
-      <div className="text-white rounded-lg card-shadow bg-gradient-to-br to-neutral-800 from-neutral-900 p-3 h-full">
+      <div className="text-black rounded-lg card-shadow bg-white p-3 h-full">
         <h4 className="text-2xl text-heading-4-bold font-semibold mb-1">
           Withdraw
         </h4>

@@ -3,6 +3,7 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { FaChevronDown, FaChevronUp, FaFacebookF } from "react-icons/fa";
 import { FaInstagram, FaTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import cover from "./../../assets/images/artist-cover.webp";
 
 const UserCard = () => {
   const { userData } = useContext(ProfileContext);
@@ -21,12 +22,20 @@ const UserCard = () => {
 
   return (
     <>
-      <div className="rounded-lg overflow-hidden shadow-xl h-full card-shadow overflow-y-auto bg-black">
-        <img
-          src={userData.cover_photo}
-          alt="cover"
-          className="h-7 w-full object-cover object-center rounded-b-lg"
-        />
+      <div className="rounded-lg overflow-hidden shadow-xl h-full card-shadow overflow-y-auto bg-white">
+        {userData.cover_photo ? (
+          <img
+            src={userData.cover_photo}
+            alt="cover"
+            className="h-7 w-full object-cover object-center rounded-b-lg"
+          />
+        ) : (
+          <img
+            src={cover}
+            alt="cover"
+            className="h-7 w-full object-cover object-center rounded-b-lg"
+          />
+        )}
         <div className="relative">
           <img
             src={userData.display_image}
@@ -73,7 +82,7 @@ const UserCard = () => {
             {userData.facebook_profile_link && (
               <a
                 href={userData.facebook_profile_link}
-                className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+                className="inline-flex text-white justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -83,7 +92,7 @@ const UserCard = () => {
             {userData.instagram_profile_link && (
               <a
                 href={userData.instagram_profile_link}
-                className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+                className="inline-flex text-white justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -93,7 +102,7 @@ const UserCard = () => {
             {userData.twitter_profile_link && (
               <a
                 href={userData.twitter_profile_link}
-                className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+                className="inline-flex text-white justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
                 target="_blank"
                 rel="noreferrer"
               >

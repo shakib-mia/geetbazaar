@@ -35,7 +35,7 @@ const Button = ({
     //         id={id}
     //         className={`${
     //           small ? "px-2 py-1 w-fit mx-auto" : "px-3 py-2"
-    //         } disabled:bg-interactive-light-disabled disabled:cursor-not-allowed text-white bg-interactive-light text-button hover:bg-interactive-light-hover focus:bg-interactive-light-focus active:bg-interactive-light-active focus:outline outline-offset-4 outline-2 outline-interactive-light-focus font-bold rounded-full uppercase flex gap-1 disabled:text-grey ${className} transition`}
+    //         } disabled:bg-interactive-light-disabled disabled:cursor-not-allowed text-black bg-interactive-light text-button hover:bg-interactive-light-hover focus:bg-interactive-light-focus active:bg-interactive-light-active focus:outline outline-offset-4 outline-2 outline-interactive-light-focus font-bold rounded-full uppercase flex gap-1 disabled:text-grey ${className} transition`}
     //         onClick={() => {
     //           onClick && onClick();
     //           setFocus(true);
@@ -75,7 +75,7 @@ const Button = ({
     //         onBlur={() => setFocus(false)}
     //         className={`${
     //           small ? "px-2 py-1" : "px-3 py-2"
-    //         } disabled:bg-interactive-light-disabled cursor-pointer disabled:cursor-not-allowed text-white bg-interactive-light text-button hover:bg-interactive-light-hover focus:bg-interactive-light-focus active:bg-interactive-light-active focus:outline outline-offset-4 outline-2 outline-interactive-light-focus font-bold rounded-full uppercase flex gap-1 disabled:text-grey ${className} transition`}
+    //         } disabled:bg-interactive-light-disabled cursor-pointer disabled:cursor-not-allowed text-black bg-interactive-light text-button hover:bg-interactive-light-hover focus:bg-interactive-light-focus active:bg-interactive-light-active focus:outline outline-offset-4 outline-2 outline-interactive-light-focus font-bold rounded-full uppercase flex gap-1 disabled:text-grey ${className} transition`}
     //         value={text}
     //       />
     //     </div>
@@ -90,7 +90,7 @@ const Button = ({
         variant ? variant + "-" : ""
       }disabled py-2 rounded-lg hover:bg-interactive-light${
         variant ? "-" + variant : ""
-      }-hover shadow-[0_8px_16px] disabled:shadow-none disabled:cursor-not-allowed hover:shadow-none shadow-interactive-light-${
+      }-hover shadow-[0_3px_8px_#aaa]  disabled:shadow-none disabled:cursor-not-allowed hover:shadow-none shadow-interactive-light-${
         variant ? variant + "-" : ""
       }focus transition font-extrabold disabled:hover:bg-interactive-light-${
         variant ? variant + "-" : ""

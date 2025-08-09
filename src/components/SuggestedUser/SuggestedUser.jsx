@@ -24,7 +24,7 @@ const SuggestedUser = ({
           {
             <a
               href={facebook_profile_link}
-              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition text-white"
               target="_blank"
               rel="noreferrer"
             >
@@ -34,7 +34,7 @@ const SuggestedUser = ({
           {
             <a
               href={instagram_profile_link}
-              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition text-white"
               target="_blank"
               rel="noreferrer"
             >
@@ -44,7 +44,7 @@ const SuggestedUser = ({
           {
             <a
               href={twitter_profile_link}
-              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition"
+              className="inline-flex justify-center items-center w-4 aspect-square rounded-full shadow-xl bg-interactive-light hover:bg-interactive-light-hover active:bg-interactive-light-active focus:bg-interactive-light-focus transition text-white"
               target="_blank"
               rel="noreferrer"
             >

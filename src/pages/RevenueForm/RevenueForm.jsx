@@ -271,13 +271,13 @@ function RevenueForm() {
   return (
     <>
       <section
-        className={`w-full lg:w-5/6 mx-auto my-4 text-grey-dark ${
+        className={`w-full lg:w-5/6 mx-auto my-4 text-grey-dark my-7 ${
           confirmed && "overflow-y-hidden"
         }`}
       >
         <form
           onSubmit={FormHandle}
-          className="px-3 md:px-[4rem] w-full md:mx-auto rounded-md shadow-xl text-white"
+          className="px-3 md:px-[4rem] w-full md:mx-auto rounded-md shadow-xl text-black"
         >
           <div className="pt-[4rem]">
             <div className=" mb-3">

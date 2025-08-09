@@ -10,7 +10,7 @@ const RevenueAnalytics = ({ heading, data, id }) => {
 
   return (
     <>
-      <div className="relative 2xl:hidden h-[148px] 3xl:h-[204px] text-white overflow-hidden rounded-[9px] shadow 2xl:shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900">
+      <div className="relative 2xl:hidden h-[148px] 3xl:h-[204px] text-black overflow-hidden rounded-[9px] shadow 2xl:shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900">
         {/* <div className={styles.ocean}>
           <div
             className={styles.wave}
@@ -43,7 +43,7 @@ const RevenueAnalytics = ({ heading, data, id }) => {
         </div>
       </div>
 
-      <div className="relative hidden 2xl:block h-[148px] 3xl:h-[204px] text-white overflow-hidden rounded-[9px] shadow 2xl:shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900">
+      <div className="relative hidden 2xl:block h-[148px] 3xl:h-[204px] text-black overflow-hidden rounded-[9px] shadow 2xl:shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900">
         {/* <div className={styles.ocean}>
           <div
             className={styles.wave}

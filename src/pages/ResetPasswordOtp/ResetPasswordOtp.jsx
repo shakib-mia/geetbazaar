@@ -81,7 +81,7 @@ const ResetPasswordOtp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen text-white min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat auth-slider">
+    <div className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat auth-slider">
       <div className="grid grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-[0_10px_12px] shadow-[#000]">
         <aside className="p-1">
           {/* <ReactOwlCarousel

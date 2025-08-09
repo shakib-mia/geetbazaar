@@ -64,7 +64,7 @@ const VerticalCarousel = ({ className, heading, children }) => {
 
   return (
     <div className={`${className} vertical-carousel`}>
-      <div className="text-subtitle-1 font-semibold text-white">{heading}</div>
+      <div className="text-subtitle-1 font-semibold text-black">{heading}</div>
       <div
         onClick={() =>
           document.getElementsByClassName("swiper-button-prev")[0].click()

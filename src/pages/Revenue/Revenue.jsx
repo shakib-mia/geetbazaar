@@ -353,7 +353,7 @@ const Revenue = () => {
     "ISRC",
     "View",
     // "Revenue",
-    "Revenue After BackVision Deduction",
+    "Revenue After GeetBazaar Deduction",
     "Revenue After Split",
   ];
 
@@ -366,7 +366,7 @@ const Revenue = () => {
     "ISRC",
     "View",
     // "Revenue",
-    "Revenue After BackVision Deduction",
+    "Revenue After GeetBazaar Deduction",
   ];
 
   const phoneOptions = ["isrc", "song_name", "Total Revenue Against ISRC"];
@@ -498,15 +498,15 @@ const Revenue = () => {
         <div className="h-full w-full bg-transparent 2xl:p-4 pb-5 rounded-[20px]">
           <div className="flex flex-col 2xl:flex-row gap-3 items-center 2xl:items-end">
             <div className="w-full 2xl:w-3/4">
-              <h4 className="text-heading-4-bold text-white">
+              <h4 className="text-heading-4-bold text-black">
                 {greeting} <br />
                 {userData?.first_name ? (
-                  <span className="text-interactive-light 2xl:text-white">
+                  <span className="text-interactive-light 2xl:text-black">
                     <u>{userData?.first_name ? userData?.first_name : <></>}</u>{" "}
                     {userData?.last_name ? userData?.last_name : <></>}!
                   </span>
                 ) : (
-                  <span className="text-interactive-light 2xl:text-white">
+                  <span className="text-interactive-light 2xl:text-black">
                     <u>
                       {userData?.partner_name ? (
                         userData?.partner_name?.split(" ")[0]
@@ -523,7 +523,7 @@ const Revenue = () => {
                   </span>
                 )}
               </h4>
-              <div className="text-subtitle-1 text-interactive-dark-active 2xl:text-white tracking-[0.5px] mt-1">
+              <div className="text-subtitle-1 text-interactive-dark-active 2xl:text-black tracking-[0.5px] mt-1">
                 <p>
                   Welcome to your revenue dashboard, Let’s see how much you’ve
                   earned with us !
@@ -536,7 +536,7 @@ const Revenue = () => {
               {/* {filtered.length > 0 && <> */}
               <div className="flex justify-between items-end">
                 <div className="mt-4 hidden 2xl:flex flex-col justify-center items-center w-fit">
-                  <h6 className="text-heading-6-bold text-white mb-1">
+                  <h6 className="text-heading-6-bold text-black mb-1">
                     Revenue Analytics
                   </h6>
                   {/* <Button
@@ -554,7 +554,7 @@ const Revenue = () => {
                   {/* <RequestWithdraw /> */}
                 </div>
                 {setLastUpload.length && (
-                  <p className="text-subtitle-1 text-white tracking-[0.5px] mt-1 italic">
+                  <p className="text-subtitle-1 text-black tracking-[0.5px] mt-1 italic">
                     * Updated Till {lastUpload}
                   </p>
                 )}
@@ -600,13 +600,13 @@ const Revenue = () => {
             (filtered.length ? (
               <div className="relative">
                 {/* <FaChevronLeft
-                  className="bg-transparent stroke-transparent text-heading-4 absolute -left-[50px] top-[75vh] cursor-pointer bottom-0 z-[99] text-white hidden xl:block"
+                  className="bg-transparent stroke-transparent text-heading-4 absolute -left-[50px] top-[75vh] cursor-pointer bottom-0 z-[99] text-black hidden xl:block"
                   onClick={() =>
                     document.getElementsByClassName("owl-prev")[0].click()
                   }
                 />
                 <FaChevronRight
-                  className="bg-transparent stroke-transparent text-heading-4 absolute -right-5 top-[75vh] cursor-pointer bottom-0 z-[99] text-white hidden xl:block"
+                  className="bg-transparent stroke-transparent text-heading-4 absolute -right-5 top-[75vh] cursor-pointer bottom-0 z-[99] text-black hidden xl:block"
                   onClick={() =>
                     document.getElementsByClassName("owl-next")[0].click()
                   }
@@ -617,7 +617,7 @@ const Revenue = () => {
                   nav
                   id="revenue-slider"
                 > */}
-                <div className="mt-3 px-1 2xl:px-3 py-1 2xl:py-4 shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900 rounded-[10px] overflow-auto text-white">
+                <div className="mt-3 px-1 2xl:px-3 py-1 2xl:py-4 shadow-[6px_6px_20px_rgb(10,10,10)] bg-gradient-to-br to-neutral-800 from-neutral-900 rounded-[10px] overflow-auto text-black">
                   <div className="flex justify-end items-center">
                     <div className="flex flex-col lg:flex-row items-end gap-2 whitespace-nowrap w-full xl:w-2/5 ml-auto">
                       <Button
@@ -862,7 +862,7 @@ const Revenue = () => {
           )}
 
           {aggregatedMusicData.length !== 0 || isLoading || (
-            <div className="text-grey text-center 2xl:w-1/2 mx-auto 2xl:text-white">
+            <div className="text-grey text-center 2xl:w-1/2 mx-auto 2xl:text-black">
               <img src={notFound} className="w-full 2xl:w-1/2 mx-auto" alt="" />
               <h6 className="text-heading-6-bold mb-2">
                 Ooopps.. There is Nothing to show yet !! Upload your content and

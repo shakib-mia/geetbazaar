@@ -21,7 +21,7 @@ const AccountHistory = () => {
   // console.log(history);
 
   return (
-    <div className="text-white rounded-2xl p-4 h-[392px] overflow-y-auto bg-gradient-to-br to-neutral-800 from-neutral-900 card-shadow w-full">
+    <div className="text-black rounded-2xl p-4 h-[392px] overflow-y-auto bg-gradient-to-br to-neutral-800 from-neutral-900 card-shadow w-full">
       <h4 className="text-heading-6-bold 2xl:text-heading-4-bold mb-3">
         Account History
       </h4>

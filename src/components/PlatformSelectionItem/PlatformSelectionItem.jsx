@@ -97,12 +97,12 @@ const PlatformSelectionItem = ({
 
   return (
     <div className={id > 0 && "mt-3 lg:mt-6"}>
-      <h5 className="text-heading-6-bold lg:text-heading-5-bold text-center mb-3 text-white">
+      <h5 className="text-heading-6-bold lg:text-heading-5-bold text-center mb-3 text-black">
         {item?.platformType}{" "}
         {item?.platformType === "Caller Tune" ? "Partners" : "Platforms"}
       </h5>
 
-      <h6 className="mb-2 lg:mb-4 text-white text-center lg:w-5/6 text-paragraph-2 lg:text-heading-6 mx-auto">
+      <h6 className="mb-2 lg:mb-4 text-black text-center lg:w-5/6 text-paragraph-2 lg:text-heading-6 mx-auto">
         {item?.platformType === "YouTube"
           ? "Content you cannot upload to YouTube Content ID includes public domain works, content you don’t own or have exclusive rights to, licensed content, fair use material, shared ownership content, unauthorized derivative works, royalty-free content, fan art, and disputed content."
           : item?.platformType === "Lyrics"
@@ -139,7 +139,7 @@ const PlatformSelectionItem = ({
               }`}
               alt=""
             />
-            <h6 className="text-paragraph-2 font-bold lg:text-heading-6-bold text-white capitalize whitespace-nowrap">
+            <h6 className="text-paragraph-2 font-bold lg:text-heading-6-bold text-black capitalize whitespace-nowrap">
               {plat.cat_name}
             </h6>
           </li>

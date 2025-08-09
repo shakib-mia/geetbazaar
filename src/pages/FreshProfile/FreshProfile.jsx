@@ -266,7 +266,7 @@ const FreshProfile = () => {
         id={location.pathname.split("/")[1]}
         submitFromParent={handleSubmit}
       >
-        <div className="flex gap-1 lg:gap-2 items-center text-white">
+        <div className="flex gap-1 lg:gap-2 items-center text-black">
           <aside className="flex items-center gap-[4px] lg:gap-1">
             <input
               type="radio"

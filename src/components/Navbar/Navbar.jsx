@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { navItem } from "../../constants";
 import { MdLogout, MdMenu, MdClose } from "react-icons/md";
 import { FaBell, FaCaretDown } from "react-icons/fa";
+import logo from "../../assets/images/logo_white.png";
 import profile from "./../../assets/images/profile.png";
 import ReactGA from "react-ga4";
 import NotificationDropdown from "../NotificationDropdown/NotificationDropdown";
@@ -25,7 +26,7 @@ const Navbar = () => {
   const dropdownMenuRef = useRef(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
-
+  const navigate = useNavigate();
   const [notificationDropdownOpen, setNotificationDropdownOpen] =
     useState(false);
 
@@ -112,24 +113,21 @@ const Navbar = () => {
   return (
     <>
       <div
-        className="fixed top-2 rounded-lg lg:rounded-full container px-0 lg:px-2 left-0 right-0 lg:mx-auto bg-black bg-opacity-70 backdrop-blur z-[99999]"
+        className="fixed top-2 rounded-lg container px-0 lg:px-2 left-0 right-0 lg:mx-auto bg-black text-white bg-opacity-70 backdrop-blur z-[99999]"
         id="topbar"
         onMouseLeave={() => setRightDropdownOpen(false)}
       >
-        <nav className="flex flex-wrap lg:flex-nowrap lg:px-3 items-center justify-between lg:shadow-lg">
-          <div className="flex justify-between items-center w-full lg:w-auto px-2">
-            <Link
-              className="inline-block py-1 text-white text-heading-6"
-              to={"/"}
-            >
-              Logo
+        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:shadow-lg">
+          <div className="flex justify-between items-center w-full lg:w-auto">
+            <Link className="inline-block py-1  text-heading-6" to={"/"}>
+              <img src={logo} alt="logo" className="w-[150px]" />
             </Link>
 
             {/* Mobile menu button */}
             <div className="flex items-center gap-4 lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white text-heading-4"
+                className=" text-heading-4"
               >
                 {mobileMenuOpen ? <MdClose /> : <MdMenu />}
               </button>
@@ -138,7 +136,7 @@ const Navbar = () => {
 
           {/* Mobile dropdown for profile */}
           {rightDropdownOpen && (
-            <div className="absolute right-4 top-4 w-[200px] bg-gray-800 text-white shadow-lg rounded-lg z-50 lg:hidden">
+            <div className="absolute right-4 top-4 w-[200px] bg-gray-800  shadow-lg rounded-lg z-50 lg:hidden">
               <div className="px-4 py-2">
                 <p className="text-sm">
                   {userData?.first_name + " " + userData?.last_name}
@@ -170,13 +168,13 @@ const Navbar = () => {
                 <div key={item.path} className="relative w-full lg:w-auto">
                   {item.text === "Forms" ? (
                     <button
-                      className="flex items-center p-2 lg:py-2 gap-1 text-white w-full lg:w-auto group"
+                      className="flex items-center p-2 lg:py-4 gap-1  w-full lg:w-auto group"
                       onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle the dropdown
                       ref={dropdownRef} // Attach the ref here
                     >
                       <span className="flex items-center gap-2">
                         <span>{item.icon}</span>
-                        <span className="lg:w-0 overflow-hidden transition-all whitespace-nowrap relative">
+                        <span className="overflow-hidden transition-all whitespace-nowrap relative text-heading-6">
                           {item.text}
                         </span>
                         <FaCaretDown />
@@ -185,18 +183,18 @@ const Navbar = () => {
                   ) : (
                     <NavLink
                       to={item.path}
-                      className={`text-white px-2 py-2 lg:py-2 flex items-center group w-full lg:w-auto gap-2 lg:gap-0 lg:hover:gap-2 transition-all`}
+                      className={` px-2 py-2 lg:py-2 flex items-center group w-full lg:w-auto gap-1 transition-all`}
                       onClick={() => setDropdownOpen(false)}
                     >
                       <span>{item.icon}</span>
-                      <span className="lg:w-0 overflow-hidden group-hover:w-full transition-all whitespace-nowrap relative">
+                      <span className="overflow-hidden group-hover:w-full transition-all whitespace-nowrap relative text-heading-6">
                         {item.text}
                       </span>
                     </NavLink>
                   )}
                   {dropdownOpen && (
                     <ul
-                      className="bg-gray-800 text-white shadow-lg rounded-lg lg:absolute lg:left-0 lg:mt-2 lg:w-[15rem] w-full"
+                      className="bg-gray-800  shadow-lg rounded-lg lg:absolute lg:left-0 lg:mt-2 lg:w-[15rem] w-full"
                       ref={dropdownMenuRef}
                     >
                       {item.dropdownItem?.map((subItem) => (
@@ -222,7 +220,7 @@ const Navbar = () => {
             </div>
 
             {/* Profile Section */}
-            <div className="hidden lg:flex items-center gap-1 text-white">
+            <div className="hidden lg:flex items-center gap-1 ">
               {/* <NotificationDropdown
                 notificationDropdownOpen={notificationDropdownOpen}
                 setNotificationDropdownOpen={setNotificationDropdownOpen}
@@ -231,13 +229,13 @@ const Navbar = () => {
                 onClick={() =>
                   setNotificationDropdownOpen(!notificationDropdownOpen)
                 }
-                className="flex items-center text-white relative z-20"
+                className="flex items-center  relative z-20"
               >
                 <span className="text-[20px]">
                   <FaBell />
                 </span>
                 {unreadCount > 0 && (
-                  <span className="absolute -top-[4px] -right-[4px] text-[12px] text-white bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
+                  <span className="absolute -top-[4px] -right-[4px] text-[12px]  bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
                     {unreadCount > 9 ? "9+" : unreadCount}
                   </span>
                 )}
@@ -285,9 +283,9 @@ const Navbar = () => {
                   alt="profile"
                 />
                 {rightDropdownOpen && (
-                  <div className="absolute right-0 mt-0 w-[250px] bg-gray-800 text-white shadow-lg rounded-lg overflow-hidden">
+                  <div className="absolute right-0 mt-0 w-[250px] bg-gray-800  shadow-lg rounded-lg overflow-hidden">
                     <div
-                      onClick={() => (window.location.href = "/profile")}
+                      onClick={() => navigate("/profile")}
                       className="p-2 cursor-pointer relative"
                     >
                       <div className="w-1 h-1 bg-gray-800 absolute -top-[4px] rotate-45 right-1"></div>

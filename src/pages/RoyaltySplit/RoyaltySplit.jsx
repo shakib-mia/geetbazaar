@@ -60,7 +60,7 @@ const RoyaltySplit = () => {
         <aside className="border">
           <table className="w-full rounded-md overflow-hidden shadow-lg">
             <thead>
-              <tr className="divide-x bg-grey text-white">
+              <tr className="divide-x bg-grey text-black">
                 <th className="p-2">ISRC</th>
                 <th className="p-2">Song</th>
                 <th className="p-2"></th>

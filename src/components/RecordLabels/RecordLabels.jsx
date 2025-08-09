@@ -36,7 +36,7 @@ const RecordLabels = () => {
 
   return (
     <div
-      className={`w-full rounded-2xl card-shadow p-4 pt-0 text-white relative overflow-y-auto`}
+      className={`w-full rounded-2xl card-shadow p-4 pt-0 text-black relative overflow-y-auto`}
     >
       {openModal &&
         createPortal(
@@ -50,7 +50,7 @@ const RecordLabels = () => {
           >
             <h5
               className={
-                "text-heading-5-bold 2xl:text-heading-4-bold text-white mb-3 text-center"
+                "text-heading-5-bold 2xl:text-heading-4-bold text-black mb-3 text-center"
               }
             >
               Create A New Record Label
@@ -71,7 +71,7 @@ const RecordLabels = () => {
             handleClose={() => setOpenItemModal(-1)}
             whiteContainerClass="relative lg:!w-1/3 !mx-auto overflow-y-auto overflow-x-hidden"
           >
-            <h5 className="text-heading-5-bold text-white mb-3 text-center">
+            <h5 className="text-heading-5-bold text-black mb-3 text-center">
               {labels[openItemModal]}
             </h5>
             {/* Include a form or something if needed */}

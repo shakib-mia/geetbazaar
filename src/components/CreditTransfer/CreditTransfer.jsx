@@ -114,7 +114,7 @@ const CreditTransfer = ({ showCreditTransfer, creditTransfer }) => {
         onClick={() => showCreditTransfer(false)}
       >
         <div
-          className="bg-gradient-to-br from-[rgba(23_23_23/0.6)] to-neutral-800 p-2 max-w-md w-full shadow-2xl text-white rounded-2xl space-y-1"
+          className="bg-gradient-to-br from-[rgba(255,255,255,0.6)] to-[rgba(199,199,199,0.6)] p-2 max-w-md w-full shadow-2xl text-black rounded-2xl space-y-1"
           onClick={(e) => e.stopPropagation()}
         >
           <h5 className="text-heading-5-bold text-center">Credit Transfer</h5>
@@ -157,7 +157,7 @@ const CreditTransfer = ({ showCreditTransfer, creditTransfer }) => {
           onClick={() => setOtpModal(false)}
         >
           <div
-            className="bg-gradient-to-br from-[rgba(23_23_23/0.6)] to-neutral-800 p-2 max-w-lg w-full shadow-xl text-white rounded-2xl"
+            className="bg-gradient-to-br from-[rgba(23_23_23/0.6)] to-neutral-800 p-2 max-w-lg w-full shadow-xl text-black rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <h5 className="text-heading-5-bold font-bold text-center mb-2">
@@ -173,7 +173,7 @@ const CreditTransfer = ({ showCreditTransfer, creditTransfer }) => {
                     <input
                       key={index}
                       {...props}
-                      className="bg-neutral-700 border border-gray-500 text-white !w-full aspect-square rounded text-center text-heading-5"
+                      className="bg-neutral-700 border border-gray-500 text-black !w-full aspect-square rounded text-center text-heading-5"
                     />
                   )}
                   containerStyle={{ display: "contents" }}

@@ -43,7 +43,7 @@ const AuthBody = ({
           location.pathname === "/home" ||
           location.pathname === "/" || <div className="w-1/2"></div>}
         <div
-          className={`w-11/12 xl:w-1/3 shadow-md xl:shadow-xl p-3 rounded-[22px] bg-black text-white relative ${whiteContainerClass}`}
+          className={`w-11/12 xl:w-1/3 shadow-md xl:shadow-xl p-3 rounded-[22px] bg-white text-black relative ${whiteContainerClass}`}
           onClick={(e) => e.stopPropagation()}
         >
           {closeIcon && (

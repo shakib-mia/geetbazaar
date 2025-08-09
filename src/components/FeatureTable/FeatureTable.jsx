@@ -12,7 +12,7 @@ const features = [
   "Free Custom Label",
   "100% Copyright Will Be Yours",
   "Get 80% Revenue from the Streamings",
-  "BackVision Pro Dashboard with Detailed analytics",
+  "GeetBazaar Pro Dashboard with Detailed analytics",
   "Get lifetime support with zero yearly cost",
   "Advanced revenue reports",
   "All Indian Apps Covered: Gaana, Hungama, Wynk & Jiosaavn",
@@ -28,7 +28,7 @@ const features = [
 
 const plans = [
   {
-    name: "BackVision Social",
+    name: "GeetBazaar Social",
     features: [
       true,
       true,
@@ -52,7 +52,7 @@ const plans = [
     ],
   },
   {
-    name: "BackVision CRBT",
+    name: "GeetBazaar CRBT",
     features: [
       true,
       true,
@@ -76,7 +76,7 @@ const plans = [
     ],
   },
   {
-    name: "BackVision CRBT+",
+    name: "GeetBazaar CRBT+",
     features: [
       true,
       true,
@@ -100,7 +100,7 @@ const plans = [
     ],
   },
   {
-    name: "BackVision Pro",
+    name: "GeetBazaar Pro",
     features: [
       true,
       true,
@@ -147,59 +147,6 @@ const FeatureTable = () => {
       <div className="w-[94%] lg:w-full mx-auto">
         {/* Desktop Table */}
         <div className="hidden lg:block">
-          {/* <table className="min-w-full rounded-lg shadow">
-            <thead
-              className="sticky"
-              style={{
-                top: document.getElementById("topbar")?.clientHeight + "px",
-              }}
-            >
-              <tr className="rounded-t">
-                <th className="px-6 py-3 border-b border-interactive-light-disabled  text-left text-xs font-bold uppercase tracking-wider bg-interactive-light">
-                  Feature
-                </th>
-                {plans.map((plan, index) => (
-                  <th
-                    key={index}
-                    className="px-6 py-3 border-b border-interactive-light-disabled bg-interactive-light  text-center text-xs font-bold text-white uppercase tracking-wider"
-                  >
-                    {plan.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-grey-dark">
-              {features.map((feature, index) => (
-                <tr
-                  key={index}
-                  className={`hover:bg-interactive-light hover:shadow-2xl hover:scale-110 transition rounded-full ${
-                    index % 2 ? "bg-grey-dark" : ""
-                  }`}
-                >
-                  <td className="p-2 text-sm text-white selection:bg-white selection:text-interactive-light">
-                    {feature}
-                  </td>
-                  {plans.map((plan, planIndex) => (
-                    <td
-                      key={planIndex}
-                      className="p-2 text-sm text-white text-center"
-                    >
-                      {plan.features[index] ? (
-                        <>
-                          <FaCheck className="text-interactive-light-confirmation-disabled text-xl text-center mx-auto" />
-                        </>
-                      ) : (
-                        <>
-                          <FaTimes className="text-interactive-light-destructive-focus text-xl text-center mx-auto" />
-                        </>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
-
           <table className="w-full text-sm text-white">
             <thead
               className="rounded-2xl overflow-hidden sticky z-50"

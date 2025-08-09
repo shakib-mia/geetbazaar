@@ -46,7 +46,7 @@ const Chat = () => {
                 {messages.map(({ content }, id) => (
                   <p
                     key={id}
-                    className="bg-primary mt-1 p-1 rounded-full text-white w-fit ml-auto"
+                    className="bg-primary mt-1 p-1 rounded-full text-black w-fit ml-auto"
                   >
                     {content}
                   </p>

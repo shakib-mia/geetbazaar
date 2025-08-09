@@ -176,7 +176,7 @@ const SongUploadFormContainer = ({ screen, setScreen }) => {
   console.log(formData);
 
   return (
-    <div className={`mt-5 px-2 lg:px-0 lg:py-6 lg:shadow`}>
+    <div className={`mt-6 px-2 lg:p-4 lg:shadow`}>
       <ScreenContext.Provider
         value={{ screen, setScreen, setFormData, formData }}
       >
