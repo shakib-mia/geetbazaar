@@ -14,6 +14,9 @@ export default defineConfig({
       exclude: ["**/*.scss", "**/*.css"],
     }),
   ],
+  server: {
+    historyApiFallback: true,
+  },
   optimizeDeps: {
     include: ["react-owl-carousel"],
   },
