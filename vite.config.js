@@ -14,6 +14,7 @@ export default defineConfig({
       exclude: ["**/*.scss", "**/*.css"],
     }),
   ],
+  base: "/",
   server: {
     historyApiFallback: true,
   },
