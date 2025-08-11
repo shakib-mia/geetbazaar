@@ -1494,6 +1494,7 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
           onClick={() => document.getElementsByClassName("owl-prev")[0].click()}
         /> */}
         <Button
+          className={"w-full lg:!w-1/5 mx-auto"}
           type={"submit"}
           // containerClassName={"mx-auto"}
 

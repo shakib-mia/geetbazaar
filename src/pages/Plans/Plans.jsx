@@ -183,7 +183,7 @@ const DynamicSongPlans = () => {
             <h4 className="text-heading-4 font-bold">{plan.name}</h4>
             <h5
               className={`text-heading-5-bold ${
-                isHighlighted ? "text-interactive-light" : "text-grey"
+                isHighlighted ? "text-white" : "text-grey"
               } mt-2`}
             >
               {displayPrice}

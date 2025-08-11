@@ -69,11 +69,11 @@ const Home = () => {
         <Notifications />
       </div> */}
 
-      <div className="flex flex-col lg:flex-row mt-2 gap-2">
-        <div className="w-full lg:w-2/3 bg-black rounded-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-3 mt-2 gap-2">
+        <div className="w-full lg:col-span-2 bg-black rounded-lg">
           <HomeAnalytics />
         </div>
-        <div className="w-full lg:w-1/3 card-shadow text-black p-4 bg-black rounded-lg">
+        <div className="w-full lg:col-span-1 card-shadow text-black p-4 bg-black rounded-lg">
           <UserSuggestions />
         </div>
       </div>

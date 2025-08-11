@@ -3,7 +3,7 @@ import resso from "./../../assets/icons/resso.webp";
 
 const Header = ({ header, subheader }) => {
   return (
-    <header className="pt-[67px]">
+    <header className="pt-[96px]">
       <div className="flex justify-center items-center mb-[14px] gap-1">
         {header === "Resso Profile Verification" && (
           <img className="w-5 h-5" src={resso} alt="" />

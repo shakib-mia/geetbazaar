@@ -225,7 +225,7 @@ const AlbumPreview = ({ albumData }) => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center mt-5 w-full lg:!w-1/5 mx-auto">
         {location.pathname.includes("edit-album") ? (
           <Button onClick={() => setScreen("distribution")}>
             Proceed to Checkout

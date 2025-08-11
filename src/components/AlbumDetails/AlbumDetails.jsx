@@ -476,7 +476,7 @@ const AlbumDetails = () => {
       </div>
 
       <Button
-        containerClassName={"w-fit mx-auto lg:mt-6"}
+        className={"w-full lg:!w-1/5 mx-auto lg:mt-6"}
         onClick={handleDetailSubmit}
         // disabled={Object.values(formData).length < 7}
         // type={"submit"}

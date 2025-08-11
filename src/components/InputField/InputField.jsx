@@ -52,7 +52,7 @@ const InputField = forwardRef((props, ref) => {
             disabled={disabled}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            className={`${styles.inputField} ${fieldClassName}`}
+            className={`${styles.inputField} ${fieldClassName} text-black`}
             required={required}
             {...rest}
           />

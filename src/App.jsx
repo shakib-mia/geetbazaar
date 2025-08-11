@@ -280,11 +280,7 @@ function App() {
                     {<Navbar />}
                   </>
                 )}
-              <div
-                className={`container ${
-                  window.location.pathname !== "/profile" && "container"
-                }`}
-              >
+              <div className={`container lg:px-0`}>
                 <Routes>
                   {routes.map(({ page, path }, key) => (
                     <Route key={key} path={path} element={page} />

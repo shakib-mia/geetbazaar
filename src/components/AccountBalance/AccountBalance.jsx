@@ -88,15 +88,25 @@ const WithdrawalSection = () => {
 
         {/* Display Lifetime Revenue and Withdrawable Amount */}
         <div className="mb-4">
-          <p className="text-lg">
-            Lifetime Revenue: {currencySymbol}
-            {displayRevenue}
-          </p>
-          <div className="flex gap-1">
-            <p className="text-lg">
-              Withdrawable Amount: {currencySymbol}
-              {displayWithdrawableAmount}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-end justify-between">
+            <aside className="col-span-2">
+              <p className="text-heading-6">
+                Lifetime Revenue: {currencySymbol}
+                {displayRevenue}
+              </p>
+              <div className="flex gap-1">
+                <p className="text-lg">
+                  Withdrawable Amount: {currencySymbol}
+                  {displayWithdrawableAmount}
+                </p>
+              </div>
+            </aside>
+            {/* Currency Toggle Button */}
+            <aside>
+              <Button onClick={() => setIsINR(!isINR)}>
+                Switch to {isINR ? "USD" : "INR"}
+              </Button>
+            </aside>
           </div>
           <Button
             onClick={() => showTokenize(true)}
@@ -104,16 +114,6 @@ const WithdrawalSection = () => {
           >
             <RiTokenSwapFill /> Tokenize
           </Button>
-        </div>
-
-        {/* Currency Toggle Button */}
-        <div className="mb-4">
-          <button
-            className="text-sm text-blue-500 hover:text-blue-700"
-            onClick={() => setIsINR(!isINR)}
-          >
-            Switch to {isINR ? "USD" : "INR"}
-          </button>
         </div>
 
         {/* Withdraw Button - Disabled if withdrawable amount is less than $1000 */}

@@ -126,11 +126,11 @@ aside:hover #profile-container {
 
 a.active {
   /* @apply bg-interactive-light text-black inline-block w-full; */
-  @apply bg-interactive-light rounded;
+  @apply border-b-2 border-interactive-light text-interactive-light;
 }
 
 a.active svg path {
-  @apply fill-white;
+  @apply fill-interactive-light;
 }
 
 #bottomBar a.active {

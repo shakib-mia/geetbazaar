@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { backendUrl } from "../../constants";
 import profile from "./../../assets/images/profile.png";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { ProfileContext } from "../../contexts/ProfileContext";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const ProfilePicture = ({
   imageUrl,
@@ -12,20 +13,18 @@ const ProfilePicture = ({
   setProfileData,
   modal,
 }) => {
-  // console.log(setProfileData);
   const { token } = useContext(ProfileContext);
-  // console.log(setProfileData);
+  const [error, setError] = useState(false);
+
   const handleProfilePictureUpload = (e) => {
     const file = e.target.files[0];
 
     if (file) {
-      // "file select", setProfileData;
       const reader = new FileReader();
 
       reader.onload = (event) => {
         const imageUrl = event.target.result;
 
-        // Display the image in SweetAlert
         Swal.fire({
           title: "Your selected image",
           imageUrl: imageUrl,
@@ -34,8 +33,8 @@ const ProfilePicture = ({
           confirmButtonText: "Confirm",
           confirmButtonColor: "#22683E",
           customClass: {
-            popup: "custom-swal-zindex-popup", // Custom class for the modal
-            backdrop: "custom-swal-zindex-backdrop", // Custom class for the dark overlay
+            popup: "custom-swal-zindex-popup",
+            backdrop: "custom-swal-zindex-backdrop",
           },
         }).then((result) => {
           if (result.isConfirmed) {
@@ -48,11 +47,9 @@ const ProfilePicture = ({
             const formData = new FormData();
             formData.append("file", file);
 
-            // "before upload", setProfileData;
             axios
               .post(backendUrl + "upload-profile-picture", formData, config)
               .then(({ data }) => {
-                // "After upload:", setProfileData;
                 if (setProfileData) {
                   setProfileData({ ...profileData, display_image: data.url });
                 } else {
@@ -63,10 +60,18 @@ const ProfilePicture = ({
         });
       };
 
-      // Read the file as a data URL
       reader.readAsDataURL(file);
     }
   };
+
+  useEffect(() => {
+    if (!imageUrl) return; // যদি imageUrl না থাকে fetch করবেন না
+
+    axios
+      .get(imageUrl)
+      .then(() => setError(false)) // ইমেজ ঠিক আছে, error false করে দিবে
+      .catch(() => setError(true)); // ইমেজ নেই বা error, true করে দিবে
+  }, [imageUrl]);
 
   return (
     <div
@@ -77,22 +82,17 @@ const ProfilePicture = ({
       <div
         className={`border-4 ${
           modal ? "lg:border-[10px]" : "lg:border-[5px]"
-        } border-white rounded-full aspect-square overflow-hidden flex items-center justify-center`}
+        } border-white rounded-full aspect-square overflow-hidden flex items-center justify-center bg-gray-100`}
       >
-        {imageUrl ? (
+        {!error && imageUrl ? (
           <img
             className="w-full aspect-square object-cover"
             src={imageUrl}
-            alt=""
+            alt="Profile"
+            onError={() => setError(true)} // ভুল ছিল: আগে setError(error) যেটা চলবে না, এখানে true দিতে হবে
           />
         ) : (
-          <img
-            className={`w-full aspect-square object-cover ${
-              profileData?.first_name || "blur-md"
-            }`}
-            src={profile}
-            alt="Demo"
-          />
+          <FaRegUserCircle className="text-gray-400 w-full h-full p-2" />
         )}
       </div>
 

@@ -3,12 +3,13 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { navItem } from "../../constants";
 import { MdLogout, MdMenu, MdClose } from "react-icons/md";
-import { FaBell, FaCaretDown } from "react-icons/fa";
-import logo from "../../assets/images/logo_white.png";
+import { FaBell, FaCaretDown, FaRegUserCircle } from "react-icons/fa";
+import logo from "../../assets/images/logo_black.png";
 import profile from "./../../assets/images/profile.png";
 import ReactGA from "react-ga4";
 import NotificationDropdown from "../NotificationDropdown/NotificationDropdown";
 import { RiTokenSwapLine } from "react-icons/ri";
+import axios from "axios";
 
 const Navbar = () => {
   const {
@@ -29,6 +30,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [notificationDropdownOpen, setNotificationDropdownOpen] =
     useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -110,14 +112,23 @@ const Navbar = () => {
     (notification) => !notification.read
   ).length;
 
+  useEffect(() => {
+    if (!userData?.display_image) return; // যদি userData?.display_image না থাকে fetch করবেন না
+
+    axios
+      .get(userData?.display_image)
+      .then(() => setError(false)) // ইমেজ ঠিক আছে, error false করে দিবে
+      .catch(() => setError(true)); // ইমেজ নেই বা error, true করে দিবে
+  }, [userData?.display_image]);
+
   return (
     <>
       <div
-        className="fixed top-2 rounded-lg container px-0 lg:px-2 left-0 right-0 lg:mx-auto bg-black text-white bg-opacity-70 backdrop-blur z-[99999]"
+        className="fixed top-2 rounded-lg container lg:px-0 left-0 right-0 lg:mx-auto bg-white text-grey-dark bg-opacity-70 backdrop-blur z-[99999]"
         id="topbar"
         onMouseLeave={() => setRightDropdownOpen(false)}
       >
-        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:shadow-lg">
+        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:shadow-lg px-2">
           <div className="flex justify-between items-center w-full lg:w-auto">
             <Link className="inline-block py-1  text-heading-6" to={"/"}>
               <img src={logo} alt="logo" className="w-[150px]" />
@@ -194,13 +205,13 @@ const Navbar = () => {
                   )}
                   {dropdownOpen && (
                     <ul
-                      className="bg-gray-800  shadow-lg rounded-lg lg:absolute lg:left-0 lg:mt-2 lg:w-[15rem] w-full"
+                      className="bg-white shadow-lg rounded-lg lg:absolute lg:left-0 lg:mt-2 lg:w-[15rem] w-full"
                       ref={dropdownMenuRef}
                     >
                       {item.dropdownItem?.map((subItem) => (
                         <li
                           key={subItem.dropdownPath}
-                          className="hover:bg-gray-700 transition"
+                          className="hover:bg-gray-700 transition hover:text-white"
                         >
                           <NavLink
                             to={subItem.dropdownPath}
@@ -220,7 +231,7 @@ const Navbar = () => {
             </div>
 
             {/* Profile Section */}
-            <div className="hidden lg:flex items-center gap-1 ">
+            <div className="hidden lg:flex items-center gap-2">
               {/* <NotificationDropdown
                 notificationDropdownOpen={notificationDropdownOpen}
                 setNotificationDropdownOpen={setNotificationDropdownOpen}
@@ -277,29 +288,33 @@ const Navbar = () => {
                 ref={dropdownMenuRef}
                 onMouseEnter={() => setRightDropdownOpen(true)}
               >
-                <img
-                  src={userData?.display_image || profile}
-                  className="rounded-full w-[40px] aspect-square object-cover cursor-pointer"
-                  alt="profile"
-                />
+                {!error && userData?.display_image ? (
+                  <img
+                    src={userData?.display_image || profile}
+                    className="rounded-full w-[40px] aspect-square object-cover cursor-pointer"
+                    alt="profile"
+                  />
+                ) : (
+                  <FaRegUserCircle className="text-gray-400 text-heading-5 w-full h-full" />
+                )}
                 {rightDropdownOpen && (
-                  <div className="absolute right-0 mt-0 w-[250px] bg-gray-800  shadow-lg rounded-lg overflow-hidden">
+                  <div className="absolute right-0 mt-0 w-[250px] bg-white bg-opacity-70 backdrop-blur shadow-lg rounded-lg overflow-hidden">
+                    {/* <div className="w-1 h-1 border-t border-r border-gray-800 absolute -top-[4px] -rotate-45 right-1"></div> */}
                     <div
                       onClick={() => navigate("/profile")}
                       className="p-2 cursor-pointer relative"
                     >
-                      <div className="w-1 h-1 bg-gray-800 absolute -top-[4px] rotate-45 right-1"></div>
-                      <p className="text-sm">
+                      <p className="text-heading-6 font-semibold">
                         {userData?.first_name + " " + userData?.last_name}
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-button">
                         {userData?.user_email || userData?.emailId}
                       </p>
                     </div>
                     <div className="border-t border-gray-700">
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-2 py-2 text-red-500 hover:bg-gray-700"
+                        className="w-full text-left px-2 py-2 text-interactive-light-destructive hover:text-white hover:bg-interactive-light-destructive"
                       >
                         Logout <MdLogout className="inline-block" />
                       </button>

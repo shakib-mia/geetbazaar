@@ -71,9 +71,6 @@ const Profile = () => {
   // const handleFollow = () => {
   //   ("follow");
   // };
-
-  const [details, setDetails] = useState(false);
-  const text = profileData.bio;
   // console.log({ profileData, userData });
 
   return (

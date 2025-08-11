@@ -19,7 +19,7 @@ const AllSongs = () => {
         ></div>
         <button
           className={`py-2 uppercase absolute w-1/2 left-0 z-10 text-button lg:text-paragraph-1 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
-            screen === "streaming" && "text-interactive-light"
+            screen === "streaming" && "bg-interactive-light text-white"
           }`}
           onClick={() => setScreen("streaming")}
         >
@@ -27,7 +27,7 @@ const AllSongs = () => {
         </button>
         <button
           className={`py-2 uppercase absolute w-1/2 left-1/2 z-10 text-button lg:text-paragraph-1 transition flex gap-1 justify-center items-center font-medium tracking-wider border-b border-interactive-light ${
-            screen === "recent uploads" && "text-interactive-light"
+            screen === "recent uploads" && "bg-interactive-light text-white"
           }`}
           onClick={() => setScreen("recent uploads")}
         >
