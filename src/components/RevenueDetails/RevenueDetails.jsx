@@ -319,23 +319,20 @@ const RevenueDetails = ({ setDetails, isrc }) => {
 
                     {/* Only expanded shows months */}
                     {expandedPlatform === item.platformName && (
-                      <tr className="bg-gray-800 text-sm text-gray-200">
+                      <tr className="text-sm text-black">
                         <td colSpan="4" className="px-4 py-3">
                           <div className="overflow-x-auto">
-                            <table className="w-full border border-gray-700 rounded">
-                              <thead className="bg-gray-700">
+                            <table className="w-full border border-gray-700 rounded divide-y divide-gray-700">
+                              <thead className="bg-gray-300">
                                 <tr>
                                   <th className="px-3 py-2">Month</th>
                                   <th className="px-3 py-2">Views</th>
                                   <th className="px-3 py-2">Revenue</th>
                                 </tr>
                               </thead>
-                              <tbody>
+                              <tbody className="divide-y divide-grey-dark">
                                 {item.months.map((monthData, i) => (
-                                  <tr
-                                    key={i}
-                                    className="border-t border-gray-600 hover:bg-gray-600"
-                                  >
+                                  <tr key={i} className="">
                                     <td className="px-3 py-2">
                                       {monthData.month}
                                     </td>
