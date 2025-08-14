@@ -92,7 +92,7 @@ const SongListItem = ({
         </div>
         <h6 className="text-heading-6 text-black">{Song || songName}</h6>
       </div> */}
-      <div className="flex relative group gap-2 flex-col lg:flex-row">
+      <div className="flex relative group gap-2 flex-col lg:flex-row h-full">
         <aside
           className={`${
             location.pathname === "/" ? "w-full h-full" : "w-full lg:w-fit"
@@ -107,7 +107,7 @@ const SongListItem = ({
         <aside
           className={`${
             location.pathname === "/"
-              ? "absolute w-full h-full bg-white backdrop-blur bg-opacity-60 justify-center flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity"
+              ? "absolute w-full h-full bg-black text-white rounded-lg backdrop-blur bg-opacity-60 justify-center flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity"
               : ""
           }`}
         >

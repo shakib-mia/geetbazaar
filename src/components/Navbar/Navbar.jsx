@@ -298,7 +298,13 @@ const Navbar = () => {
                   <FaRegUserCircle className="text-gray-400 text-heading-5 w-full h-full" />
                 )}
                 {rightDropdownOpen && (
-                  <div className="absolute right-0 mt-0 w-[250px] bg-white bg-opacity-70 backdrop-blur shadow-lg rounded-lg overflow-hidden">
+                  <div
+                    className="absolute right-0 mt-0 w-[250px] bg-white bg-opacity-70 backdrop-blur shadow-lg rounded-lg overflow-hidden"
+                    style={{
+                      top:
+                        document.getElementById("topbar").clientHeight + "px",
+                    }}
+                  >
                     {/* <div className="w-1 h-1 border-t border-r border-gray-800 absolute -top-[4px] -rotate-45 right-1"></div> */}
                     <div
                       onClick={() => navigate("/profile")}

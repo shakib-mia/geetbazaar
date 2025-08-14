@@ -113,7 +113,7 @@ const PlatformSelectionItem = ({
       <ul className={`grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4`}>
         {item?.platforms?.map((plat) => (
           <li
-            className={`flex gap-2 justify-center lg:justify-normal transition items-center rounded-xl cursor-pointer shadow-[#111] p-2 ${
+            className={`flex gap-2 justify-center lg:justify-normal transition items-center rounded-xl cursor-pointer shadow-[#aaaaaa77] p-2 ${
               selectedPlatforms?.includes(plat.cat_name)
                 ? "shadow-md"
                 : "shadow-none"

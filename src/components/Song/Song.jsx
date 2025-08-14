@@ -116,8 +116,8 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
           />
 
           {location.pathname === "/profile" && (
-            <div className="absolute bg-white bg-opacity-70 flex items-center justify-center w-fit h-fit transition-all duration-700 px-2 py-1 rounded-lg top-1 right-1 group-hover:-top-5 group-hover:-right-5">
-              <div className="text-black text-lg font-semibold">
+            <div className="absolute bg-black/70 flex items-center justify-center w-fit h-fit transition-all duration-700 px-2 py-1 rounded-lg top-1 right-1 group-hover:-top-5 group-hover:-right-5">
+              <div className="text-white text-lg font-semibold">
                 {userData.billing_country === "India" ? "₹" : "$"}
                 {formatNumber(
                   song?.revenue *
@@ -126,9 +126,9 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex flex-col justify-between p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 group">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex flex-col justify-between p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 group">
             <div className="flex justify-between items-start relative -top-full group-hover:top-0 transition-[top] duration-700">
-              <h6 className="text-black font-semibold text-heading-6 line-clamp-2">
+              <h6 className="text-white font-semibold text-heading-6 line-clamp-2">
                 {Song || songName}
               </h6>
               {/* <button
@@ -166,7 +166,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:scale-110 transition-transform duration-200"
+                        className="hover:scale-110 transition-transform duration-200 text-white"
                       >
                         <img
                           src={`${backendUrl}/uploads/platforms/${platform.src}.png`}
@@ -184,7 +184,7 @@ const SongItem = ({ song, isFirst, openSongId, setOpenSongId }) => {
                     onClick={(e) => e.stopPropagation()}
                     className="hover:scale-110 transition-transform duration-200"
                   >
-                    <FaApple className="text-black text-heading-5" />
+                    <FaApple className="text-white text-heading-5" />
                   </a>
                 )}
               </div>

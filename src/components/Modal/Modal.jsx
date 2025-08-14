@@ -12,7 +12,7 @@ const Modal = ({ children, handleClose, className, whiteContainerClass }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="text-interactive-light-destructive-focus absolute right-1 top-1"
+          className="hover:bg-transparent hover:text-interactive-light-destructive-focus inline-flex w-[40px] bg-interactive-light-destructive text-white justify-center items-center rounded-full aspect-square border-2 border-interactive-light-destructive absolute right-1 top-1"
           onClick={handleClose}
         >
           <FaTimes className="text-heading-6" />

@@ -87,7 +87,7 @@ const SongUploadProgress = ({ setScreen, screen }) => {
                     onClick={() => handleStepClick(step.id)}
                   >
                     <div
-                      className={`w-full h-full flex justify-center items-center text-heading-5-bold text-white text-sm rounded-full ${
+                      className={`w-full h-full flex justify-center items-center text-heading-5-bold aspect-square text-white text-sm rounded-full ${
                         currentStepIndex >= index || isVisited || isEditMode
                           ? "bg-gradient-to-br from-blue-700 to-blue-600"
                           : "bg-gray-300"
