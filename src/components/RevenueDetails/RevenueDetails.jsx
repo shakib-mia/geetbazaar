@@ -254,7 +254,7 @@ const RevenueDetails = ({ setDetails, isrc }) => {
           {/* Close Button */}
           <button
             onClick={() => setDetails("")}
-            className="absolute top-1 right-1 lg:top-4 lg:right-4 text-white text-xl opacity-60 hover:opacity-100 transition w-4 aspect-square bg-interactive-light-destructive"
+            className="absolute top-1 right-1 lg:top-4 lg:right-4 text-white text-xl rounded-full hover:opacity-100 transition w-4 aspect-square bg-interactive-light-destructive"
           >
             ✖
           </button>

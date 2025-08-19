@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import RequireAuth from "./RequireAuth";
 // import Dashboard from "./pages/Dashboard/Dashboard";
 import ProfileVerification from "./pages/ProfileVerification/ProfileVerification";

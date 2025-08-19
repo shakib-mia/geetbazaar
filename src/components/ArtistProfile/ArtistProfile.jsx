@@ -185,7 +185,7 @@ const ArtistProfile = ({
         }
         // onBlur={() => setShowPlats(false)}
         containerClassName={"w-full lg:w-1/3 h-fit"}
-        className={"flex gap-1 items-center justify-center !mt-3 !w-1/3"}
+        className={"flex gap-1 items-center justify-center !mt-3 lg:!w-1/3"}
         title="Add Artist Profile"
       >
         {showPlats ? (

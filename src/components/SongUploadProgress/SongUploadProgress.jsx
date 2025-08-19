@@ -17,7 +17,6 @@ const SongUploadProgress = ({ setScreen, screen }) => {
   const maxReachedStepIndex = useRef(currentStepIndex);
   const [visitedSteps, setVisitedSteps] = useState([screen]);
 
-  // Update visited steps whenever screen changes
   useEffect(() => {
     setVisitedSteps((prev) => {
       if (!prev.includes(screen)) {
@@ -32,21 +31,8 @@ const SongUploadProgress = ({ setScreen, screen }) => {
   }, [screen, currentStepIndex, isEditMode]);
 
   const handleStepClick = (stepId) => {
-    const clickedStepIndex = steps.findIndex((step) => step.id === stepId);
-    const isForward = clickedStepIndex > currentStepIndex;
-    const isVisited = visitedSteps.includes(stepId);
-
-    // if (!isForward || isVisited || isEditMode) {
     setScreen(stepId);
-    // }
   };
-
-  // Example: Check if any forward steps are already visited
-  const hasVisitedForwardSteps = steps.some((step, index) => {
-    return index > currentStepIndex && visitedSteps.includes(step.id);
-  });
-
-  console.log("Has visited forward steps:", hasVisitedForwardSteps);
 
   return (
     <div
@@ -54,8 +40,8 @@ const SongUploadProgress = ({ setScreen, screen }) => {
       id="upload-progress"
     >
       <div className="w-full relative mt-2 mb-4">
-        <div className="relative px-4 lg:px-12">
-          <div className="w-full lg:w-11/12 mx-auto h-[2px] bg-gray-200 rounded-full">
+        <div className="relative px-2 sm:px-4 lg:px-12">
+          <div className="w-full lg:w-5/6 mx-auto h-[2px] bg-gray-200 rounded-full">
             <div
               className="h-[2px] bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300"
               style={{
@@ -64,44 +50,48 @@ const SongUploadProgress = ({ setScreen, screen }) => {
             ></div>
           </div>
 
-          <div className="absolute -top-2 lg:-top-[32px] left-0 right-4 lg:right-12 flex justify-between">
+          <div className="absolute -top-6 sm:-top-2 lg:-top-[32px] left-0 right-2 sm:right-4 lg:right-12 grid grid-cols-5 w-full">
             {steps.map((step, index) => {
-              const isVisited = visitedSteps.includes(step.id);
-              const isForward = index > currentStepIndex;
+              const isActive = screen === step.id;
+              const isPassed = currentStepIndex > index;
+              const isVisitedForward =
+                index > currentStepIndex && visitedSteps.includes(step.id);
+
+              const circleBorderColor = isActive
+                ? "border-interactive-light-confirmation"
+                : isPassed || isVisitedForward || isEditMode
+                ? "border-interactive-light"
+                : "border-interactive-light-disabled";
+
+              const circleBgColor = isActive
+                ? "bg-interactive-light-confirmation"
+                : isPassed || isVisitedForward || isEditMode
+                ? "bg-interactive-light"
+                : "bg-interactive-light-disabled";
+
+              const textColor = isActive
+                ? "text-interactive-light-confirmation"
+                : isPassed || isVisitedForward || isEditMode
+                ? "text-interactive-light"
+                : "text-interactive-light-disabled";
 
               return (
                 <div
                   key={step.id}
-                  className={`flex flex-col items-center ${
-                    !isForward || isVisited || isEditMode
-                      ? "cursor-pointer"
-                      : "cursor-not-allowed"
-                  }`}
+                  className={`flex flex-col items-center cursor-pointer`}
                 >
                   <div
-                    className={`rounded-full w-4 lg:w-6 bg-white aspect-square ${
-                      screen === step.id
-                        ? "p-1 border-2 border-interactive-light"
-                        : ""
-                    } transition-all`}
+                    className={`rounded-full w-6 h-6 sm:w-4 sm:h-4 lg:w-6 lg:h-6 bg-white p-[2px] lg:p-1 border-2 ${circleBorderColor} transition-all`}
                     onClick={() => handleStepClick(step.id)}
                   >
                     <div
-                      className={`w-full h-full flex justify-center items-center text-heading-5-bold aspect-square text-white text-sm rounded-full ${
-                        currentStepIndex >= index || isVisited || isEditMode
-                          ? "bg-gradient-to-br from-blue-700 to-blue-600"
-                          : "bg-gray-300"
-                      }`}
+                      className={`w-full h-full flex justify-center items-center text-xs sm:text-[16px] lg:text-heading-5-bold text-white rounded-full ${circleBgColor}`}
                     >
                       {index + 1}
                     </div>
                   </div>
                   <span
-                    className={`hidden lg:block text-paragraph-1 text-center font-bold mt-1 ${
-                      currentStepIndex >= index || isVisited || isEditMode
-                        ? "text-interactive-light"
-                        : "text-black-deactivated"
-                    }`}
+                    className={`block text-[10px] sm:text-xs lg:text-paragraph-1 text-center font-bold mt-1 ${textColor}`}
                     onClick={() => handleStepClick(step.id)}
                   >
                     {step.label}

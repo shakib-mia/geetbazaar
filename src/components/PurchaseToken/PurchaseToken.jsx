@@ -1,3 +1,4 @@
+import { BiSolidPurchaseTagAlt } from "react-icons/bi";
 import React from "react";
 import Button from "../Button/Button";
 
@@ -16,7 +17,9 @@ const purchaseToken = async () => {
 const PurchaseToken = () => {
   return (
     <>
-      <Button onClick={purchaseToken}>Purchase Token</Button>
+      <Button disabled={true} styleType="outlined" onClick={purchaseToken}>
+        <BiSolidPurchaseTagAlt /> Purchase Token
+      </Button>
     </>
   );
 };

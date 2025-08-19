@@ -43,7 +43,7 @@ const HomeAnalytics = () => {
   }, []);
 
   return (
-    <div className="card-shadow p-2 pl-0">
+    <div className="card-shadow rounded-lg p-2 pl-0">
       <h4 className="text-heading-6-bold lg:text-heading-4-bold capitalize text-black mb-2 pl-3 text-center lg:text-left">
         Month wise revenue
       </h4>

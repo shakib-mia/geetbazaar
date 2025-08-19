@@ -9,6 +9,7 @@ import { RiTokenSwapFill } from "react-icons/ri";
 import Tokenize from "../Tokenize/Tokenize";
 import CreditTransfer from "../CreditTransfer/CreditTransfer";
 import PurchaseToken from "../PurchaseToken/PurchaseToken";
+import { FaCreditCard, FaShoppingCart } from "react-icons/fa";
 
 const WithdrawalSection = () => {
   const { userData, dollarRate, token, setRefetch } =
@@ -16,32 +17,24 @@ const WithdrawalSection = () => {
   const { lifetimeRevenue, lifetimeDisbursed } = userData;
   const [tokenize, showTokenize] = useState(false);
   const [creditTransfer, showCreditTransfer] = useState(false);
-  // const accountBalance =
-  //   lifetimeRevenue?.toFixed(2) ||
-  //   0 -
-  //     (parseFloat(lifetimeDisbursed || 0) + (userData.tokenized || 0))?.toFixed(
-  //       2
-  //     );
 
   const accountBalance =
     (lifetimeRevenue?.toFixed(2) || 0) -
     (parseFloat(lifetimeDisbursed || 0) + (userData.tokenized || 0)).toFixed(2);
   const navigate = useNavigate();
 
-  // State to toggle between INR and USD
-  const [isINR, setIsINR] = useState(userData.billing_country === "India");
+  // Currency State
+  const [currency, setCurrency] = useState(
+    userData.billing_country === "India" ? "INR" : "USD"
+  );
 
-  // Convert amount to INR if applicable
+  // Convert amount
   const convertToUSD = (amount) => amount * dollarRate;
 
-  // Handle the withdrawal process
   const handleWithdrawClick = () => {
     navigate("/revenue-form");
     if (userData.kycFilled) {
-      const config = {
-        headers: { token },
-      };
-
+      const config = { headers: { token } };
       axios.get(backendUrl + "withdrawal-request", config).then(({ data }) => {
         if (data.insertedId) {
           setRefetch((ref) => !ref);
@@ -53,12 +46,13 @@ const WithdrawalSection = () => {
     }
   };
 
-  console.log({ lifetimeRevenue });
-
+  const isINR = currency === "INR";
   const currencySymbol = isINR ? "₹" : "$";
+
   const displayRevenue = !isINR
     ? convertToUSD(lifetimeRevenue || 0).toFixed(2)
     : lifetimeRevenue?.toFixed(2) || 0;
+
   const numericBalance = Number(accountBalance) || 0;
 
   const displayWithdrawableAmount = !isINR
@@ -66,8 +60,7 @@ const WithdrawalSection = () => {
     : numericBalance.toFixed(2);
 
   return (
-    <div className="w-full shadow">
-      {/* {tokenize && ( */}
+    <div className="w-full h-full shadow">
       <Tokenize
         showTokenize={showTokenize}
         isINR={isINR}
@@ -80,71 +73,83 @@ const WithdrawalSection = () => {
           creditTransfer={creditTransfer}
         />
       )}
-      {/* )} */}
-      <div className="text-black rounded-lg card-shadow bg-white p-3 h-full">
+
+      <div className="text-grey-dark rounded-lg card-shadow bg-white p-3 h-full">
         <h4 className="text-2xl text-heading-4-bold font-semibold mb-1">
           Withdraw
         </h4>
 
-        {/* Display Lifetime Revenue and Withdrawable Amount */}
         <div className="mb-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 items-end justify-between">
-            <aside className="col-span-2">
+            <aside className="col-span-2 space-y-1">
               <p className="text-heading-6">
-                Lifetime Revenue: {currencySymbol}
-                {displayRevenue}
+                Lifetime Revenue: <br />
+                <span className="text-heading-5-bold">
+                  {currencySymbol}
+                  {displayRevenue}
+                </span>
               </p>
               <div className="flex gap-1">
-                <p className="text-lg">
-                  Withdrawable Amount: {currencySymbol}
-                  {displayWithdrawableAmount}
+                <p className="text-heading-6">
+                  Withdrawable Amount: <br />
+                  <span className="text-heading-5-bold">
+                    {currencySymbol}
+                    {displayWithdrawableAmount}
+                  </span>
                 </p>
               </div>
             </aside>
-            {/* Currency Toggle Button */}
+
+            {/* Currency Dropdown */}
             <aside>
-              <Button onClick={() => setIsINR(!isINR)}>
-                Switch to {isINR ? "USD" : "INR"}
-              </Button>
+              <select
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value)}
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="INR">INR (₹)</option>
+                <option value="USD">USD ($)</option>
+              </select>
             </aside>
           </div>
-          <Button
-            onClick={() => showTokenize(true)}
-            disabled={parseFloat(displayWithdrawableAmount) === 0}
-          >
-            <RiTokenSwapFill /> Tokenize
-          </Button>
         </div>
-
-        {/* Withdraw Button - Disabled if withdrawable amount is less than $1000 */}
-        <Button
-          onClick={handleWithdrawClick}
-          // className="text-subtitle-2-bold"
-          disabled={accountBalance < 1000}
-        >
+        <Button onClick={handleWithdrawClick} disabled={accountBalance < 1000}>
+          <FaCreditCard />
           {accountBalance >= 1000 ? (
             "Request Withdraw"
           ) : (
             <>
-              Minimum Withdrawable Amount:{" "}
-              {userData.billing_country === "India" ? "₹" : "$"}
-              {userData.billing_country === "India"
-                ? 1000
-                : (dollarRate * 1000).toFixed(2)}
+              Minimum Withdrawable Amount: {isINR ? "₹" : "$"}
+              {isINR ? 1000 : (dollarRate * 1000).toFixed(2)}
             </>
           )}
         </Button>
 
-        <div className="flex justify-between gap-2">
-          <Button
-            // disabled={accountBalance <= 0}
-            onClick={() => showCreditTransfer(true)}
-          >
-            Transfer Token
-          </Button>
+        <Button
+          onClick={() => showTokenize(true)}
+          disabled={parseFloat(displayWithdrawableAmount) === 0}
+          styleType="outlined"
+        >
+          <RiTokenSwapFill /> Tokenize
+        </Button>
 
-          <PurchaseToken />
-        </div>
+        {/* <div className="flex justify-between gap-2"> */}
+        <Button styleType="outlined" onClick={() => showCreditTransfer(true)}>
+          <FaShoppingCart /> Transfer Token
+        </Button>
+        <PurchaseToken />
+
+        <p className="mt-2">
+          You don’t need to wait for withdrawals anymore—you can instantly
+          convert your earnings into tokens and spend them directly on the
+          platform. Whatever you earn from sales, royalties, or commissions can
+          be turned into tokens and used to upgrade your plan, unlock premium
+          features, or purchase additional services without delays or external
+          transaction fees. This way, you get faster access to your funds and
+          more flexibility, while also making the most out of the platform by
+          reinvesting your earnings seamlessly.
+        </p>
+        {/* </div> */}
       </div>
     </div>
   );

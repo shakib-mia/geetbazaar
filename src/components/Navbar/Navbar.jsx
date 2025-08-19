@@ -124,11 +124,11 @@ const Navbar = () => {
   return (
     <>
       <div
-        className="fixed top-2 rounded-lg container lg:px-0 left-0 right-0 lg:mx-auto bg-white text-grey-dark bg-opacity-70 backdrop-blur z-[99999]"
+        className="fixed top-2 rounded-lg lg:shadow-lg container lg:px-0 left-0 right-0 lg:mx-auto bg-white text-grey-dark bg-opacity-70 backdrop-blur z-[99999]"
         id="topbar"
         onMouseLeave={() => setRightDropdownOpen(false)}
       >
-        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:shadow-lg px-2">
+        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between px-2">
           <div className="flex justify-between items-center w-full lg:w-auto">
             <Link className="inline-block py-1  text-heading-6" to={"/"}>
               <img src={logo} alt="logo" className="w-[150px]" />

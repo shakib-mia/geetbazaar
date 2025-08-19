@@ -210,7 +210,6 @@ const Distribution = () => {
     rzp1.open();
   };
 
-  console.log(planStore);
   const handleSubmit = () => {
     const price =
       parseFloat(

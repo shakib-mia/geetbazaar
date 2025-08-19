@@ -10,8 +10,12 @@ const GSTCalculator = ({ location, formData }) => {
   // Determine the correct price source
   const rawPrice =
     userData.billing_country === "India"
-      ? planStore.price || formData.price
+      ? parseFloat(
+          location.search.split("?")[2] || planStore.price || formData.price
+        )
       : parseFloat(location.search.split("?")[2] || formData.price);
+
+  console.log(rawPrice);
 
   // Convert raw price to number
   const totalPriceInPaisa = parseInt(rawPrice, 10);

@@ -79,8 +79,8 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className="py-3 lg:pt-6 lg:pb-6 flex justify-center mt-4">
-      <div className="shadow-xl shadow-[#000] p-3 bg-linear-[0deg] from-black to-interactive-light text-black w-11/12 lg:w-1/3 rounded-lg">
+    <div className="py-3 lg:pt-7 lg:pb-6 flex justify-center">
+      <div className="shadow shadow-[#00000081] p-3 bg-linear-[0deg] from-black to-interactive-light text-black w-11/12 lg:w-1/3 rounded-lg">
         <FaChevronLeft
           className="cursor-pointer"
           onClick={() => navigate(-1)}
@@ -120,6 +120,7 @@ const SocialLinks = () => {
                   href={song[item]}
                   target="_blank"
                   rel="noreferrer"
+                  key={key}
                   className="flex items-center gap-2 p-2 transition text-black"
                 >
                   {platformIcons[item.toLowerCase()] || platformIcons.default}

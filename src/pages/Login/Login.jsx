@@ -171,7 +171,10 @@ const Login = () => {
               value={password}
               required={true}
             />
-            <Button disabled={loading || !email.length || !password.length}>
+            <Button
+              type="submit"
+              disabled={loading || !email.length || !password.length}
+            >
               {loading ? "Logging in..." : "Login"}
             </Button>
           </form>

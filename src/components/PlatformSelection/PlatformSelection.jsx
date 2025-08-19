@@ -161,7 +161,7 @@ const PlatformSelection = ({ selectedPlatforms, setSelectedPlatforms }) => {
   return (
     <>
       <Button
-        className={"!w-1/4 ml-auto mb-4"}
+        className={" lg:!w-1/4 lg:ml-auto mb-4"}
         onClick={handleSelectedPlatform}
       >
         {checked ? "Deselect All" : "Select All"}

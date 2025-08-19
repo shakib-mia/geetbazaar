@@ -13,37 +13,32 @@ const Home = () => {
 
   return (
     <div className="pt-6 p-0 2xl:p-0 2xl:mt-7">
-      <div className="grid grid-cols-1 2xl:grid-cols-3 justify-between space-y-4 2xl:space-y-0 2xl:gap-x-2 text-black 2xl:h-[27rem]">
+      {/* <div className="grid grid-cols-1 2xl:grid-cols-3 justify-between space-y-4 2xl:space-y-0 2xl:gap-x-2 text-black">
         <UserCard />
-
         <Uploads />
-
         <AccountBalance />
       </div>
-
-      {/* <div className="flex flex-col 2xl:flex-row mt-2 w-full gap-2 text-grey-dark">
-        <AccountHistory />
-        <Notifications />
-      </div> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-2 gap-2">
         <div className="w-full lg:col-span-2 bg-black rounded-lg">
           <HomeAnalytics />
         </div>
-        <div className="w-full lg:col-span-1 card-shadow text-black p-4 bg-black rounded-lg">
-          <UserSuggestions />
-        </div>
-      </div>
-
-      {/* <div className="grid grid-cols-1 xl:grid-cols-2 mt-2 gap-2"> */}
-      {/* <RecentUploads /> */}
-      {/* <aside className="w-full"></aside> */}
-      {/* <CreateRecordLabel /> */}
-      {/* </div> */}
-      {/* <div className="grid grid-cols-1 mt-2 gap-2 xl:grid-cols-2">
-        <RecordLabels />
-        <UploadRecordLabel />
       </div> */}
+
+      <div className="grid lg:grid-cols-3 gap-4">
+        <aside className="col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <UserCard />
+          <Uploads />
+
+          <div className="col-span-2">
+            <HomeAnalytics />
+          </div>
+        </aside>
+
+        <aside className="h-full">
+          <AccountBalance />
+        </aside>
+      </div>
     </div>
   );
 };

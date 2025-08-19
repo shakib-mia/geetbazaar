@@ -167,8 +167,8 @@ const DynamicSongPlans = () => {
   const renderPlan = (plan, index) => {
     const isHighlighted = plan.name === "GeetBazaar CRBT+";
     const containerClass = isHighlighted
-      ? "!h-full p-4 rounded-lg mx-2 bg-interactive-light text-white shadow-[0_13px_13px] shadow-interactive-light relative -top-3"
-      : "!h-full p-4 rounded-lg shadow-[0_13px_13px_#000] mx-2 relative";
+      ? "!h-full p-4 rounded-lg mx-2 bg-interactive-light text-white shadow-xl shadow-interactive-light relative -top-3"
+      : "!h-full p-4 rounded-lg shadow-xl mx-2 relative";
     const buttonClass = isHighlighted
       ? "w-full justify-center !text-interactive-light !bg-white hover:bg-white-secondary focus:!bg-white-tertiary"
       : "w-full justify-center";

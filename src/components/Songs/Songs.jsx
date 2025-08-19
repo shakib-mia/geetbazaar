@@ -95,8 +95,9 @@ const Songs = () => {
       {songs.map((song, index) => (
         <SongItem
           key={song._id}
+          id={index}
           song={song}
-          isFirst={index === 0}
+          // isFirst={index === 0}
           openSongId={openSongId}
           setOpenSongId={setOpenSongId}
           isAccordionOpen={openSongId === song._id} // Pass the open state

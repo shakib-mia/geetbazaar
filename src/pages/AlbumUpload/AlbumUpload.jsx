@@ -93,7 +93,7 @@ const AlbumUpload = () => {
   console.log(formData);
 
   return (
-    <div className="ml-auto pt-5 h-full pb-7">
+    <div className="ml-auto pt-7 h-full pb-7">
       <SongUploadProgress screen={screen} setScreen={setScreen} />
       <div className={`mt-2 px-2 lg:mt-5 lg:px-5 lg:py-6 shadow`}>
         <h4 className="text-heading-4-bold text-grey capitalize mb-4">
