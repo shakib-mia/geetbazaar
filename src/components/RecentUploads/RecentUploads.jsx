@@ -43,10 +43,13 @@ const RecentUploads = () => {
       };
       axios
         .get(backendUrl + "recent-uploads", config)
-        .then(({ data }) => setSongs(data.notStreamingSongs))
+        .then(({ data }) => {
+          console.log(data);
+          setSongs(data.notStreamingSongs);
+        })
         .catch(() => navigate("/login"));
     }
-  }, [userData, update, token]);
+  }, [userData, update, navigate, token]);
 
   const filteredSongs = songs?.filter((item) => !item?.songs);
 
@@ -234,7 +237,7 @@ const RecentUploads = () => {
             </div>
 
             <div className="p-4 h-[calc(100%-80px)]">
-              <div className="h-full bg-gradient-to-br from-white/20 to-surface-white-surface-1/20 rounded-2xl flex items-center justify-center">
+              <div className="h-full bg-gradient-to-br from-white/20 to-surface-white-surface-1/20 rounded-2xl flex justify-center">
                 <Albums
                   setAlbumsCount={setAlbumsCount}
                   setUpdate={setUpdate}

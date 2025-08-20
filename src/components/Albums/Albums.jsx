@@ -33,23 +33,17 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (recentUploads) {
-      axios
-        .get(backendUrl + "recent-uploads/album", { headers: { token } })
-        .then(({ data }) => {
-          setAlbums(data);
-          setAlbumsCount(data.length);
-        })
-        .catch((err) => console.error(err));
-    } else {
-      axios
-        .get(backendUrl + "recent-uploads/album", { headers: { token } })
-        .then(({ data }) => {
-          setAlbums(data);
-          setAlbumsCount(data.length);
-        })
-        .catch((err) => console.error(err));
-    }
+    axios
+      .get(backendUrl + "recent-uploads/album", { headers: { token } })
+      .then(({ data }) => {
+        if (recentUploads) {
+          setAlbums(data.notStreamingAlbum);
+        } else {
+          setAlbums(data.streamingAlbum);
+        }
+        setAlbumsCount(data.length);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   const toggleDropdown = (albumId) => {

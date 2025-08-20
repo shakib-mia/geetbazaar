@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SongListItem from "../SongListItem/SongListItem";
 import Button from "../Button/Button";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -20,7 +20,6 @@ import dummyAlbumArt5 from "./../../assets/images/dummy-albums/5.webp";
 import { RiEditBoxLine } from "react-icons/ri";
 import { TbAlertTriangleFilled } from "react-icons/tb";
 import { FcOk } from "react-icons/fc";
-// import dummyAlbumArt1 from "./../../assets/images/dummy-albums/1.webp";
 
 // dummy album list
 const dummyAlbumArts = [
@@ -40,18 +39,12 @@ const Uploads = () => {
   const [expandedAlbum, setExpandedAlbum] = useState("");
 
   const toggleDropdown = (albumId) => {
-    // setExpandedAlbum(expandedAlbum.length > 0 ? "" : albumId);
-    // console.log(albumId);
     if (expandedAlbum !== albumId) {
       setExpandedAlbum(albumId);
     } else {
       setExpandedAlbum("");
     }
   };
-
-  // console.log();
-
-  // console.log(location.pathname);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -284,7 +277,7 @@ const Uploads = () => {
                 Your Tracks
               </h2>
               <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
-                {/* {filteredSongs.length} */}
+                {songs.filter((item) => !item.songs).length || 0}
               </span>
             </div>
             {renderContent()}
@@ -297,7 +290,7 @@ const Uploads = () => {
               </div>
               <h2 className="text-heading-5-bold text-black-primary">Albums</h2>
               <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
-                {/* {albumsCount} */}
+                {songs.filter((item) => item.songs).length || 0}
               </span>
             </div>
 
