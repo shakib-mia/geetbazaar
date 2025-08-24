@@ -47,9 +47,11 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
   }, []);
 
   const toggleDropdown = (albumId) => {
-    // setExpandedAlbum(expandedAlbum.length > 0 ? "" : albumId);
-    // console.log(albumId);
-    setExpandedAlbum(albumId);
+    if (expandedAlbum !== albumId) {
+      setExpandedAlbum(albumId);
+    } else {
+      setExpandedAlbum("");
+    }
   };
 
   const handleEdit = (albumId) => navigate("/edit-album/" + albumId);
