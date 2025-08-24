@@ -40,7 +40,7 @@ const Footer = () => {
         <ul className="flex flex-wrap lg:flex-nowrap gap-x-2 gap-y-1 justify-center md:gap-2 mb-2 md:mb-0 text-sm">
           <li className="w-fit">
             <a
-              href="https://forevisiondigital.com/digital-distribution-agreement/"
+              href="https://geetbazaardigital.com/digital-distribution-agreement/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-grey-dark transition"
@@ -50,7 +50,7 @@ const Footer = () => {
           </li>
           <li className="w-fit">
             <a
-              href="https://forevisiondigital.com/privacy-policy/"
+              href="https://geetbazaardigital.com/privacy-policy/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-grey-dark transition"
@@ -60,7 +60,7 @@ const Footer = () => {
           </li>
           <li className="w-fit">
             <a
-              href="https://forevisiondigital.com/cancellation-refund-policy/"
+              href="https://geetbazaardigital.com/cancellation-refund-policy/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-grey-dark transition"
@@ -70,7 +70,7 @@ const Footer = () => {
           </li>
           <li className="w-fit">
             <a
-              href="https://forevisiondigital.com/contact-us/"
+              href="https://geetbazaardigital.com/contact-us/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-grey-dark transition"
@@ -80,7 +80,7 @@ const Footer = () => {
           </li>
           <li className="w-fit">
             <a
-              href="https://forevisiondigital.com/support/"
+              href="https://geetbazaardigital.com/support/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-grey-dark transition"
@@ -95,10 +95,10 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-1 md:gap-2 items-center">
-          <a href="https://www.facebook.com/forevisiondigital">
+          <a href="https://www.facebook.com/geetbazaardigital">
             <FaFacebookSquare className="text-[#3b5998] text-sm md:text-heading-5" />
           </a>
-          <a href="https://www.instagram.com/forevisiondigital/">
+          <a href="https://www.instagram.com/geetbazaardigital/">
             <FaInstagramSquare className="text-[#d62976] text-sm md:text-heading-5" />
           </a>
           <a href="https://twitter.com/GeetBazaarIn">
@@ -107,7 +107,7 @@ const Footer = () => {
           <a href="https://www.youtube.com/channel/UCGPHBKBHGr_G16oM6SoLMRA">
             <FaYoutube className="text-[#ff0000] text-sm md:text-heading-4" />
           </a>
-          <a href="https://www.linkedin.com/company/forevisiondigital/">
+          <a href="https://www.linkedin.com/company/geetbazaardigital/">
             <FaLinkedin className="text-[#0077b5] text-sm md:text-heading-5" />
           </a>
         </div>

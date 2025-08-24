@@ -228,7 +228,7 @@ const RecentUploads = () => {
                 <Button
                   className="!mt-0 px-5"
                   onClick={() =>
-                    navigate("/album-upload?forevision-album?99900")
+                    navigate("/album-upload?geetbazaar-album?99900")
                   }
                 >
                   + Add New Album

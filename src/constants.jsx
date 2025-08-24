@@ -58,8 +58,8 @@ import ResetPasswordOtp from "./pages/ResetPasswordOtp/ResetPasswordOtp";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import RevenueFormNew from "./pages/RevenueFormNew/RevenueFormNew";
 
-export const backendUrl = "https://musicx-be.onrender.com/";
-// export const backendUrl = "http://localhost:5000/";
+// export const backendUrl = "https://musicx-be.onrender.com/";
+export const backendUrl = "http://localhost:5000/";
 export const currencyAPI = "https://api.frankfurter.app/latest";
 
 export const navItem = [
@@ -244,7 +244,7 @@ export const getVideoDistributions =
 export const getYoutubeOac =
   "http://adztronaut.com/music/admin/api/getYoutubeOac";
 
-export const imageDomain = "https://beta.forevisiondigital.com/admin/";
+export const imageDomain = "https://beta.geetbazaardigital.com/admin/";
 
 export const config = {
   headers: {

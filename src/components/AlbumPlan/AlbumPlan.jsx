@@ -175,16 +175,16 @@ const AlbumPlan = () => {
           className={
             "w-full justify-center bg-white !text-interactive-light-hover hover:bg-white-secondary active:bg-white-deactivated focus:bg-white-tertiary"
           }
-          // onClick={() => navigate(`/album-upload?forevision-album?99900`)}
+          // onClick={() => navigate(`/album-upload?geetbazaar-album?99900`)}
           onClick={() => {
             // setPrice(0);
-            // setPlanName("forevision-album");
+            // setPlanName("geetbazaar-album");
             setPlanStore((prev) => ({
               ...prev,
               planName: "GeetBazaar-album",
               price: 99900,
             }));
-            navigate("/album-upload?forevision-album?99900");
+            navigate("/album-upload?geetbazaar-album?99900");
           }}
           containerClassName={"mt-5"}
         ></Button>

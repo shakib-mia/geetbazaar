@@ -69,7 +69,7 @@ const FbInstaWhitelisting = () => {
         id="fb-insta-whitelisting"
         fields={fields}
         uIdKey="facebook_insta_whitelisting_uid"
-        backendUrl="https://beta.forevisiondigital.com/admin/api/addFacebookInstaWhitelisting"
+        backendUrl="https://beta.geetbazaardigital.com/admin/api/addFacebookInstaWhitelisting"
       />
     </div>
   );

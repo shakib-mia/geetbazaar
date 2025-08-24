@@ -19,10 +19,10 @@ const firebaseConfig = {
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyB8ORtnUmu2cQ0dxHX2Xl8BheNLGclb1Zc",
-//   // authDomain: "forevisiondigital.com",
-//   authDomain: "forevision-digital-43161.firebaseapp.com",
-//   projectId: "forevision-digital-43161",
-//   storageBucket: "forevision-digital-43161.appspot.com",
+//   // authDomain: "geetbazaardigital.com",
+//   authDomain: "geetbazaar-digital-43161.firebaseapp.com",
+//   projectId: "geetbazaar-digital-43161",
+//   storageBucket: "geetbazaar-digital-43161.appspot.com",
 //   messagingSenderId: "209383096809",
 //   appId: "1:209383096809:web:e4f7537b560beb98a80b78",
 //   measurementId: "G-42LT5XDG4B",

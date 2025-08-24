@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { backendUrl } from "../../constants";
-import profile from "./../../assets/images/profile.png";
+import profile from "./../../assets/images/profile-baul.webp";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -76,7 +76,7 @@ const ProfilePicture = ({
   return (
     <div
       className={`relative ${
-        modal ? "w-7 lg:w-[231px]" : "w-6"
+        modal ? "w-7 lg:w-[231px]" : "w-7"
       } aspect-square mx-auto`}
     >
       <div
@@ -92,7 +92,12 @@ const ProfilePicture = ({
             onError={() => setError(true)} // ভুল ছিল: আগে setError(error) যেটা চলবে না, এখানে true দিতে হবে
           />
         ) : (
-          <FaRegUserCircle className="text-gray-400 w-full h-full p-2" />
+          <img
+            className="w-full aspect-square object-cover"
+            src={profile}
+            alt="Profile"
+            onError={() => setError(true)} // ভুল ছিল: আগে setError(error) যেটা চলবে না, এখানে true দিতে হবে
+          />
         )}
       </div>
 

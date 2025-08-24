@@ -67,7 +67,6 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
             key={key}
             className={`bg-white/60 backdrop-blur-xl rounded border border-surface-white-line hover:shadow transition`}
           >
-            {/* Header */}
             <div
               className="flex flex-col lg:flex-row gap-4 items-center justify-between cursor-pointer"
               onClick={() => toggleDropdown(album._id)}
@@ -86,9 +85,19 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                   </h5>
                   <p className="text-subtitle-2 flex gap-2 items-center mt-1">
                     <strong>Status:</strong>{" "}
-                    {album.songs.some((song) => song.status !== "streaming") ? (
+                    {album.status === "paid" ? (
+                      <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
+                        Paid
+                      </span>
+                    ) : album.songs.some(
+                        (song) => song.status !== "streaming"
+                      ) ? (
                       <span className="bg-warning/15 text-warning px-2 py-0.5 rounded-full flex items-center gap-1">
                         <TbAlertTriangleFilled /> Needs Attention
+                      </span>
+                    ) : album.songs.some((song) => song.status === "paid") ? (
+                      <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
+                        <TbAlertTriangleFilled /> Paid
                       </span>
                     ) : (
                       <span className="bg-success/15 text-success px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -121,7 +130,6 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                 </button>
               </div>
             </div>
-
             {/* Dropdown Songs */}
             {expandedAlbum === album._id && (
               <div className="p-4 bg-white/30 border-surface-white-line rounded-b-2xl flex flex-col gap-3">

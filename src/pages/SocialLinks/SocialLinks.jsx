@@ -88,7 +88,7 @@ const SocialLinks = () => {
         <img
           src={
             song.artwork || dummyAlbumArt
-            // "https://server.forevisiondigital.in/uploads/art-work/file-1731994452207-1b_3000p.jpg"
+            // "https://server.geetbazaardigital.in/uploads/art-work/file-1731994452207-1b_3000p.jpg"
           }
           alt="dummy"
           className="mx-auto my-1 w-[200px] rounded-lg aspect-square object-cover"

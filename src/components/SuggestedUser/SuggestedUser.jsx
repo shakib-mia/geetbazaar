@@ -12,7 +12,7 @@ const SuggestedUser = ({
   return (
     <div className="flex gap-1 items-center pl-1">
       <img
-        src="https://server.forevisiondigital.in/uploads/profile-pictures/file-abc-1739018255451-WhatsApp-Image-2024-12-10-at-7.jpg"
+        src="https://server.geetbazaardigital.in/uploads/profile-pictures/file-abc-1739018255451-WhatsApp-Image-2024-12-10-at-7.jpg"
         alt="profile"
         className="!w-1/3"
       />

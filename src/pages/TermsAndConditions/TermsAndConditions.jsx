@@ -412,7 +412,7 @@ const TermsAndConditions = () => {
 
       <p>
         Content: All the contents uploaded by second part from
-        “www.forevisiondigital.com” or “forevisiondigital.com”.
+        “www.geetbazaardigital.com” or “geetbazaardigital.com”.
       </p>
 
       <p>

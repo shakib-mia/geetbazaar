@@ -4,6 +4,7 @@ import { FaChevronDown, FaChevronUp, FaFacebookF } from "react-icons/fa";
 import { FaInstagram, FaTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import cover from "./../../assets/images/artist-cover.webp";
+import ProfilePicture from "../ProfilePicture/ProfilePicture";
 
 const UserCard = () => {
   const { userData } = useContext(ProfileContext);
@@ -37,14 +38,23 @@ const UserCard = () => {
           />
         )}
         <div className="relative">
-          <img
+          {/* <img
             src={userData.display_image}
             alt="profile"
             className="h-6 aspect-square rounded-full object-cover object-center absolute -top-4 left-0 right-0 mx-auto"
-          />
+          /> */}
+          <div className="absolute -top-[80px] left-0 right-0 mx-auto">
+            <ProfilePicture
+              imageUrl={userData.display_image}
+              editable={false}
+              modal={false}
+              profileData={userData}
+              setProfileData={() => {}}
+            />
+          </div>
         </div>
 
-        <div className="mt-5 p-1 text-center">
+        <div className="mt-6 p-1 text-center">
           <Link to={"/profile"} className="text-heading-6-bold text-center">
             {userData.first_name} {userData.last_name}
           </Link>

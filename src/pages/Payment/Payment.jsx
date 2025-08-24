@@ -2,16 +2,15 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { backendUrl, config } from "../../constants";
 import logo from "../../assets/icons/logo.PNG";
-import razorpay from "./../../assets/icons/razorpay.png";
-import phonepe from "../../assets/icons/phonepe.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { PlanContext } from "../../contexts/PlanContext";
-import { ScreenContext } from "../../contexts/ScreenContext";
 import { formatDate } from "../../utils/formatDate";
 import { SiRazorpay } from "react-icons/si";
 import { useRazorpay } from "react-razorpay";
+import Button from "../../components/Button/Button";
+import Swal from "sweetalert2";
 
 const Payment = () => {
   const Razorpay = useRazorpay();
@@ -53,9 +52,6 @@ const Payment = () => {
         setSongData(data);
       });
   }, []);
-
-  // console.log(location.search.split("=")[1]);
-  console.log(userData.billing_country);
 
   const handleRazorpayPayment = async (params) => {
     axios
@@ -212,13 +208,98 @@ const Payment = () => {
     });
   };
 
+  // console.log({ formData });
+
+  const handlePayWithGeetCoin = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      html: "You will be charged <b>999 GeetCoins</b> for this transaction.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#22683E",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, proceed",
+      customClass: {
+        popup: "custom-swal-zindex-popup",
+        backdrop: "custom-swal-zindex-backdrop",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const config = {
+          headers: {
+            token,
+          },
+        };
+        axios
+          .post(
+            backendUrl + "tokenize/charge/" + formData.orderId,
+            { amount: 999 },
+            config
+          )
+          .then(({ data }) => {
+            if (data.success) {
+              setPlanStore((prev) => ({
+                ...prev,
+                order_id,
+                payment_id: songData.payment_id,
+              }));
+              songData.order_id = order_id;
+              songData.payment_id = "geetcoin-payment";
+              songData.status = "paid";
+              songData.paymentDate = formatDate(new Date());
+              axios
+                .put(
+                  backendUrl + "songs/by-order-id/" + formData.orderId,
+                  songData
+                )
+                .then(({ data }) => {
+                  if (data.acknowledged) {
+                    axios
+                      .get(
+                        `${backendUrl}plans/monthly-sales/${formData.price}`,
+                        {
+                          headers: {
+                            token,
+                          },
+                        }
+                      )
+                      .then(({ data }) => console.log(data));
+                    navigate("/payment-success");
+                  }
+                });
+            } else {
+              Swal.fire({
+                title: "Payment Failed",
+                text: "You do not have enough GeetCoins to complete this transaction.",
+                icon: "error",
+                confirmButtonColor: "#22683E",
+                customClass: {
+                  popup: "custom-swal-zindex-popup",
+                  backdrop: "custom-swal-zindex-backdrop",
+                },
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Payment error:", error);
+            Swal.fire({
+              title: "Payment Error",
+              text: "There was an error processing your payment. Please try again later.",
+              icon: "error",
+              confirmButtonColor: "#22683E",
+              customClass: {
+                popup: "custom-swal-zindex-popup",
+                backdrop: "custom-swal-zindex-backdrop",
+              },
+            });
+          });
+      }
+    });
+  };
+
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="flex flex-col w-10/12 md:w-1/2 xl:w-1/4 relative shadow-xl rounded-lg">
-        {/* <h5 className="text-heading-5-bold text-black-secondary bg-primary absolute top-0 left-0 w-full p-2 rounded-t-lg">
-          Select Your Payment Method
-        </h5> */}
-
         <div className="p-4">
           <button
             className="w-full flex justify-center items-baseline text-black hover:bg-white hover:text-primary transition py-2 border-2 border-primary rounded-full mb-3" // mt-6 will be here when more methods and header will be added
@@ -230,6 +311,9 @@ const Payment = () => {
             <p className="italic text-heading-6-bold">Razorpay</p>
             {/* <img src={razorpay} alt="razorpay" className="w-1/3 grayscale" /> */}
           </button>
+          <Button className="!rounded-full" onClick={handlePayWithGeetCoin}>
+            Pay with GeetCoin
+          </Button>
           {/* 
           <PayPalScriptProvider options={initialOptions}>
             <PayPalButtons

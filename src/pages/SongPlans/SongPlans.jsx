@@ -180,13 +180,13 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
               className={"w-full justify-center"}
               onClick={() => {
                 setPrice(0);
-                setPlanName("forevision-social");
+                setPlanName("geetbazaar-social");
                 setPlanStore((prev) => ({
                   ...prev,
                   planName: "GeetBazaar-social",
                   price: 0,
                 }));
-                navigate("/song-upload?foreVision-social?0");
+                navigate("/song-upload?geetbazaar-social?0");
               }}
             ></Button>
           </div>
@@ -320,7 +320,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                   planName: "CRBT+",
                   price: 69900,
                 }));
-                navigate("/song-upload?forevision-crbt+?69900");
+                navigate("/song-upload?geetbazaar-crbt+?69900");
               }}
             ></Button>
           </div>
@@ -426,7 +426,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                   planName: "GeetBazaar Pro",
                   price: 49800,
                 }));
-                navigate("/song-upload?forevision-pro?49800");
+                navigate("/song-upload?geetbazaar-pro?49800");
               }}
               className={"w-full justify-center"}
               containerClassName={"mt-3"}
@@ -533,7 +533,7 @@ const SongPlans = ({ handleRazorpayPayment, setPlanName }) => {
                 }));
 
                 setPlanName("CRBT");
-                navigate("/song-upload?forevision-crbt?49900");
+                navigate("/song-upload?geetbazaar-crbt?49900");
               }}
             ></Button>
           </div>

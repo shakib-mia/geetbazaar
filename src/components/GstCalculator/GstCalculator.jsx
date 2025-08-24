@@ -34,8 +34,8 @@ const GSTCalculator = ({ location, formData }) => {
   const gstAmount = totalPrice - originalPrice;
 
   return (
-    <aside className="w-1/2 p-2 flex items-center">
-      <span className="font-bold">
+    <aside className="p-2 flex justify-center items-center">
+      <span>
         {userData.billing_country !== "India" ? "$" : <>&#8377;</>}
         {totalPrice.toFixed(2)} (Includes{" "}
         {userData.billing_country !== "India" ? "$" : <>&#8377;</>}

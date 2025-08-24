@@ -1135,7 +1135,7 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
             }
             id={"audioUpload_" + id}
             // note={
-            //   "Ensure your audio files are in WAV or MP3 formats only (Max 50MB). For bigger file mail us directly at content@forevisiondigital.com"
+            //   "Ensure your audio files are in WAV or MP3 formats only (Max 50MB). For bigger file mail us directly at content@geetbazaardigital.com"
             // }
             dangerNote
             required={!location.pathname.includes("edit-song")}
@@ -1169,7 +1169,7 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
       {/* )} */}
       {(location.search.split("?")[1]?.includes("-")
         ? location.search.split("?")[1]?.split("-")?.join(" ")
-        : location.search.split("?")[1]) !== "forevision pro" ? (
+        : location.search.split("?")[1]) !== "geetbazaar pro" ? (
         <CallerTuneTimeStamp audioDuration={audioDuration} id={id} />
       ) : (
         <></>

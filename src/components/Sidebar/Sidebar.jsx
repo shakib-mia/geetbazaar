@@ -96,7 +96,7 @@ const Sidebar = () => {
         </div> */}
         <a
           className="inline-block w-7 lg:w-2/12"
-          href={"https://forevisiondigital.com/"}
+          href={"https://geetbazaardigital.com/"}
           target="_blank"
           rel="noreferrer"
         >

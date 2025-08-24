@@ -297,7 +297,7 @@ const Agreement = ({ handleClose, formData }) => {
         </p>
 
         <p className="my-2">
-          <b>AND Whereas, FOREVISION DIGITAL or First Part</b> is a record label
+          <b>AND Whereas, geetbazaar DIGITAL or First Part</b> is a record label
           & digital distributor based on India that made the plat form for
           publishing songs on all its network including YouTube (content
           id/Video), Social sites, web site, App (s), and other digital
@@ -484,7 +484,7 @@ const Agreement = ({ handleClose, formData }) => {
               {location.search
                 ?.split("?")[1]
                 ?.toLowerCase()
-                ?.includes("forevision-social") ||
+                ?.includes("geetbazaar-social") ||
               location.pathname?.includes("album-upload")
                 ? 80
                 : 90}
@@ -492,7 +492,7 @@ const Agreement = ({ handleClose, formData }) => {
               {location.search
                 ?.split("?")[1]
                 ?.toLowerCase()
-                ?.includes("forevision-social") ||
+                ?.includes("geetbazaar-social") ||
               location.pathname?.includes("album-upload")
                 ? 80
                 : 85}

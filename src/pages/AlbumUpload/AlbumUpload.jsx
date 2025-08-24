@@ -49,8 +49,6 @@ const AlbumUpload = () => {
   const [modal, showModal] = useState(false);
   const { userData, token } = useContext(ProfileContext);
 
-  console.log("Form Data:", formData);
-
   // Fetch previous album data if in edit mode
   useEffect(() => {
     if (location.pathname.split("/")[1] === "edit-album") {
@@ -90,7 +88,7 @@ const AlbumUpload = () => {
     }
   }, []);
 
-  console.log(formData);
+  // console.log(formData);
 
   return (
     <div className="ml-auto pt-7 h-full pb-7">
@@ -98,10 +96,12 @@ const AlbumUpload = () => {
       <div className={`mt-2 px-2 lg:mt-5 lg:px-5 lg:py-6 shadow`}>
         <h4 className="text-heading-4-bold text-grey capitalize mb-4">
           Plan : {/* {} */}
-          {userData.yearlyPlanEndDate
+          {formData.planName
+            ? formData.planName.replace("-", " ")
+            : userData.yearlyPlanEndDate
             ? "Yearly Plan"
             : location.search.split("?")[1]?.includes("-")
-            ? location.search.split("?")[1]?.split("-")?.join(" ")
+            ? location.search.split("?")[1]?.replace("-", " ")
             : location.search.split("?")[1]}
         </h4>
 

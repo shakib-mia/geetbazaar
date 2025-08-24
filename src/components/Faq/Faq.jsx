@@ -82,7 +82,7 @@ const Faq = () => {
     {
       title: "What is your refund policy?",
       content:
-        "We will refund the amount (after deduction of taxes, platform fees, and basic fees) in case your song is not LIVE on at least one platform within 30 days of the go-live date. Refund requests can be submitted to admin@forevisiondigital.com. Once the song is live, we cannot accept your refund request.",
+        "We will refund the amount (after deduction of taxes, platform fees, and basic fees) in case your song is not LIVE on at least one platform within 30 days of the go-live date. Refund requests can be submitted to admin@geetbazaardigital.com. Once the song is live, we cannot accept your refund request.",
       listItems: [
         "- Forced takedown by the uploader.",
         "- Cancellation of the order by the customer.",

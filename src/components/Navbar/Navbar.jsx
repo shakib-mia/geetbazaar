@@ -299,7 +299,7 @@ const Navbar = () => {
                 )}
                 {rightDropdownOpen && (
                   <div
-                    className="absolute right-0 mt-0 w-[250px] bg-white bg-opacity-70 backdrop-blur shadow-lg rounded-lg overflow-hidden"
+                    className="absolute right-0 mt-0 w-[250px] bg-white backdrop-blur shadow-lg rounded-t-none rounded-lg overflow-hidden"
                     style={{
                       top:
                         document.getElementById("topbar").clientHeight + "px",

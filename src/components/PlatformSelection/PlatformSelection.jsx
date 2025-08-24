@@ -36,12 +36,12 @@ const PlatformSelection = ({ selectedPlatforms, setSelectedPlatforms }) => {
   const proLogic =
     (location.search.split("?")[1]?.includes("-")
       ? location.search.split("?")[1]?.split("-")?.join(" ")
-      : location.search.split("?")[1]) === "forevision pro";
+      : location.search.split("?")[1]) === "geetbazaar pro";
 
   const crbtLogic =
     (location.search.split("?")[1]?.includes("-")
       ? location.search.split("?")[1]?.split("-")?.join(" ")
-      : location.search.split("?")[1]) === "forevision crbt";
+      : location.search.split("?")[1]) === "geetbazaar crbt";
 
   // const yearlyLogic = location.search.split("?")[1] === "yearly-plan";
 

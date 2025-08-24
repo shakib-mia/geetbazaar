@@ -24,7 +24,7 @@ const InputField = forwardRef((props, ref) => {
   // console.log(focused);
 
   return (
-    <div className={`relative mb-3 ${props.parentClassName}`}>
+    <div className={`relative ${props.parentClassName}`}>
       <div className={`${styles.inputContainer} ${containerClassName}`}>
         {props.textarea ? (
           <textarea

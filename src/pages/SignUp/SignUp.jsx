@@ -123,7 +123,7 @@ const SignUp = () => {
 
     // const formData = new FormData(e.target);
 
-    // axios.post("https://beta.forevisiondigital.com/admin/api/userRegistration", formData).then(res => {
+    // axios.post("https://beta.geetbazaardigital.com/admin/api/userRegistration", formData).then(res => {
     //   if (res.data.success) {
     // (res.data);
     //     setUserData({ ...userData, email: e.target.user_email.value, userId: res.data.data })
