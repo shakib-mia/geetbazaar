@@ -102,7 +102,7 @@ const Profile = () => {
               profileData={profileData}
             />
           </div>
-          <div className="mt-[150px]">
+          <div className="mt-[200px]">
             <div className="flex gap-1 items-center">
               <h6 className="text-heading-6 underline">
                 {profileData.first_name} {profileData.last_name}

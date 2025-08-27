@@ -3,10 +3,10 @@ import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 import { backendUrl } from "../../constants";
-import bg from "../../assets/images/login-bg.jpg";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 // import * as ReactOwlCarousel from "react-owl-carousel";
+import loginBg from "../../assets/images/loginbg.jpg";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = React.useState("");
@@ -42,46 +42,18 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat">
-      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-sm lg:max-w-4xl mx-auto w-full rounded-lg overflow-hidden shadow-[0_10px_12px] shadow-[#000] p-1">
-        <aside className="p-1 pl-0 pb-0">
-          {/* <ReactOwlCarousel
-            items={1}
-            className="h-full !hidden lg:!block auth-slider"
-            autoplay
-            autoplayTimeout={3000}
-            loop
-            animateIn="fadeIn"
-            animateOut="fadeOut"
-            dots={true}
-            mouseDrag={false} // disables mouse swiping
-            touchDrag={false} // disables touch swiping
-            pullDrag={false} // disables pull drag behavior
-          >
-            <img
-              src={bg}
-              alt="background"
-              className="!w-full !h-full object-cover object-[7%] rounded-md aspect-square"
-            />
-
-            <img
-              src={
-                "https://t4.ftcdn.net/jpg/07/62/21/69/360_F_762216992_HjUZb565ohcpBh6R2rtal3JlOEf94XSX.jpg"
-              }
-              alt="background"
-              className="!w-full !h-full object-cover object-center rounded-md aspect-square"
-            />
-
-            <img
-              src={
-                "https://as1.ftcdn.net/v2/jpg/10/97/26/64/1000_F_1097266431_IG7QdOTzN4kgYRCCqEqTv3A5ZXDdxllx.jpg"
-              }
-              alt="background"
-              className="!w-full !h-full object-cover object-right rounded-md aspect-square"
-            />
-          </ReactOwlCarousel> */}
-        </aside>
-        <form className="p-2 lg:p-4" onSubmit={handleSubmit}>
+    <div
+      className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+      id="login-page"
+    >
+      <div
+        className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${loginBg})` }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="p-4 border-2 backdrop-blur-lg bg-black/15 border-white/30 rounded-xl max-w-lg"
+        >
           <h5 className="text-heading-5-bold mb-4">Reset Password</h5>
           <InputField
             type="password"

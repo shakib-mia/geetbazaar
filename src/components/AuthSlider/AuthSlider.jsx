@@ -1,16 +1,19 @@
 import React from "react";
 // import Swiper from "swiper";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
 import bg from "../../assets/images/login-bg.jpg";
 
 const AuthSlider = () => {
   return (
     <Swiper
       slidesPerView={1}
-      modules={[Autoplay]}
-      autoplay
+      modules={[Autoplay, EffectFade]}
+      autoplay={{ delay: 3000 }}
       className="h-full"
+      loop
       creativeEffect={{
         prev: {
           shadow: true,
@@ -20,6 +23,7 @@ const AuthSlider = () => {
           translate: ["100%", 0, 0],
         },
       }}
+      effect="fade"
     >
       <SwiperSlide>
         <img

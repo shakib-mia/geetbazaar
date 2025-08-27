@@ -7,6 +7,7 @@ import { backendUrl } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import AuthSlider from "../../components/AuthSlider/AuthSlider";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import loginBg from "../../assets/images/loginbg.jpg";
 
 // import { Link } from "react-router-dom";
 
@@ -57,17 +58,17 @@ const ForgetPassword = () => {
       className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
       id="login-page"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-[0_10px_12px] shadow-[#000]">
-        <aside className="p-1">
-          <AuthSlider />
-        </aside>
-        <div className="p-4 flex flex-col justify-center relative">
-          <BsChevronLeft
+      <div
+        className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${loginBg})` }}
+      >
+        <div className="p-4 border-2 backdrop-blur-lg bg-black/15 border-white/30 rounded-xl">
+          {/* <BsChevronLeft
             className="absolute left-0 top-1 text-heading-5 cursor-pointer"
             onClick={() => navigate(-1)}
-          />
+          /> */}
           <div className="flex justify-between items-center">
-            <h4 className="text-heading-4-bold font-bold text-center text-blue-400">
+            <h4 className="text-heading-4-bold font-bold text-center text-white">
               Forgot Your Password
             </h4>
           </div>
@@ -79,6 +80,7 @@ const ForgetPassword = () => {
               value={email}
               name="forgot-email"
               required={true}
+              fieldClassName="!border-none !bg-white/30"
             />
 
             <Button disabled={sending} type={"submit"}>

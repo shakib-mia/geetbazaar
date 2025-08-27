@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -60,6 +61,11 @@ function App() {
   // const [sessionDuration, setSessionDuration] = useState(0);
   const [albumToggled, setAlbumToggled] = useState(false);
 
+  const existingUsers = useMemo(() => {
+    return JSON.parse(localStorage.getItem("users")) || [];
+  }, []);
+  const [loggedInUsers, setLoggedInUsers] = useState(existingUsers);
+
   /* Working api calls starts here */
   gsap.registerPlugin(ScrollTrigger);
 
@@ -74,14 +80,12 @@ function App() {
         .get(backendUrl + "token-time", config)
         .then(({ data }) => setTokenDetails(data))
         .catch((err) => {
-          // console.log(err.response);
           if (err.response.status === 401) {
             setToken("");
             sessionStorage.removeItem("token");
             toast.error("Token has expired", {
               position: "bottom-center",
             });
-            // navigate("/login");
             window.location.href = "/login";
           }
         });
@@ -140,6 +144,8 @@ function App() {
     setUpdated,
     albumToggled,
     setAlbumToggled,
+    loggedInUsers,
+    setLoggedInUsers,
   };
 
   useEffect(() => {
@@ -152,14 +158,35 @@ function App() {
     if (token) {
       axios.get(backendUrl + `getUserData`, config).then(({ data }) => {
         if (data?.data !== null) {
-          // console.log(data.data);
           setUserData(data.data);
+
+          // Safe data select koro
+          const safeUserData = {
+            email: data.data.emailId || data.data.user_email,
+            firstName: data.data.first_name,
+            lastName: data.data.last_name,
+            image: data.data.display_image,
+          };
+
+          // Existing users ke load koro
+
+          // Check koro jei user already ache ki na
+          const userExists = existingUsers.some(
+            (user) => user.email === safeUserData.email
+          );
+
+          if (!userExists) {
+            existingUsers.push(safeUserData);
+
+            localStorage.setItem("users", JSON.stringify(existingUsers));
+            setLoggedInUsers(existingUsers);
+          }
         } else {
           // navigate("/signup-details");
         }
       });
     }
-  }, [token, updated, refetch]);
+  }, [token, updated, refetch, existingUsers]);
 
   useEffect(() => {
     if (userData.user_email) {
@@ -266,15 +293,15 @@ function App() {
         <BrowserRouter>
           <ProfileContext.Provider value={store}>
             <PlanContext.Provider value={{ planStore, setPlanStore }}>
-              {window.location.pathname !== "/login" &&
-                window.location.pathname !== "/signup" &&
-                window.location.pathname !== "/forgot-password" &&
-                window.location.pathname !== "/signup-details" &&
-                window.location.pathname !== "/verify-otp" &&
-                !window.location.pathname.includes("/verify-otp/reset") &&
-                !window.location.pathname.includes("/reset-password") &&
-                !window.location.pathname.includes("payment") &&
-                !window.location.pathname.includes("share") && (
+              {location.pathname !== "/login" &&
+                location.pathname !== "/signup" &&
+                location.pathname !== "/forgot-password" &&
+                location.pathname !== "/signup-details" &&
+                location.pathname !== "/verify-otp" &&
+                !location.pathname.includes("/verify-otp/reset") &&
+                !location.pathname.includes("/reset-password") &&
+                !location.pathname.includes("payment") &&
+                !location.pathname.includes("share") && (
                   <>
                     {/* {store.token && <Sidebar />} */}
                     {<Navbar />}

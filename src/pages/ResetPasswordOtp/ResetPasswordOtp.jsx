@@ -1,16 +1,14 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 import axios from "axios";
-import bg from "../../assets/images/login-bg.jpg";
 import { backendUrl } from "../../constants";
 import { toast } from "react-toastify";
 // import * as ReactOwlCarousel from "react-owl-carousel";
-import { ProfileContext } from "../../contexts/ProfileContext";
+import loginBg from "../../assets/images/loginbg.jpg";
 
 const ResetPasswordOtp = () => {
-  const { userData } = useContext(ProfileContext);
   const location = useLocation();
   const navigate = useNavigate();
   const token = location.search.split("=")[1];
@@ -81,43 +79,15 @@ const ResetPasswordOtp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat auth-slider">
-      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-[0_10px_12px] shadow-[#000]">
-        <aside className="p-1">
-          {/* <ReactOwlCarousel
-            items={1}
-            className="h-full !hidden lg:!block"
-            autoplay
-            autoplayTimeout={3000}
-            loop
-            animateIn="fadeIn"
-            animateOut="fadeOut"
-            dots={true}
-          >
-            <img
-              src={bg}
-              alt="background"
-              className="!w-full !h-full object-cover object-[7%] rounded-md aspect-square"
-            />
-
-            <img
-              src={
-                "https://t4.ftcdn.net/jpg/07/62/21/69/360_F_762216992_HjUZb565ohcpBh6R2rtal3JlOEf94XSX.jpg"
-              }
-              alt="background"
-              className="!w-full !h-full object-cover object-center rounded-md aspect-square"
-            />
-
-            <img
-              src={
-                "https://as1.ftcdn.net/v2/jpg/10/97/26/64/1000_F_1097266431_IG7QdOTzN4kgYRCCqEqTv3A5ZXDdxllx.jpg"
-              }
-              alt="background"
-              className="!w-full !h-full object-cover object-right rounded-md aspect-square"
-            />
-          </ReactOwlCarousel> */}
-        </aside>
-        <div className="p-4">
+    <div
+      className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+      id="login-page"
+    >
+      <div
+        className="flex justify-center items-center min-h-screen text-black min-w-[100vw] absolute left-0 bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${loginBg})` }}
+      >
+        <div className="p-4 border-2 backdrop-blur-lg bg-black/15 border-white/30 rounded-xl max-w-lg">
           <form onSubmit={handleSubmit}>
             <h5 className="text-heading-5-bold">Verify Email Address</h5>
             <p>Enter the otp sent to your email.</p>

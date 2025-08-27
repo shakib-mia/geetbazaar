@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styles from "./inputfield.module.css"; // Import the CSS module
 
 const InputField = forwardRef((props, ref) => {
@@ -13,6 +13,7 @@ const InputField = forwardRef((props, ref) => {
     containerClassName = "",
     fieldClassName = "",
     disabled,
+    labelClassName = "",
     ...rest
   } = props;
 
@@ -69,7 +70,9 @@ const InputField = forwardRef((props, ref) => {
               value?.toString()?.length
                 ? styles.focused
                 : ""
-            } !text-black ${type === "checkbox" ? "static" : "absolute"}`}
+            } !text-black ${labelClassName} ${
+              type === "checkbox" ? "static" : "absolute"
+            }`}
           >
             {label}
           </label>
