@@ -133,9 +133,7 @@ const Login = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 mt-4">
-              {users.map((item) => (
-                <LoginUsers {...item} />
-              ))}
+              {users ? users.map((item) => <LoginUsers {...item} />) : <></>}
             </div>
           </aside>
           <div className="max-w-md w-full ml-auto overflow-hidden">
