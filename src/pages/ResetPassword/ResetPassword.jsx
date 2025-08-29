@@ -66,6 +66,7 @@ const ResetPassword = () => {
             type="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             label="Confirm New Password"
+            parentClassName="mt-4"
             value={confirmPassword}
           />
 
@@ -74,7 +75,7 @@ const ResetPassword = () => {
             className="!mt-5"
             disabled={newPassword !== confirmPassword || newPassword.length < 6}
           >
-            Verify
+            Submit
           </Button>
         </form>
       </div>
