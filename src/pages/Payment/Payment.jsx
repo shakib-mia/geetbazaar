@@ -33,11 +33,7 @@ const Payment = () => {
       .then(({ data }) => setFormData(data));
   }, []);
 
-  // console.log();
-  // console.log(planStore);
-  // console.log(data);
-  // console.log();
-  // console.log(songId);
+  // console.log(formData);
 
   useEffect(() => {
     // console.log(location.search.split("?")[2].split("=")[1]);
@@ -213,7 +209,9 @@ const Payment = () => {
   const handlePayWithGeetCoin = () => {
     Swal.fire({
       title: "Are you sure?",
-      html: "You will be charged <b>999 GeetCoins</b> for this transaction.",
+      html: `You will be charged <b>${
+        formData.price / 100
+      } GeetCoins</b> for this transaction.`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#22683E",
@@ -233,7 +231,7 @@ const Payment = () => {
         axios
           .post(
             backendUrl + "tokenize/charge/" + formData.orderId,
-            { amount: 999 },
+            { amount: formData.price / 100 },
             config
           )
           .then(({ data }) => {

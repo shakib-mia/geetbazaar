@@ -38,6 +38,10 @@ Chart.register(LinearScale, CategoryScale, BarElement, Title, Tooltip, Legend);
 
 function App() {
   const [userData, setUserData] = useState({});
+  const [currentLocation, setCurrentLocation] = useState(
+    location.pathname + location.search
+  );
+  // const currentLocation = ;
   // const [userData, setUserData] = useState(
   //   JSON.parse(sessionStorage.getItem("user")) || {}
   // );
@@ -136,6 +140,8 @@ function App() {
     recordLabels,
     currencies,
     // timeStamp,
+    currentLocation,
+    setCurrentLocation,
     loginTime,
     setLoginTime,
     logoutTime,

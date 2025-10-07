@@ -280,14 +280,16 @@ const Distribution = () => {
               });
             // alert("/");
           } else {
-            handleRazorpayPayment();
-            // navigate(
-            //   `/payment?price=${
-            //     discountData.discountPercentage
-            //       ? discountPrice
-            //       : location.search.split("?")[2] || planStore.price || formData.price
-            //   }?id=${orderId}`
-            // );
+            // handleRazorpayPayment();
+            navigate(
+              `/payment?price=${
+                discountData.discountPercentage
+                  ? discountPrice
+                  : location.search.split("?")[2] ||
+                    planStore.price ||
+                    formData.price
+              }?id=${formData.orderId}`
+            );
           }
         }
 

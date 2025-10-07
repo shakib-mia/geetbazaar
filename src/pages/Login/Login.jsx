@@ -29,7 +29,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [signInWithGoogle, user, googleLoading] = useSignInWithGoogle(auth);
-  const { setToken, setUserData, setLoginTime } = useContext(ProfileContext);
+  const { setToken, setUserData, setLoginTime, currentLocation } =
+    useContext(ProfileContext);
 
   useEffect(() => {
     if (user) {
@@ -42,7 +43,8 @@ const Login = () => {
             setToken(data.token);
             setLoginTime(Date.now());
             setUserData(data.details || { user_email: email });
-            navigate("/");
+
+            // navigate("/");
           }
         })
         .catch((err) => toast.error(err.response?.data?.message));
@@ -62,7 +64,7 @@ const Login = () => {
         setToken(data.token);
         setLoginTime(Date.now());
         setUserData(data.details || { user_email: email });
-        navigate("/");
+        navigate(currentLocation || "/");
       }
     } catch (err) {
       toast.error(err.response?.data?.message);

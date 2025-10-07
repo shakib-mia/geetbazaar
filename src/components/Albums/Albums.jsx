@@ -36,12 +36,13 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
     axios
       .get(backendUrl + "recent-uploads/album", { headers: { token } })
       .then(({ data }) => {
+        console.log(data);
         if (recentUploads) {
           setAlbums(data.notStreamingAlbum);
         } else {
           setAlbums(data.streamingAlbum);
         }
-        setAlbumsCount(data.length);
+        setAlbumsCount(data.notStreamingAlbum.length);
       })
       .catch((err) => console.error(err));
   }, []);

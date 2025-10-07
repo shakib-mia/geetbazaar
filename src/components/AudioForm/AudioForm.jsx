@@ -952,8 +952,10 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
                   : formData.isrc
               }
               disabled={
-                location.pathname.includes("edit") &&
-                (formData?.songs[id]?.isrc || formData.isrc)
+                (location.pathname.includes("edit") &&
+                  formData?.songs &&
+                  formData?.songs[id]?.isrc) ||
+                formData.isrc
               }
             />
             {/* <div className="flex"></div> */}
@@ -1112,7 +1114,7 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
                 setFormData(updatedFormData);
               } else {
                 const updatedArtists = [
-                  ...formData.artists,
+                  ...(formData.artists || []),
                   { name: "", role: "" },
                 ];
                 setFormData({ ...formData, artists: updatedArtists });
