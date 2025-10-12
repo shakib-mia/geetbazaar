@@ -105,7 +105,7 @@ const ProfilePicture = ({
         <>
           <label
             htmlFor="profilePicture"
-            className="text-black cursor-pointer bg-primary flex justify-center items-center text-heading-5 w-4 h-4 absolute bottom-1 right-1 lg:bottom-[30px] lg:right-[23px] rounded-full"
+            className="text-white cursor-pointer bg-primary flex justify-center items-center text-heading-5 w-4 h-4 absolute bottom-1 right-1 lg:bottom-[30px] lg:right-[23px] rounded-full"
           >
             +
           </label>

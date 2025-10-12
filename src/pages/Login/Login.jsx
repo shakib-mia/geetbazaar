@@ -44,7 +44,7 @@ const Login = () => {
             setLoginTime(Date.now());
             setUserData(data.details || { user_email: email });
 
-            // navigate("/");
+            navigate("/");
           }
         })
         .catch((err) => toast.error(err.response?.data?.message));

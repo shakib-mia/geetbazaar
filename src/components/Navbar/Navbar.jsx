@@ -128,7 +128,7 @@ const Navbar = () => {
         id="topbar"
         onMouseLeave={() => setRightDropdownOpen(false)}
       >
-        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between px-2">
+        <nav className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:px-2">
           <div className="flex justify-between items-center w-full lg:w-auto">
             <Link className="inline-block py-1  text-heading-6" to={"/"}>
               <img src={logo} alt="logo" className="w-[150px]" />

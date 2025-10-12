@@ -47,7 +47,7 @@ const HomeAnalytics = () => {
       <h4 className="text-heading-6-bold lg:text-heading-4-bold capitalize text-black mb-2 pl-3 text-center lg:text-left">
         Month wise revenue
       </h4>
-      <div className={"lg:!mr-3 ml-3 lg:ml-0 h-[200px] lg:h-[250px]"}>
+      <div className={"lg:!mr-3 ml-2 lg:ml-0 h-[200px] lg:h-[250px]"}>
         <ResponsiveContainer height={"100%"}>
           <LineChart data={data} className="w-full">
             {/* <CartesianGrid strokeDasharray="3 3" /> */}

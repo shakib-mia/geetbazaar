@@ -91,20 +91,20 @@ const Uploads = () => {
     // Show loading spinner if ISRC is found and data is being fetched
     if (isLoading) {
       return (
-        <div className="flex justify-center items-center h-full my-7">
+        <div className="flex justify-center items-center h-full py-7 card-shadow rounded-lg">
           <VscLoading className="animate-spin text-heading-1 text-interactive-light" />
         </div>
       );
     }
 
     // Show "No songs found" if user has ISRC but no songs
-    if (userData.isrc && songs.length === 0) {
-      return (
-        <div className="flex justify-center items-center h-full text-black text-heading-5 py-7">
-          No songs found
-        </div>
-      );
-    }
+    // if (userData.isrc && songs.length === 0) {
+    //   return (
+    //     <div className="flex justify-center items-center h-full text-black text-heading-5 py-7 card-shadow rounded-lg">
+    //       No songs found
+    //     </div>
+    //   );
+    // }
 
     // Show songs if they exist
     if (userData.isrc && songs.length > 0) {
@@ -230,7 +230,7 @@ const Uploads = () => {
 
     // Fallback for users who don't have ISRC
     return (
-      <div className="flex justify-center items-center h-full text-black text-center p-3">
+      <div className="flex justify-center items-center h-full text-black text-center p-3 card-shadow rounded-lg">
         <div className="mt-6">
           <h5 className=" text-heading-5-bold">Upload Your First Song</h5>{" "}
           {/* <br /> */}
@@ -253,8 +253,8 @@ const Uploads = () => {
 
   return (
     <div
-      className={`text-black card-shadow rounded-lg overflow-hidden bg-black ${
-        location.pathname === "/all-songs" ? "pb-0" : "justify-between"
+      className={`text-black ${
+        location.pathname === "/all-songs" ? "pb-2" : "justify-between"
       }`}
       id="song-list"
     >
@@ -268,7 +268,7 @@ const Uploads = () => {
         renderContent()
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-          <aside>
+          <aside className="card-shadow rounded-lg overflow-hidden">
             <div className="flex items-center gap-3 p-2 justify-center">
               <div className="w-5 h-5 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
                 <FaMusic className="w-2 h-2 text-white" />
@@ -283,7 +283,7 @@ const Uploads = () => {
             {renderContent()}
           </aside>
 
-          <aside className="p-2">
+          <aside className="p-2 card-shadow rounded-lg overflow-hidden">
             <div className="flex gap-3 items-center justify-center p-3">
               <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
                 <FaMusic className="w-2 h-2 text-white" />

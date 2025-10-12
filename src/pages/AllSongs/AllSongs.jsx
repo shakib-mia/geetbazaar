@@ -10,7 +10,7 @@ const AllSongs = () => {
   const [checked, setChecked] = useState(false);
   return (
     <>
-      <h2 className="text-heading-2-bold text-black-secondary pt-6 lg:pt-7 text-center pb-1">
+      <h2 className="text-heading-4-bold lg:text-heading-2-bold text-black-secondary pt-6 lg:pt-7 text-center pb-1">
         Your Releases
       </h2>
 

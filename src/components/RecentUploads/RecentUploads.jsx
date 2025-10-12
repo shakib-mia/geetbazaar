@@ -224,7 +224,7 @@ const RecentUploads = () => {
                 </span>
               </div>
 
-              <aside>
+              <aside className="hidden lg:block">
                 <Button
                   className="!mt-0 px-5"
                   onClick={() =>
@@ -236,7 +236,7 @@ const RecentUploads = () => {
               </aside>
             </div>
 
-            <div className="p-4 h-[calc(100%-80px)]">
+            <div className="p-4 h-[calc(100%-80px)] overflow-y-auto">
               <div className="h-full bg-gradient-to-br from-white/20 to-surface-white-surface-1/20 rounded-2xl flex justify-center">
                 <Albums
                   setAlbumsCount={setAlbumsCount}
@@ -244,6 +244,16 @@ const RecentUploads = () => {
                   update={update}
                   recentUploads={true}
                 />
+              </div>
+              <div className="lg:hidden">
+                <Button
+                  className="!mt-0 px-5"
+                  onClick={() =>
+                    navigate("/album-upload?geetbazaar-album?99900")
+                  }
+                >
+                  + Add New Album
+                </Button>
               </div>
             </div>
           </div>

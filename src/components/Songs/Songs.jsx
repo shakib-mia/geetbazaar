@@ -91,7 +91,7 @@ const Songs = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 text-black">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 text-black">
       {songs.map((song, index) => (
         <SongItem
           key={song._id}

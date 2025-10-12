@@ -31,6 +31,7 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
   const [expandedAlbum, setExpandedAlbum] = useState("");
   const { token, userData, setAlbumToggled } = useContext(ProfileContext);
   const navigate = useNavigate();
+  const [actionsVisible, setActionsVisible] = useState(false);
 
   useEffect(() => {
     axios
@@ -71,66 +72,71 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
             className={`bg-white/60 backdrop-blur-xl rounded border border-surface-white-line hover:shadow transition`}
           >
             <div
-              className="flex flex-col lg:flex-row gap-4 items-center justify-between cursor-pointer"
+              className="flex flex-col lg:flex-row gap-4 items-center justify-between cursor-pointer relative"
               onClick={() => toggleDropdown(album._id)}
             >
-              <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-md">
+              <div className="flex items-center gap-1 lg:gap-4 w-full z-0 group">
+                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-md w-2/6 aspect-square">
                   <img
                     src={dummyAlbumArts[key % dummyAlbumArts.length]}
                     alt={album.albumTitle}
-                    className="w-7 h-7 object-cover rounded"
+                    className="object-cover rounded"
                   />
                 </div>
-                <div>
-                  <h5 className="text-heading-5-bold text-black-primary">
-                    {album.albumTitle}
-                  </h5>
-                  <p className="text-subtitle-2 flex gap-2 items-center mt-1">
-                    <strong>Status:</strong>{" "}
-                    {album.status === "paid" ? (
-                      <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
-                        Paid
-                      </span>
-                    ) : album.songs.some(
-                        (song) => song.status !== "streaming"
-                      ) ? (
-                      <span className="bg-warning/15 text-warning px-2 py-0.5 rounded-full flex items-center gap-1">
-                        <TbAlertTriangleFilled /> Needs Attention
-                      </span>
-                    ) : album.songs.some((song) => song.status === "paid") ? (
-                      <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
-                        <TbAlertTriangleFilled /> Paid
-                      </span>
-                    ) : (
-                      <span className="bg-success/15 text-success px-2 py-0.5 rounded-full flex items-center gap-1">
-                        <FcOk /> OK
-                      </span>
-                    )}
-                  </p>
+                <div className="flex gap-1 w-4/6 items-center">
+                  <aside className="w-4/6">
+                    <h5 className="text-subtitle-1-bold text-black-primary">
+                      {album.albumTitle}
+                    </h5>
+                    <p className="text-subtitle-2 flex gap-2 items-center mt-1">
+                      <strong>Status:</strong>{" "}
+                      {album.status === "paid" ? (
+                        <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
+                          Paid
+                        </span>
+                      ) : album.songs.some(
+                          (song) => song.status !== "streaming"
+                        ) ? (
+                        <span className="bg-warning/15 text-warning px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <TbAlertTriangleFilled /> Needs Attention
+                        </span>
+                      ) : album.songs.some((song) => song.status === "paid") ? (
+                        <span className="bg-interactive-light/15 text-interactive-light px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <TbAlertTriangleFilled /> Paid
+                        </span>
+                      ) : (
+                        <span className="bg-success/15 text-success px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <FcOk /> OK
+                        </span>
+                      )}
+                    </p>
+                  </aside>
+                  <aside className="flex opacity-0 group-hover:opacity-100 transition-opacity justify-end w-2/6">
+                    <>
+                      <div className="lg:flex hidden items-center gap-2">
+                        {!album.payment_id &&
+                        !(
+                          userData.yearlyPlanEndDate &&
+                          checkTheDateIsBefore(userData.yearlyPlanEndDate)
+                        ) ? (
+                          <Button
+                            onClick={() => handlePayNow(album.orderId)}
+                            className="!mt-0 bg-gradient-to-r whitespace-nowrap from-primary to-primary-dark text-white px-4 py-1 rounded-xl hover:shadow-lg transition-all duration-300"
+                          >
+                            Pay Now
+                          </Button>
+                        ) : null}
+                        <button
+                          onClick={() => handleEdit(album._id)}
+                          className="p-2 rounded-full hover:bg-primary/10 transition"
+                          title="Edit Album"
+                        >
+                          <RiEditBoxLine className="w-4 h-4 text-black-secondary hover:text-interactive-light transition-colors duration-200" />
+                        </button>
+                      </div>
+                    </>
+                  </aside>
                 </div>
-              </div>
-
-              <div className="flex gap-2">
-                {!album.payment_id &&
-                !(
-                  userData.yearlyPlanEndDate &&
-                  checkTheDateIsBefore(userData.yearlyPlanEndDate)
-                ) ? (
-                  <Button
-                    onClick={() => handlePayNow(album.orderId)}
-                    className="!mt-0 bg-gradient-to-r whitespace-nowrap from-primary to-primary-dark text-white px-4 py-1 rounded-xl hover:shadow-lg transition-all duration-300"
-                  >
-                    Pay Now
-                  </Button>
-                ) : null}
-                <button
-                  onClick={() => handleEdit(album._id)}
-                  className="p-2 rounded-full hover:bg-primary/10 transition"
-                  title="Edit Album"
-                >
-                  <RiEditBoxLine className="w-4 h-4 text-black-secondary hover:text-interactive-light transition-colors duration-200" />
-                </button>
               </div>
             </div>
             {/* Dropdown Songs */}
@@ -151,6 +157,32 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                     </p>
                   </div>
                 ))}
+
+                {
+                  <div className="flex justify-end items-center gap-2 lg:w-2/6 backdrop-blur-lg z-[999999]">
+                    <div className="flex lg:hidden items-center gap-2">
+                      {!album.payment_id &&
+                      !(
+                        userData.yearlyPlanEndDate &&
+                        checkTheDateIsBefore(userData.yearlyPlanEndDate)
+                      ) ? (
+                        <Button
+                          onClick={() => handlePayNow(album.orderId)}
+                          className="!mt-0 bg-gradient-to-r whitespace-nowrap from-primary to-primary-dark text-white px-4 py-1 rounded-xl hover:shadow-lg transition-all duration-300"
+                        >
+                          Pay Now
+                        </Button>
+                      ) : null}
+                      <button
+                        onClick={() => handleEdit(album._id)}
+                        className="p-2 rounded-full hover:bg-primary/10 transition"
+                        title="Edit Album"
+                      >
+                        <RiEditBoxLine className="w-4 h-4 text-black-secondary hover:text-interactive-light transition-colors duration-200" />
+                      </button>
+                    </div>
+                  </div>
+                }
               </div>
             )}
           </div>
