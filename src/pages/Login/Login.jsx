@@ -22,34 +22,38 @@ import youtube from "../../assets/images/platforms/youtube.png";
 import spotify from "../../assets/images/platforms/spotify.png";
 import appleMusic from "../../assets/images/platforms/apple-music.png";
 import { VscLoading } from "react-icons/vsc";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [signInWithGoogle, user, googleLoading] = useSignInWithGoogle(auth);
+  // const [ user] = useSignInWithGoogle(auth);
   const { setToken, setUserData, setLoginTime, currentLocation } =
     useContext(ProfileContext);
 
-  useEffect(() => {
-    if (user) {
-      const email = user.user.email;
-      axios
-        .get(`${backendUrl}handle-firebase-login/${email}`)
-        .then(({ data }) => {
-          if (data?.token) {
-            sessionStorage.setItem("token", data.token);
-            setToken(data.token);
-            setLoginTime(Date.now());
-            setUserData(data.details || { user_email: email });
+  const CLIENT_ID =
+    "32030604883-pqg91da15rnvtffb4k27knji4vrafhhg.apps.googleusercontent.com";
 
-            navigate("/");
-          }
-        })
-        .catch((err) => toast.error(err.response?.data?.message));
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     const email = user.user.email;
+  //     axios
+  //       .get(`${backendUrl}handle-firebase-login/${email}`)
+  //       .then(({ data }) => {
+  //         if (data?.token) {
+  //           sessionStorage.setItem("token", data.token);
+  //           setToken(data.token);
+  //           setLoginTime(Date.now());
+  //           setUserData(data.details || { user_email: email });
+
+  //           navigate("/");
+  //         }
+  //       })
+  //       .catch((err) => toast.error(err.response?.data?.message));
+  //   }
+  // }, [user]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -64,10 +68,12 @@ const Login = () => {
         setToken(data.token);
         setLoginTime(Date.now());
         setUserData(data.details || { user_email: email });
-        navigate(currentLocation || "/");
+        console.log(currentLocation || "/");
+        navigate(currentLocation !== "/login" ? currentLocation : "/");
       }
     } catch (err) {
       toast.error(err.response?.data?.message);
+      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -96,15 +102,6 @@ const Login = () => {
                 {/* 👋 */}
               </h4>
             </div>
-            {/* <div className="flex justify-between items-center">
-            <aside>
-              <h5 className="text-heading-5-bold">Sign in to</h5>
-              <img src={logo} className="h-4 mt-2" alt="GeetBazaar" />
-            </aside>
-          <aside>
-              <img src={loginVector} className="animate-bounce h-7" alt="" />
-            </aside> 
-          </div> */}
 
             <h6 className="text-heading-6 font-medium mt-1 lg:mt-4">
               Your Earnings, Your Way with GeetCoin
@@ -139,12 +136,7 @@ const Login = () => {
             </div>
           </aside>
           <div className="max-w-md w-full ml-auto overflow-hidden">
-            <div
-              className="border-2 backdrop-blur-lg bg-black/15 border-white/30 rounded-xl"
-              // style={{
-              //   borderImage: "linear-gradient(to right, #7F00E1, #FF0080) 1",
-              // }}
-            >
+            <div className="border-2 backdrop-blur-lg bg-black/15 border-white/30 rounded-xl">
               <div className="p-4 relative">
                 <h5 className="text-heading-5-bold lg:text-left lg:text-heading-5-bold font-bold text-center text-white">
                   Sign in
@@ -204,8 +196,41 @@ const Login = () => {
                   </span>
                   <div className="flex-grow border-t border-white-secondary my-2"></div>
                 </div>
+                <div className="flex justify-center">
+                  <GoogleOAuthProvider clientId={CLIENT_ID}>
+                    <GoogleLogin
+                      onSuccess={async (credentialResponse) => {
+                        console.log(credentialResponse);
+                        axios
+                          .get(`${backendUrl}handle-google-login`, {
+                            headers: {
+                              token: credentialResponse.credential,
+                            },
+                          })
+                          .then(({ data }) => {
+                            if (data?.token) {
+                              sessionStorage.setItem("token", data.token);
+                              setToken(data.token);
+                              setLoginTime(Date.now());
+                              setUserData(data.details || {});
+                              navigate("/");
+                            }
+                          })
+                          .catch((err) =>
+                            toast.error(err.response?.data?.message)
+                          );
+                      }}
+                      onError={() => {
+                        toast.error("Login Failed");
+                      }}
+                      width={"100%"}
+                      size="large"
+                      theme="filled_blue"
+                    />
+                  </GoogleOAuthProvider>
+                </div>
 
-                <button
+                {/* <button
                   className="flex w-full py-2 border border-interactive-light-disabled rounded-full justify-center items-center group transition hover:bg-interactive-light"
                   onClick={() => {
                     signInWithGoogle();
@@ -244,7 +269,7 @@ const Login = () => {
                   ) : (
                     <VscLoading className="animate-spin text-white text-heading-6" />
                   )}
-                </button>
+                </button> */}
 
                 {/* <button className="flex w-full py-2 border border-interactive-light rounded-full justify-center items-center group transition hover:bg-interactive-light mt-3">
             <svg
