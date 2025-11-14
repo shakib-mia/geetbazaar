@@ -91,14 +91,14 @@ const Uploads = () => {
     // Show loading spinner if ISRC is found and data is being fetched
     if (isLoading) {
       return (
-        <div className="flex justify-center items-center h-full py-7 card-shadow rounded-lg">
+        <div className="flex justify-center items-center h-full py-7 rounded-lg">
           <VscLoading className="animate-spin text-heading-1 text-interactive-light" />
         </div>
       );
     }
 
     // Show "No songs found" if user has ISRC but no songs
-    // if (userData.isrc && songs.length === 0) {
+    // if (userData.isrc && songs?.length === 0) {
     //   return (
     //     <div className="flex justify-center items-center h-full text-black text-heading-5 py-7 card-shadow rounded-lg">
     //       No songs found
@@ -107,12 +107,12 @@ const Uploads = () => {
     // }
 
     // Show songs if they exist
-    if (userData.isrc && songs.length > 0) {
+    if (userData.isrc && songs?.length > 0) {
       return (
         <div className="h-full overflow-y-auto">
           {location.pathname === "/" ? (
             <Swiper className="h-full">
-              {songs.map((song, key) => (
+              {songs?.map((song, key) => (
                 <SwiperSlide
                   key={key}
                   slidesPerView={1}
@@ -125,7 +125,7 @@ const Uploads = () => {
             </Swiper>
           ) : type === "albums" ? (
             // console.log(songs)
-            // console.log(songs.filter((item) => item.songs))
+            // console.log(songs?.filter((item) => item.songs))
 
             songs
               .filter((item) => item.songs)
@@ -153,7 +153,7 @@ const Uploads = () => {
                         </h5>
                         <p className="text-subtitle-2 flex gap-2 items-center mt-1">
                           <strong>Status:</strong>{" "}
-                          {album.songs.some(
+                          {album.songs?.some(
                             (song) => song.status !== "streaming"
                           ) ? (
                             <span className="bg-warning/15 text-warning px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -194,7 +194,7 @@ const Uploads = () => {
                   {/* Dropdown Songs */}
                   {expandedAlbum === album._id && (
                     <div className="p-4 bg-white/30 border-surface-white-line rounded-b-2xl flex flex-col gap-3">
-                      {album.songs.map((song, idx) => (
+                      {album.songs?.map((song, idx) => (
                         <div
                           key={idx}
                           className="flex flex-col gap-1 p-3 rounded-xl bg-white/50 backdrop-blur-sm border border-surface-white-line hover:shadow-lg transition-all duration-200"
@@ -230,15 +230,23 @@ const Uploads = () => {
 
     // Fallback for users who don't have ISRC
     return (
-      <div className="flex justify-center items-center h-full text-black text-center p-3 card-shadow rounded-lg">
-        <div className="mt-6">
-          <h5 className=" text-heading-5-bold">Upload Your First Song</h5>{" "}
+      <div
+        className={`flex justify-center items-center text-black text-center ${
+          location.pathname === "/" ? "card-shadow h-full" : ""
+        } rounded-lg`}
+      >
+        <div className="flex flex-col py-6">
+          <h5 className=" text-heading-5-bold capitalize">
+            Upload Your First {type?.slice(0, type?.length - 1) || "Track"}
+          </h5>{" "}
           {/* <br /> */}
           <div className="w-1/2 mx-auto">
             <Button
               // small={true}
               onClick={() => {
-                navigate("/plans");
+                navigate(
+                  type ? "/album-upload?geetbazaar-album?99900" : "/plans"
+                );
                 setAlbumToggled(false);
               }}
               className="text-interactive-light flex gap-2 items-center"
@@ -269,29 +277,65 @@ const Uploads = () => {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <aside className="card-shadow rounded-lg overflow-hidden">
-            <div className="flex items-center gap-3 p-2 justify-center">
-              <div className="w-5 h-5 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                <FaMusic className="w-2 h-2 text-white" />
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 border-b border-surface-white-line flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
+                  <FaMusic className="w-2 h-2 text-white" />
+                </div>
+                <h2 className="text-heading-5-bold text-black-primary">
+                  Your Tracks
+                </h2>
+                <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
+                  {songs?.length}
+                </span>
               </div>
-              <h2 className="text-heading-5-bold text-black-primary">
-                Your Tracks
-              </h2>
-              <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
-                {songs.filter((item) => !item.songs).length || 0}
-              </span>
+              {songs?.length > 0 && (
+                <aside>
+                  <Button
+                    onClick={() => navigate("/plans")}
+                    className="!mt-0 px-5"
+                  >
+                    + Add New Track
+                  </Button>
+                </aside>
+              )}
             </div>
             {renderContent()}
           </aside>
 
-          <aside className="p-2 card-shadow rounded-lg overflow-hidden">
-            <div className="flex gap-3 items-center justify-center p-3">
+          <aside className="card-shadow rounded-lg overflow-hidden">
+            {/* <div className="flex gap-3 p-2 items-center justify-center">
               <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
                 <FaMusic className="w-2 h-2 text-white" />
               </div>
               <h2 className="text-heading-5-bold text-black-primary">Albums</h2>
               <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
-                {songs.filter((item) => item.songs).length || 0}
+                {songs?.filter((item) => item.songs).length || 0}
               </span>
+            </div> */}
+
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 border-b border-surface-white-line flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
+                  <FaMusic className="w-2 h-2 text-white" />
+                </div>
+                <h2 className="text-heading-5-bold text-black-primary">
+                  Your Albums
+                </h2>
+                <span className="px-2 py-1 bg-primary/15 text-primary text-subtitle-2-bold rounded-full">
+                  {songs?.filter((item) => item.songs).length}
+                </span>
+              </div>
+              {songs?.filter((item) => item.songs).length > 0 && (
+                <aside>
+                  <Button
+                    onClick={() => navigate("/plans")}
+                    className="!mt-0 px-5"
+                  >
+                    + Add New Album
+                  </Button>
+                </aside>
+              )}
             </div>
 
             {renderContent("albums")}

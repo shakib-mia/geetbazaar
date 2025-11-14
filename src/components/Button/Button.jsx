@@ -1,15 +1,17 @@
 import React from "react";
 
-const Button = ({
-  text,
-  type = "button",
-  disabled,
-  onClick,
-  children,
-  className = "",
-  variant = "interactive-light", // default variant
-  styleType = "solid", // "solid" | "outlined"
-}) => {
+const Button = (props) => {
+  const {
+    text,
+    type = "button",
+    disabled,
+    onClick,
+    children,
+    className = "",
+    variant = "interactive-light", // default variant
+    styleType = "solid", // "solid" | "outlined"
+    ...rest
+  } = props;
   const baseClasses = `
     w-full mt-2 py-2 rounded-lg font-extrabold
     flex justify-center items-center gap-1
@@ -47,6 +49,7 @@ const Button = ({
       className={`${baseClasses} ${
         styleType === "outlined" ? outlinedClasses : solidClasses
       } ${className}`}
+      {...rest}
     >
       {children || text}
     </button>

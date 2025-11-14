@@ -19,6 +19,7 @@ const Navbar = () => {
     loginTime,
     setLogoutTime,
     dollarRate,
+    currencyPreference,
   } = useContext(ProfileContext);
   const { pathname } = window.location;
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -257,8 +258,8 @@ const Navbar = () => {
                   className="hover:bg-interactive-light hover:shadow-[0_0_20px] hover:text-white transition hover:shadow-interactive-light px-1 py-[4px] rounded text-subtitle-1"
                 >
                   <span className="italic">
-                    {userData.billing_country === "India" ? "₹" : "$"}
-                    {userData.billing_country === "India"
+                    {currencyPreference === "INR" ? "₹" : "$"}
+                    {currencyPreference === "INR"
                       ? (
                           parseFloat(
                             userData?.lifetimeRevenue?.toFixed(2) || 0

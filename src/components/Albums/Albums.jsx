@@ -39,11 +39,11 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
       .then(({ data }) => {
         console.log(data);
         if (recentUploads) {
-          setAlbums(data.notStreamingAlbum);
+          setAlbums(data?.notStreamingAlbum);
         } else {
-          setAlbums(data.streamingAlbum);
+          setAlbums(data?.streamingAlbum);
         }
-        setAlbumsCount(data.notStreamingAlbum.length);
+        setAlbumsCount(data?.notStreamingAlbum?.length);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -65,7 +65,7 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
 
   return (
     <div className="flex flex-col gap-4 pb-4 w-full">
-      {albums.length > 0 ? (
+      {albums?.length > 0 ? (
         albums.map((album, key) => (
           <div
             key={key}
@@ -190,10 +190,22 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
       ) : (
         <div className="h-full flex items-center justify-center">
           <div className="flex flex-col items-center gap-4 text-center">
-            <FaMusic className="w-12 h-12 text-primary/50 mb-2" />
+            <div className="relative mb-6 w-7 h-7 mx-auto">
+              {/* Main Icon */}
+              <div className="w-7 h-7 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center z-10">
+                <FaMusic className="w-5 h-5 text-primary/60" />
+              </div>
+
+              {/* Pulsing Circle */}
+              <div className="absolute inset-0 m-auto w-7 h-7 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full animate-ping z-0"></div>
+            </div>{" "}
             <h4 className="text-heading-4-bold text-black-primary">
               Upload Your First Album
             </h4>
+            <p className="max-w-md mx-auto">
+              Upload your first Album and start building your music library.
+              Your journey begins here.
+            </p>
             <Button
               onClick={() => {
                 navigate("/plans");

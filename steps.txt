@@ -1,0 +1,73 @@
+go to the geetbazaar dashboard
+login to your account
+
+go to the plans page, select a plan from there, it will navigate you to the upload page directly 
+
+
+Album Details
+    Content Type (Album/film)
+    upc (Text)
+    Album title (text)
+    album type (single/album/compilation/remix)
+    artwork (file dimension should be 3000 by 3000)
+    record label (Custom, from dropdown)
+    record label creation button (creation form will open in popup)
+    publisher (custom, values are record labels)
+
+    if content type is film 
+        film banner (text)
+        film producer (text)
+        actor (text)
+        director (text)
+        movie release date (date)
+
+
+Platforms
+    multiple social media Platforms, based on different plans
+
+audio
+    if single 
+        song name
+        isrc
+        parental advisory (yes/no)
+        instrumental (yes/no)
+        language (select from dropdown)
+        artists 
+            primarily 3 artists 
+            each contains name, role and a button for social media popup    
+                popup contains spotify, apple, facebook, instagram artist's profile url
+            add artist button will add fields with data like previous artists, each artist related fields will commonly have a cross icon to close it
+        upload audio (file only mp3 and wav)
+        2 caller tune times containing minutes and seconds markers each
+        primary genre (select from dropdown)
+        secondary genre (select from dropdown)
+        mood (select from dropdown)
+        description (textarea)
+        release date (date field)
+        go live date (date field)
+        go live time (time field)
+
+    if album 
+        will be like single but will have add more and finish button at the end of the page
+        add more button will add a songs field like the single 
+        and finish will go to the next page
+
+preview 
+    will showcase everything user filled
+
+Distribution 
+    will show order details 
+        plan name
+        price 
+        order id 
+        name
+    will also have
+        coupon code field
+        signing text field
+        terms and condition checkbox with link in label of the checkbox
+        two buttons called proceed to checkout and save as draft
+
+        proceed to checkout
+            will redirect to payment page that allows user to pay with razorpay or geetcoins (custom token system)
+                geetcoins are users unwithdrawn earning from songs
+        save as draft will save the song as an unpaid mark

@@ -12,8 +12,14 @@ import PurchaseToken from "../PurchaseToken/PurchaseToken";
 import { FaCreditCard, FaShoppingCart } from "react-icons/fa";
 
 const WithdrawalSection = () => {
-  const { userData, dollarRate, token, setRefetch } =
-    useContext(ProfileContext);
+  const {
+    userData,
+    dollarRate,
+    token,
+    setRefetch,
+    currencyPreference,
+    setCurrencyPreference,
+  } = useContext(ProfileContext);
   const { lifetimeRevenue, lifetimeDisbursed } = userData;
   const [tokenize, showTokenize] = useState(false);
   const [creditTransfer, showCreditTransfer] = useState(false);
@@ -46,7 +52,7 @@ const WithdrawalSection = () => {
     }
   };
 
-  const isINR = currency === "INR";
+  const isINR = currencyPreference === "INR";
   const currencySymbol = isINR ? "₹" : "$";
 
   const displayRevenue = !isINR
@@ -104,7 +110,11 @@ const WithdrawalSection = () => {
             <aside>
               <select
                 value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
+                onChange={(e) => {
+                  setCurrency(e.target.value);
+                  localStorage.setItem("currencyPreference", e.target.value);
+                  setCurrencyPreference(e.target.value);
+                }}
                 className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="INR">INR (₹)</option>

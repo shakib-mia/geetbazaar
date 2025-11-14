@@ -13,7 +13,7 @@ const PaymentSuccess = () => {
 
   return (
     <div
-      className="h-screen w-screen flex justify-center items-center bg-cover bg-no-repeat"
+      className="h-screen flex justify-center items-center bg-cover bg-no-repeat"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="max-w-xl rounded-md bg-white shadow-lg p-3">

@@ -256,7 +256,7 @@ const AlbumDetails = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 mt-2 lg:mt-4">
             <InputField
               required
               name={"director"}

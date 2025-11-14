@@ -33,6 +33,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Chat from "./components/Chat/Chat";
 
 Chart.register(LinearScale, CategoryScale, BarElement, Title, Tooltip, Legend);
 
@@ -69,6 +70,9 @@ function App() {
     return JSON.parse(localStorage.getItem("users")) || [];
   }, []);
   const [loggedInUsers, setLoggedInUsers] = useState(existingUsers);
+  const [currencyPreference, setCurrencyPreference] = useState(
+    localStorage.getItem("currencyPreference") || "INR"
+  );
 
   /* Working api calls starts here */
   gsap.registerPlugin(ScrollTrigger);
@@ -152,6 +156,8 @@ function App() {
     setAlbumToggled,
     loggedInUsers,
     setLoggedInUsers,
+    currencyPreference,
+    setCurrencyPreference,
   };
 
   useEffect(() => {
@@ -164,7 +170,15 @@ function App() {
     if (token) {
       axios.get(backendUrl + `getUserData`, config).then(({ data }) => {
         if (data?.data !== null) {
+          console.log(data.data);
           setUserData(data.data);
+
+          if (!localStorage.getItem("currencyPreference")) {
+            const userCurrencyPref =
+              data.data.billing_country === "India" ? "INR" : "USD";
+            setCurrencyPreference(userCurrencyPref);
+            localStorage.setItem("currencyPreference", userCurrencyPref);
+          }
 
           // Safe data select koro
           const safeUserData = {
@@ -311,6 +325,7 @@ function App() {
                   <>
                     {/* {store.token && <Sidebar />} */}
                     {<Navbar />}
+                    <Chat />
                   </>
                 )}
               <div className={`container lg:px-0`}>

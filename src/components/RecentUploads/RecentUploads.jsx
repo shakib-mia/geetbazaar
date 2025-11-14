@@ -51,7 +51,7 @@ const RecentUploads = () => {
     }
   }, [userData, update, navigate, token]);
 
-  const filteredSongs = songs?.filter((item) => !item?.songs);
+  const filteredSongs = songs?.filter((item) => !item?.songs) || [];
 
   const getStatusStyle = (status) => {
     const s = status.toLowerCase();
@@ -68,7 +68,7 @@ const RecentUploads = () => {
     <div className="w-full bg-gradient-to-br from-primary/5 via-white to-secondary/5 rounded-3xl overflow-hidden relative">
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-b border-surface-white-line z-10">
-        <div className="p-4 flex justify-between items-center">
+        <div className="p-2 lg:p-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
@@ -76,9 +76,9 @@ const RecentUploads = () => {
                 Live Dashboard
               </span>
             </div>
-            <div className="text-paragraph-2 text-black-secondary">
-              {filteredSongs.length} tracks • Updated now
-            </div>
+          </div>
+          <div className="text-paragraph-2 text-black-secondary">
+            {filteredSongs.length} tracks | {albumsCount} Albums • Updated now
           </div>
         </div>
       </div>
@@ -89,9 +89,9 @@ const RecentUploads = () => {
           {/* Songs Section */}
           <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-surface-white-line shadow-xl overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 border-b border-surface-white-line flex justify-between items-center">
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 px-2 lg:px-4 py-2 border-b border-surface-white-line flex justify-between items-center">
+              <div className="flex items-center gap-3 justify-between lg:justify-normal w-full lg:w-fit">
+                <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
                   <FaMusic className="w-2 h-2 text-white" />
                 </div>
                 <h2 className="text-heading-5-bold text-black-primary">
@@ -101,16 +101,16 @@ const RecentUploads = () => {
                   {filteredSongs.length}
                 </span>
               </div>
-              {/* {filteredSongs.length > 0 && (
-                <aside>
+              {filteredSongs.length > 0 && (
+                <aside className="hidden lg:block">
                   <Button
                     onClick={() => navigate("/plans")}
                     className="!mt-0 px-5"
                   >
-                    + Add New
+                    + Add New Track
                   </Button>
                 </aside>
-              )} */}
+              )}
             </div>
 
             {/* Songs Grid/List */}
@@ -123,7 +123,7 @@ const RecentUploads = () => {
                       key={key}
                       className="group flex items-center gap-4 bg-gradient-to-r from-white/80 to-surface-white-surface-1/50 rounded-2xl border border-surface-white-line hover:border-interactive-light/50 hover:shadow-base transition-all duration-300"
                     >
-                      <div className="overflow-hidden bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg flex items-center justify-center">
+                      <div className="overflow-hidden bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg flex items-center justify-center w-7 aspect-square">
                         {/* <FaMusic className="w-2 h-2 text-primary/80" /> */}
                         <img
                           src={dummyAlbumArts[key % dummyAlbumArts.length]}
@@ -211,8 +211,8 @@ const RecentUploads = () => {
 
           {/* Albums Section */}
           <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-surface-white-line shadow-xl overflow-hidden">
-            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 px-4 py-2 border-b border-surface-white-line flex items-center justify-between">
-              <div className="flex gap-3 items-center">
+            <div className="bg-gradient-to-r from-secondary/10 to-primary/10 px-4 py-2 border-b border-surface-white-line flex items-center justify-between w-full">
+              <div className="flex gap-3 items-center justify-between w-full lg:w-fit">
                 <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
                   <FaMusic className="w-2 h-2 text-white" />
                 </div>
@@ -236,7 +236,7 @@ const RecentUploads = () => {
               </aside>
             </div>
 
-            <div className="p-4 h-[calc(100%-80px)] overflow-y-auto">
+            <div className="p-4 h-[calc(100%-80px)] lg:h-auto overflow-y-auto">
               <div className="h-full bg-gradient-to-br from-white/20 to-surface-white-surface-1/20 rounded-2xl flex justify-center">
                 <Albums
                   setAlbumsCount={setAlbumsCount}

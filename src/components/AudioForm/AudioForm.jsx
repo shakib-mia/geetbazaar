@@ -994,13 +994,13 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
               options={["No", "Yes"]}
               value={formData.parentalAdvisory ? "Yes" : "No"}
               placeholder={"Select..."}
-              label={"Parent Advisory"}
+              note={"Parent Advisory"}
             />
             <SelectOptions
               placeholder={"Select..."}
               value={formData.instrumental ? "Yes" : "No"}
               options={["No", "Yes"]}
-              label={"Instrumental"}
+              note={"Instrumental"}
               required={true}
               onChange={(e) => {
                 // setFormData({
@@ -1028,7 +1028,7 @@ const AudioForm = ({ setArtistCount, setCount, count, setCollapsed, id }) => {
                   : formData.language
               }
               options={languagesInIndia}
-              label={"Language"}
+              note={"Language"}
               placeholder={"Select..."}
               required={true}
               onChange={(e) => {

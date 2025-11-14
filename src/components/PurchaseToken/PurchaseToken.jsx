@@ -17,9 +17,9 @@ const purchaseToken = async () => {
 const PurchaseToken = () => {
   return (
     <>
-      <Button disabled={true} styleType="outlined" onClick={purchaseToken}>
+      {/* <Button disabled={true} styleType="outlined" onClick={purchaseToken}>
         <BiSolidPurchaseTagAlt /> Purchase Token
-      </Button>
+      </Button> */}
     </>
   );
 };
