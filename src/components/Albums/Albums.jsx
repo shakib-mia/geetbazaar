@@ -75,7 +75,7 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
               className="flex flex-col lg:flex-row gap-4 items-center justify-between cursor-pointer relative"
               onClick={() => toggleDropdown(album._id)}
             >
-              <div className="flex items-center gap-1 lg:gap-4 w-full z-0 group">
+              <div className="flex items-center gap-1 lg:gap-2 w-full z-0 group">
                 <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-md w-2/6 aspect-square">
                   <img
                     src={dummyAlbumArts[key % dummyAlbumArts.length]}
@@ -83,8 +83,8 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                     className="object-cover rounded"
                   />
                 </div>
-                <div className="flex gap-1 w-4/6 items-center">
-                  <aside className="w-4/6">
+                <div className="flex gap-1 w-4/6 flex-col">
+                  <aside>
                     <h5 className="text-subtitle-1-bold text-black-primary">
                       {album.albumTitle}
                     </h5>
@@ -111,7 +111,7 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                       )}
                     </p>
                   </aside>
-                  <aside className="flex opacity-0 group-hover:opacity-100 transition-opacity justify-end w-2/6">
+                  <aside className="flex opacity-0 group-hover:opacity-100 transition-opacity">
                     <>
                       <div className="lg:flex hidden items-center gap-2">
                         {!album.payment_id &&
@@ -121,17 +121,17 @@ const Albums = ({ setAlbumsCount, recentUploads }) => {
                         ) ? (
                           <Button
                             onClick={() => handlePayNow(album.orderId)}
-                            className="!mt-0 bg-gradient-to-r whitespace-nowrap from-primary to-primary-dark text-white px-4 py-1 rounded-xl hover:shadow-lg transition-all duration-300"
+                            className="!mt-0 !w-fit bg-gradient-to-r whitespace-nowrap from-primary to-primary-dark text-white px-4 py-1 rounded-xl hover:shadow-lg transition-all duration-300"
                           >
                             Pay Now
                           </Button>
                         ) : null}
                         <button
                           onClick={() => handleEdit(album._id)}
-                          className="p-2 rounded-full hover:bg-primary/10 transition"
+                          className="p-2 relative rounded-full hover:bg-primary/10 group transition"
                           title="Edit Album"
                         >
-                          <RiEditBoxLine className="w-4 h-4 text-black-secondary hover:text-interactive-light transition-colors duration-200" />
+                          <RiEditBoxLine className="w-4 h-4 text-black-secondary group-hover:text-interactive-light transition-colors duration-200" />
                         </button>
                       </div>
                     </>

@@ -29,9 +29,24 @@ const SongUploadProgress = ({ setScreen, screen }) => {
       maxReachedStepIndex.current = currentStepIndex;
     }
   }, [screen, currentStepIndex, isEditMode]);
-
   const handleStepClick = (stepId) => {
-    setScreen(stepId);
+    const stepIndex = steps.findIndex((s) => s.id === stepId);
+
+    // only allow click if step is visited before or skip allowed
+    if (
+      currentStepIndex > stepId ||
+      (stepId > currentStepIndex && visitedSteps.includes(stepId)) ||
+      isEditMode
+    ) {
+      setVisitedSteps((prev) =>
+        prev.includes(stepId) ? prev : [...prev, stepId]
+      );
+      setScreen(stepId);
+
+      if (stepIndex > maxReachedStepIndex.current) {
+        maxReachedStepIndex.current = stepIndex;
+      }
+    }
   };
 
   return (
@@ -61,19 +76,19 @@ const SongUploadProgress = ({ setScreen, screen }) => {
                 ? "border-interactive-light-confirmation"
                 : isPassed || isVisitedForward || isEditMode
                 ? "border-interactive-light"
-                : "border-interactive-light-disabled";
+                : "border-interactive-light-disabled cursor-not-allowed";
 
               const circleBgColor = isActive
                 ? "bg-interactive-light-confirmation"
                 : isPassed || isVisitedForward || isEditMode
                 ? "bg-interactive-light"
-                : "bg-interactive-light-disabled";
+                : "bg-interactive-light-disabled cursor-not-allowed";
 
               const textColor = isActive
                 ? "text-interactive-light-confirmation"
                 : isPassed || isVisitedForward || isEditMode
                 ? "text-interactive-light"
-                : "text-interactive-light-disabled";
+                : "text-interactive-light-disabled cursor-not-allowed";
 
               return (
                 <div
