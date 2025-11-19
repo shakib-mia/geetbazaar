@@ -172,7 +172,7 @@ const Navbar = () => {
           <div
             className={`${
               mobileMenuOpen ? "flex" : "hidden"
-            } lg:flex flex-col lg:flex-row w-full lg:w items-start lg:items-center justify-between lg:w-[65%]`}
+            } lg:flex flex-col lg:flex-row w-full lg:w items-start lg:items-center justify-center lg:w-[65%]`}
           >
             {/* Nav Items */}
             <div className="flex flex-col lg:flex-row w-full lg:w-auto items-start lg:items-center lg:h-auto overflow-y-auto lg:overflow-y-visible divide-y lg:divide-y-0 divide-interactive-light-disabled">
@@ -230,105 +230,101 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
-
-            {/* Profile Section */}
-            <div className="hidden lg:flex items-center gap-2">
-              {/* <NotificationDropdown
+          </div>
+          {/* Profile Section */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* <NotificationDropdown
                 notificationDropdownOpen={notificationDropdownOpen}
                 setNotificationDropdownOpen={setNotificationDropdownOpen}
               /> */}
-              <button
-                onClick={() =>
-                  setNotificationDropdownOpen(!notificationDropdownOpen)
-                }
-                className="flex items-center  relative z-20"
-              >
-                <span className="text-[20px]">
-                  <FaBell />
+            <button
+              onClick={() =>
+                setNotificationDropdownOpen(!notificationDropdownOpen)
+              }
+              className="flex items-center  relative z-20"
+            >
+              <span className="text-[20px]">
+                <FaBell />
+              </span>
+              {unreadCount > 0 && (
+                <span className="absolute -top-[4px] -right-[4px] text-[12px]  bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
+                  {unreadCount > 9 ? "9+" : unreadCount}
                 </span>
-                {unreadCount > 0 && (
-                  <span className="absolute -top-[4px] -right-[4px] text-[12px]  bg-red-500 rounded-full w-2 h-2 text-center inline-flex items-center justify-center">
-                    {unreadCount > 9 ? "9+" : unreadCount}
-                  </span>
-                )}
-              </button>
-              <div className="flex gap-1 items-center">
-                <Link
-                  to={"/accounts"}
-                  className="hover:bg-interactive-light hover:shadow-[0_0_20px] hover:text-white transition hover:shadow-interactive-light px-1 py-[4px] rounded text-subtitle-1"
-                >
-                  <span className="italic">
-                    {currencyPreference === "INR" ? "₹" : "$"}
-                    {currencyPreference === "INR"
-                      ? (
-                          parseFloat(
-                            userData?.lifetimeRevenue?.toFixed(2) || 0
-                          ) -
+              )}
+            </button>
+            <div className="flex gap-1 items-center">
+              <Link
+                to={"/accounts"}
+                className="hover:bg-interactive-light hover:shadow-[0_0_20px] hover:text-white transition hover:shadow-interactive-light px-1 py-[4px] rounded text-subtitle-1"
+              >
+                <span className="italic">
+                  {currencyPreference === "INR" ? "₹" : "$"}
+                  {currencyPreference === "INR"
+                    ? (
+                        parseFloat(userData?.lifetimeRevenue?.toFixed(2) || 0) -
+                        (parseFloat(
+                          userData?.lifetimeDisbursed?.toFixed(2) || 0
+                        ) +
+                          (userData?.tokenized || 0))
+                      ).toFixed(2) || 0
+                    : (
+                        (parseFloat(
+                          userData?.lifetimeRevenue?.toFixed(2) || 0
+                        ) -
                           (parseFloat(
                             userData?.lifetimeDisbursed?.toFixed(2) || 0
                           ) +
-                            (userData?.tokenized || 0))
-                        ).toFixed(2) || 0
-                      : (
-                          (parseFloat(
-                            userData?.lifetimeRevenue?.toFixed(2) || 0
-                          ) -
-                            (parseFloat(
-                              userData?.lifetimeDisbursed?.toFixed(2) || 0
-                            ) +
-                              (userData?.tokenized || 0))) *
-                          dollarRate
-                        ).toFixed(2) || 0}
-                  </span>
-                </Link>
-                <span className="flex gap-[4px] items-center">
-                  <RiTokenSwapLine /> {userData?.tokenized?.toFixed(2) || 0}
+                            (userData?.tokenized || 0))) *
+                        dollarRate
+                      ).toFixed(2) || 0}
                 </span>
-              </div>
-              <div
-                ref={dropdownMenuRef}
-                onMouseEnter={() => setRightDropdownOpen(true)}
-              >
-                {!error && userData?.display_image ? (
-                  <img
-                    src={userData?.display_image || profile}
-                    className="rounded-full w-[40px] aspect-square object-cover cursor-pointer"
-                    alt="profile"
-                  />
-                ) : (
-                  <FaRegUserCircle className="text-gray-400 text-heading-5 w-full h-full" />
-                )}
-                {rightDropdownOpen && (
+              </Link>
+              <span className="flex gap-[4px] items-center">
+                <RiTokenSwapLine /> {userData?.tokenized?.toFixed(2) || 0}
+              </span>
+            </div>
+            <div
+              ref={dropdownMenuRef}
+              onMouseEnter={() => setRightDropdownOpen(true)}
+            >
+              {!error && userData?.display_image ? (
+                <img
+                  src={userData?.display_image || profile}
+                  className="rounded-full w-[40px] aspect-square object-cover cursor-pointer"
+                  alt="profile"
+                />
+              ) : (
+                <FaRegUserCircle className="text-gray-400 text-heading-5 w-full h-full" />
+              )}
+              {rightDropdownOpen && (
+                <div
+                  className="absolute right-0 mt-0 w-[250px] bg-white backdrop-blur shadow-lg rounded-t-none rounded-lg overflow-hidden"
+                  style={{
+                    top: document.getElementById("topbar").clientHeight + "px",
+                  }}
+                >
+                  {/* <div className="w-1 h-1 border-t border-r border-gray-800 absolute -top-[4px] -rotate-45 right-1"></div> */}
                   <div
-                    className="absolute right-0 mt-0 w-[250px] bg-white backdrop-blur shadow-lg rounded-t-none rounded-lg overflow-hidden"
-                    style={{
-                      top:
-                        document.getElementById("topbar").clientHeight + "px",
-                    }}
+                    onClick={() => navigate("/profile")}
+                    className="p-2 cursor-pointer relative"
                   >
-                    {/* <div className="w-1 h-1 border-t border-r border-gray-800 absolute -top-[4px] -rotate-45 right-1"></div> */}
-                    <div
-                      onClick={() => navigate("/profile")}
-                      className="p-2 cursor-pointer relative"
-                    >
-                      <p className="text-heading-6 font-semibold">
-                        {userData?.first_name + " " + userData?.last_name}
-                      </p>
-                      <p className="text-button">
-                        {userData?.user_email || userData?.emailId}
-                      </p>
-                    </div>
-                    <div className="border-t border-gray-700">
-                      <button
-                        onClick={handleLogout}
-                        className="w-full text-left px-2 py-2 text-interactive-light-destructive hover:text-white hover:bg-interactive-light-destructive"
-                      >
-                        Logout <MdLogout className="inline-block" />
-                      </button>
-                    </div>
+                    <p className="text-heading-6 font-semibold">
+                      {userData?.first_name + " " + userData?.last_name}
+                    </p>
+                    <p className="text-button">
+                      {userData?.user_email || userData?.emailId}
+                    </p>
                   </div>
-                )}
-              </div>
+                  <div className="border-t border-gray-700">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-2 py-2 text-interactive-light-destructive hover:text-white hover:bg-interactive-light-destructive"
+                    >
+                      Logout <MdLogout className="inline-block" />
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </nav>
