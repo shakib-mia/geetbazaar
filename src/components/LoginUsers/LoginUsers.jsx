@@ -42,7 +42,7 @@ const LoginUser = ({ firstName, lastName, display_image, name, email }) => {
   const handleLoginWithEmail = () => {
     setLoading(true);
     axios
-      .get(`${backendUrl}handle-firebase-login/${email}`)
+      .get(`${backendUrl}handle-google-login/${email}`)
       .then(({ data }) => {
         if (data?.token) {
           sessionStorage.setItem("token", data.token);

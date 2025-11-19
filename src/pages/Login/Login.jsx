@@ -40,7 +40,7 @@ const Login = () => {
   //   if (user) {
   //     const email = user.user.email;
   //     axios
-  //       .get(`${backendUrl}handle-firebase-login/${email}`)
+  //       .get(`${backendUrl}handle-google-login/${email}`)
   //       .then(({ data }) => {
   //         if (data?.token) {
   //           sessionStorage.setItem("token", data.token);
