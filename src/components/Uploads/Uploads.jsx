@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { backendUrl } from "../../constants";
+import { backendUrl, getStatusStyle } from "../../constants";
 import { VscLoading } from "react-icons/vsc";
 import { FaArrowUp, FaMusic } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,6 +20,7 @@ import dummyAlbumArt5 from "./../../assets/images/dummy-albums/5.webp";
 import { RiEditBoxLine } from "react-icons/ri";
 import { TbAlertTriangleFilled } from "react-icons/tb";
 import { FcOk } from "react-icons/fc";
+import { Tooltip } from "react-tooltip";
 
 // dummy album list
 const dummyAlbumArts = [
@@ -61,11 +62,12 @@ const Uploads = () => {
           },
         };
 
-        const response = await axios.get(`${backendUrl}recent-uploads`, config);
+        const response = await axios.get(
+          `${backendUrl}songs/by-user-id/${userData["user-id"]}`,
+          config
+        );
 
-        console.log(response.data);
-
-        setSongs(response.data.streamingSongs);
+        setSongs(response.data);
       } catch (error) {
         console.error("Error fetching songs:", error);
         setIsLoading(false);
@@ -151,7 +153,7 @@ const Uploads = () => {
                         <h5 className="text-heading-5-bold text-black-primary">
                           {album.albumTitle}
                         </h5>
-                        <p className="text-subtitle-2 flex gap-2 items-center mt-1">
+                        {/* <p className="text-subtitle-2 flex gap-2 items-center mt-1">
                           <strong>Status:</strong>{" "}
                           {album.songs?.some(
                             (song) => song.status !== "streaming"
@@ -164,7 +166,7 @@ const Uploads = () => {
                               <FcOk /> OK
                             </span>
                           )}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
 
@@ -258,7 +260,6 @@ const Uploads = () => {
       </div>
     );
   };
-
   return (
     <div
       className={`text-black ${
@@ -276,7 +277,7 @@ const Uploads = () => {
         renderContent()
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-          <aside className="card-shadow rounded-lg overflow-hidden">
+          <aside className="card-shadow rounded-lg overflow-hidden max-h-[500px] overflow-y-auto">
             <div className="bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 border-b border-surface-white-line flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center">
@@ -300,7 +301,58 @@ const Uploads = () => {
                 </aside>
               )}
             </div>
-            {renderContent()}
+            {/* {renderContent()} */}
+            <div className="p-4 space-y-2">
+              {songs.map((song, key) => (
+                <div
+                  key={key}
+                  className="group flex items-center gap-4 bg-gradient-to-r from-white/80 to-surface-white-surface-1/50 rounded-2xl border border-surface-white-line hover:border-interactive-light/50 hover:shadow-base transition-all duration-300"
+                >
+                  <div className="overflow-hidden bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg flex items-center justify-center w-7 aspect-square">
+                    {/* <FaMusic className="w-2 h-2 text-primary/80" /> */}
+                    <img
+                      src={dummyAlbumArts[key % dummyAlbumArts.length]}
+                      className="w-7 aspect-square"
+                      alt=""
+                    />
+                  </div>
+
+                  <aside className="w-full flex justify-between">
+                    <div className="min-w-0">
+                      <h4 className="text-subtitle-1-bold text-black-primary capitalize truncate">
+                        {song.songName}
+                      </h4>
+                      <p className="text-paragraph-2 text-black-secondary">
+                        Track #{key + 1}
+                      </p>
+                    </div>
+
+                    <div className="flex justify-between pr-2 items-center gap-1">
+                      {/* <span
+                        className={`px-2 py-1 h-fit rounded-full text-button text-xs uppercase tracking-wider flex-shrink-0 opacity-0 group-hover:opacity-100 ${getStatusStyle(
+                          song.status
+                        )}`}
+                      >
+                        {song.status}
+                      </span> */}
+                      <Tooltip id={`status${key}`} />
+
+                      {/* Play/Edit */}
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex gap-2">
+                        <button
+                          data-tooltip-id={`edit${key}`}
+                          data-tooltip-content="Edit Track"
+                          onClick={() => navigate(`/edit-song/${song._id}`)}
+                        >
+                          <RiEditBoxLine className="w-4 h-4 text-black-secondary hover:text-interactive-light transition-colors duration-200" />
+                        </button>
+                        <Tooltip id={`edit${key}`} />
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+              ))}
+            </div>
           </aside>
 
           <aside className="card-shadow rounded-lg overflow-hidden">

@@ -4,7 +4,7 @@ import { RiEditBoxLine } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import axios from "axios";
-import { backendUrl } from "../../constants";
+import { backendUrl, getStatusStyle } from "../../constants";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import Albums from "../Albums/Albums";
@@ -52,17 +52,6 @@ const RecentUploads = () => {
   }, [userData, update, navigate, token]);
 
   const filteredSongs = songs?.filter((item) => !item?.songs) || [];
-
-  const getStatusStyle = (status) => {
-    const s = status.toLowerCase();
-    if (s.includes("publish") || s.includes("live"))
-      return "bg-success/15 text-success";
-    if (s.includes("pending") || s.includes("process"))
-      return "bg-warning/15 text-warning";
-    if (s.includes("reject") || s.includes("fail"))
-      return "bg-error/15 text-error";
-    return "bg-info/15 text-info";
-  };
 
   return (
     <div className="w-full bg-gradient-to-br from-primary/5 via-white to-secondary/5 rounded-3xl overflow-hidden relative">

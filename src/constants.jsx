@@ -62,6 +62,17 @@ export const backendUrl = "https://musicx-be.onrender.com/";
 // export const backendUrl = "http://localhost:5000/";
 export const currencyAPI = "https://api.frankfurter.app/latest";
 
+export const getStatusStyle = (status) => {
+  const s = status?.toLowerCase();
+  if (s?.includes("publish") || s?.includes("live"))
+    return "bg-success/15 text-success";
+  if (s?.includes("pending") || s?.includes("process"))
+    return "bg-warning/15 text-warning";
+  if (s?.includes("reject") || s?.includes("fail"))
+    return "bg-error/15 text-error";
+  return "bg-info/15 text-info";
+};
+
 export const navItem = [
   {
     icon: <IoMdHome className="text-[30px]" />,
